@@ -17,6 +17,7 @@ import net.ucanaccess.jdbc.UcanaccessConnection;
  *   schema [--output FILE]      — JSON: vollständige Tabellen- und Spalten-Struktur
  *   linked-tables [--output F]  — JSON: nur Linked-Table-Zuordnungen
  *   profile [--output FILE]     — JSON: Spalten-Profile (Nulls, Distincts, Min/Max, Top-Werte)
+ *   dump TABLE [--output FILE]  — JSON: alle Zeilen einer Tabelle (BLOBs werden ausgeblendet)
  *
  * Bei --output schreibt das Kommando reines JSON in die Datei; stdout
  * bleibt frei für Statusausgaben.
@@ -37,7 +38,16 @@ public class AccessExtract {
         String path = args[0];
         String cmd = args.length > 1 ? args[1] : "list-tables";
         String outputPath = null;
-        for (int i = 2; i < args.length - 1; i++) {
+        String dumpTable = null;
+
+        // Argumente parsen: für dump das nächste Positional als Tabellenname,
+        // --output als Datei-Flag.
+        int idx = 2;
+        if ("dump".equals(cmd) && idx < args.length && !args[idx].startsWith("--")) {
+            dumpTable = args[idx];
+            idx++;
+        }
+        for (int i = idx; i < args.length - 1; i++) {
             if ("--output".equals(args[i])) {
                 outputPath = args[i + 1];
             }
@@ -54,6 +64,13 @@ public class AccessExtract {
                 case "schema":       schemaJson(c, path, outputPath);  break;
                 case "linked-tables": linkedTablesJson(c, outputPath); break;
                 case "profile":      profileJson(c, path, outputPath); break;
+                case "dump":
+                    if (dumpTable == null) {
+                        System.err.println("dump benötigt einen Tabellennamen als Argument.");
+                        System.exit(2);
+                    }
+                    dumpJson(c, dumpTable, outputPath);
+                    break;
                 default:
                     System.err.println("Unbekanntes Kommando: " + cmd);
                     usage();
@@ -63,7 +80,8 @@ public class AccessExtract {
     }
 
     private static void usage() {
-        System.err.println("Usage: AccessExtract <accdb-path> [list-tables|row-counts|schema|linked-tables|profile] [--output FILE]");
+        System.err.println("Usage: AccessExtract <accdb-path> <cmd> [TABLE] [--output FILE]");
+        System.err.println("  Kommandos: list-tables | row-counts | schema | linked-tables | profile | dump TABLE");
     }
 
     private static final int MEMO_SIZE_THRESHOLD = 1_000_000;
@@ -438,6 +456,67 @@ public class AccessExtract {
         out.append("  ]\n}\n");
 
         emit(out.toString(), outputPath);
+    }
+
+    // ---------- Dump ----------
+
+    private static void dumpJson(Connection c, String tableName, String outputPath) throws Exception {
+        StringBuilder out = new StringBuilder();
+        out.append("{\n  \"table\": ").append(jsonStr(tableName)).append(",\n");
+        out.append("  \"rows\": [\n");
+
+        String quoted = "[" + tableName + "]";
+        try (Statement st = c.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM " + quoted)) {
+            ResultSetMetaData md = rs.getMetaData();
+            int ncols = md.getColumnCount();
+            String[] colNames = new String[ncols];
+            int[] colTypes = new int[ncols];
+            for (int i = 0; i < ncols; i++) {
+                colNames[i] = md.getColumnLabel(i + 1);
+                colTypes[i] = md.getColumnType(i + 1);
+            }
+
+            boolean firstRow = true;
+            while (rs.next()) {
+                if (!firstRow) out.append(",\n");
+                out.append("    {");
+                for (int i = 0; i < ncols; i++) {
+                    if (i > 0) out.append(", ");
+                    out.append(jsonStr(colNames[i])).append(": ");
+                    appendValue(out, rs, i + 1, colTypes[i]);
+                }
+                out.append("}");
+                firstRow = false;
+            }
+        }
+        out.append("\n  ]\n}\n");
+        emit(out.toString(), outputPath);
+    }
+
+    private static void appendValue(StringBuilder out, ResultSet rs, int col, int sqlType) throws SQLException {
+        // BLOBs/Binary: nicht in JSON serialisieren — Marker stattdessen.
+        if (sqlType == Types.BLOB || sqlType == Types.BINARY
+                || sqlType == Types.VARBINARY || sqlType == Types.LONGVARBINARY) {
+            byte[] bytes = rs.getBytes(col);
+            if (bytes == null) { out.append("null"); return; }
+            out.append("{\"__blob_size\": ").append(bytes.length).append("}");
+            return;
+        }
+
+        Object v = rs.getObject(col);
+        if (v == null) { out.append("null"); return; }
+
+        if (v instanceof Boolean) {
+            out.append(((Boolean) v) ? "true" : "false");
+            return;
+        }
+        if (v instanceof Number) {
+            out.append(v.toString());
+            return;
+        }
+        // Datums-/Zeitwerte und Strings: als String serialisieren
+        out.append(jsonStr(v.toString()));
     }
 
     // ---------- Helpers ----------

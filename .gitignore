@@ -16,6 +16,9 @@ inventory/samples/
 inventory/reports/*.html
 *.parquet
 
+# Generierte ETL-Seeds: enthalten Echtdaten, sind aus Quelle+Code reproduzierbar
+schema/seeds/*.sql
+
 # Secrets
 .env
 .env.*

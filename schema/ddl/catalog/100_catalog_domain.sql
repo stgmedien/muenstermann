@@ -150,6 +150,13 @@ create table if not exists catalog.cleaning_agent (
     water_hazard_class       smallint check (water_hazard_class between 1 and 3),    -- "WGK" 1/2/3
     flammability_class       text,                                                   -- "Vbf"
     adr_rid                  text,                                                   -- Gefahrgut-Klassifizierung
+    -- Legacy-Text-Spalten: enthalten in Access die ALTEN R-/S-Sätze (Stoffrichtlinie
+    -- 67/548/EWG), nicht die neuen H-/P-Sätze nach CLP (1272/2008). Die Spalten sind
+    -- als Freitext aufbewahrt, damit kein Datenverlust entsteht; eine korrekte
+    -- Auflösung in die n:m-Junctions (cleaning_agent_hazard_phrase) ist erst nach
+    -- fachlicher Re-Klassifizierung der Mittel möglich (siehe ETL-Report).
+    hazard_legacy_text       text,                                                   -- "H-Sätze" in Access (i. d. R. R-Sätze)
+    precaution_legacy_text   text,                                                   -- "P-Sätze" in Access (i. d. R. S-Sätze)
     -- Audit-Felder
     created_at               timestamptz not null default now(),
     updated_at               timestamptz not null default now()
