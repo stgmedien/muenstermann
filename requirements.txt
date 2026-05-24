@@ -4,3 +4,4 @@ pyarrow>=21.0
 # Hinweis: jaydebeapi/jpype1 wurden bewusst entfernt — siehe
 # docs/decisions/001-toolchain-subprocess-statt-jpype.md
 # (macOS Hardened Runtime blockt JIT im System-Python).
+pglast==7.13
