@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Münstermann-Migration — Architektur</title>
+<style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+           max-width: 1200px; margin: 0 auto; padding: 2em;
+           color: #222; background: #fafafa; }
+    h1 { color: #1a1a1a; border-bottom: 2px solid #ddd; padding-bottom: 0.3em; }
+    h2 { color: #333; margin-top: 2em; }
+    .meta { color: #666; font-size: 0.9em; }
+    .diagram { background: white; padding: 1.5em; border-radius: 8px;
+               box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 1em 0; }
+    .legend { font-size: 0.9em; color: #555; margin-top: 0.6em; }
+    code { background: #f0f0f0; padding: 0.2em 0.4em; border-radius: 3px;
+           font-size: 0.9em; }
+    .pre-mermaid pre { margin: 0; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<h1>Münstermann — PostgreSQL-Architektur</h1>
+<p class="meta">Datenbank-Zielmodell der Access-Migration. 4 Schemas, 24 Tabellen,
+   ~3.300 Datensätze aus den Probedaten.</p>
+
+<h2>1. Übersicht der vier Domänen</h2>
+<div class="diagram">
+<pre class="mermaid">
+flowchart TB
+    subgraph audit["📋 audit (Querschnitt)"]
+        log["activity_log<br/>JEDE Änderung wird hier protokolliert"]
+    end
+
+    subgraph catalog["🧪 catalog — Stammdaten + Compliance"]
+        direction LR
+        ca["cleaning_agent<br/>292 Reinigungsmittel"]
+        hp["hygiene_plan<br/>40 Master-Pläne"]
+        hs["hazard_substance / hazard_factor<br/>Gefahrstoffe + GefStoffV"]
+    end
+
+    subgraph core["👥 core — Kunden"]
+        direction LR
+        bu["business_unit<br/>H und I / Services"]
+        cust["customer<br/>89 Kunden"]
+        cp["customer_contact_person"]
+    end
+
+    subgraph ops["⚙️ ops — Operatives pro Kunde"]
+        direction LR
+        d["department<br/>191 Abteilungen"]
+        do["department_object<br/>1421 Objekte"]
+    end
+
+    cust ==> d
+    bu ==> cust
+    d ==> do
+
+    log -. "Trigger" .-> catalog
+    log -. "Trigger" .-> core
+    log -. "Trigger" .-> ops
+
+    style audit fill:#fff3cd,stroke:#f0ad4e
+    style catalog fill:#d1ecf1,stroke:#17a2b8
+    style core fill:#d4edda,stroke:#28a745
+    style ops fill:#e2e3e5,stroke:#6c757d
+</pre>
+</div>
+<p class="legend"><b>Lese-Richtung:</b> <code>catalog</code> = was es gibt
+  (Reinigungsmittel, Pläne, Gefahrstoffe). <code>core</code> = wer es bekommt
+  (Kunden). <code>ops</code> = was wo gemacht wird (Abteilungen, Objekte).
+  <code>audit</code> protokolliert jede Änderung in den anderen.</p>
+
+<h2>2. Catalog-Domäne im Detail</h2>
+<div class="diagram">
+<pre class="mermaid">
+erDiagram
+    cleaning_agent }o--|| manufacturer : "produziert von"
+    cleaning_agent }o--|| storage_class : "Lagerklasse"
+    cleaning_agent ||--o{ cleaning_agent_hazard_substance : "Komponenten"
+    cleaning_agent ||--o{ cleaning_agent_hazard_phrase : "H-Sätze"
+    cleaning_agent ||--o{ cleaning_agent_hazard_symbol : "Piktogramme"
+    cleaning_agent ||--o{ cleaning_agent_ppe_symbol : "PSA"
+    manufacturer }o--|| poison_information_center : "Notruf"
+    hazard_phrase }o--|| hazard_phrase_category : "Kategorie"
+    hygiene_plan ||--o{ hygiene_plan_step : "Arbeitsschritte"
+
+    cleaning_agent {
+        bigint id PK
+        text name
+        text ph_value
+        text water_hazard_class
+        text hazard_legacy_text
+        bigint manufacturer_id FK
+        bigint storage_class_id FK
+    }
+    manufacturer {
+        bigint id PK
+        text name
+        text city
+        text email
+        bigint poison_center_id FK
+    }
+    hazard_phrase {
+        bigint id PK
+        text code
+        text description
+        bigint category_id FK
+    }
+    hygiene_plan {
+        bigint id PK
+        text code
+        text title
+        text recommended_agent_text
+    }
+    hygiene_plan_step {
+        bigint id PK
+        bigint hygiene_plan_id FK
+        int step_number
+        text task_description
+    }
+</pre>
+</div>
+
+<h2>3. Core + Ops — Kunden-Welt</h2>
+<div class="diagram">
+<pre class="mermaid">
+erDiagram
+    business_unit ||--o{ customer : "Mandantentrennung"
+    customer ||--o{ customer_contact_person : "Ansprechpartner"
+    customer ||--o{ department : "Abteilungen"
+    department ||--o{ department_object : "Objekte"
+
+    business_unit {
+        smallint id PK
+        text code
+        text name
+    }
+    customer {
+        bigint id PK
+        text name
+        smallint business_unit_id FK
+        int customer_number
+        text city
+        text supervisor
+    }
+    department {
+        bigint id PK
+        bigint customer_id FK
+        int department_number
+        text name
+        text floor
+    }
+    department_object {
+        bigint id PK
+        bigint department_id FK
+        text name
+        text execution_type
+        text monday_code
+    }
+</pre>
+</div>
+
+<h2>4. Beispielfluss: Kunde &rarr; Abteilung &rarr; Reinigungsmittel</h2>
+<div class="diagram">
+<pre class="mermaid">
+flowchart LR
+    bu["business_unit<br/>(1) H und I"]
+    cust["customer<br/>(100) Borgmeier"]
+    dept["department<br/>Vorraum"]
+    obj["department_object<br/>Edelstahlbecken"]
+    plan["hygiene_plan<br/>(A.1) alkalisch/sauer"]
+    step["hygiene_plan_step<br/>Schritt 1: vorspülen"]
+    ca["cleaning_agent<br/>Rauchharzentferner FR"]
+    mfg["manufacturer<br/>BÜFA"]
+    haz["hazard_substance<br/>Natriumhydroxid"]
+
+    bu --> cust
+    cust --> dept
+    dept --> obj
+    plan --> step
+    ca --> mfg
+    ca -.-> haz
+    obj -. "nutzt (kommt noch)" .-> ca
+    obj -. "folgt (kommt noch)" .-> plan
+
+    style bu fill:#d4edda
+    style cust fill:#d4edda
+    style dept fill:#e2e3e5
+    style obj fill:#e2e3e5
+    style plan fill:#d1ecf1
+    style step fill:#d1ecf1
+    style ca fill:#d1ecf1
+    style mfg fill:#d1ecf1
+    style haz fill:#d1ecf1
+</pre>
+</div>
+<p class="legend">Die gepunkteten Verbindungen (Objekt → Reinigungsmittel,
+  Objekt → Plan) sind <b>noch nicht modelliert</b> — die kommen in der
+  nächsten Etappe als <code>ops.customer_hygiene_plan</code> und
+  <code>ops.department_object_cleaning_agent</code>.</p>
+
+<h2>5. Audit-Trail</h2>
+<div class="diagram">
+<pre class="mermaid">
+flowchart LR
+    A["Anwendung<br/>SET LOCAL app.user_id = '...'"]
+    T["fachliche Tabelle<br/>z.B. catalog.cleaning_agent"]
+    L["audit.activity_log<br/>(actor, action, old_row, new_row, txid)"]
+
+    A -- "UPDATE / INSERT / DELETE" --> T
+    T -- "Trigger" --> L
+
+    style L fill:#fff3cd,stroke:#f0ad4e
+</pre>
+</div>
+<p class="legend">Rechtssichere Nachvollziehbarkeit für HACCP, GefStoffV,
+  IFS-Audit. Aktor wird per Session-Variable gesetzt; in Phase 1 macht das
+  jedes ETL-Skript, später kommt es aus der Auth-Schicht der Anwendung.</p>
+
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        flowchart: { curve: 'basis', padding: 18 },
+        er: { layoutDirection: 'TB', useMaxWidth: true },
+    });
+</script>
+
+</body>
+</html>
