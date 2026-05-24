@@ -41,14 +41,19 @@ run schema/ddl/core/100_customer_domain.sql
 echo "=== Ops-Domäne ==="
 run schema/ddl/ops/100_department_domain.sql
 run schema/ddl/ops/200_hygiene_control.sql
+run schema/ddl/ops/300_customer_artifacts.sql
 
 echo "=== Seeds (idempotent — können wiederholt werden) ==="
 # Reihenfolge der Seeds bedacht: erst Kataloge (referenzierte Stammdaten),
 # dann core (Kunden), dann ops (referenziert Kunden).
+# Innerhalb ops: department/department_object zuerst (werden von hygiene_control
+# und work_instruction referenziert), dann customer_hygiene_plan
+# (von work_instruction referenziert), dann der Rest.
 for seed in catalog_reinigungsmittel.sql \
             catalog_hygiene_plans.sql \
             core_customer_domain.sql \
             ops_department_domain.sql \
+            ops_customer_artifacts.sql \
             ops_hygiene_control.sql; do
     seed_path="schema/seeds/$seed"
     if [ -f "$ROOT/$seed_path" ]; then
