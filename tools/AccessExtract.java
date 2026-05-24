@@ -16,9 +16,16 @@ import net.ucanaccess.jdbc.UcanaccessConnection;
  *   row-counts                  — Zeilenzahlen pro Tabelle (Klartext)
  *   schema [--output FILE]      — JSON: vollständige Tabellen- und Spalten-Struktur
  *   linked-tables [--output F]  — JSON: nur Linked-Table-Zuordnungen
+ *   profile [--output FILE]     — JSON: Spalten-Profile (Nulls, Distincts, Min/Max, Top-Werte)
  *
  * Bei --output schreibt das Kommando reines JSON in die Datei; stdout
  * bleibt frei für Statusausgaben.
+ *
+ * Profiling-Heuristiken (gegen PII-Leakage):
+ *   - Top-N-Werte werden nur für Spalten mit ≤ 30 Distinct-Werten ausgegeben
+ *     (Annahme: das sind Enums / Kategorien, keine identifizierenden Werte).
+ *   - Für Memo-Felder (size ≥ 1_000_000) wird KEIN Distinct-Count, KEIN Top-N
+ *     ausgeführt — nur Null-Quote + max length.
  */
 public class AccessExtract {
 
@@ -46,6 +53,7 @@ public class AccessExtract {
                 case "row-counts":   rowCounts(c);                     break;
                 case "schema":       schemaJson(c, path, outputPath);  break;
                 case "linked-tables": linkedTablesJson(c, outputPath); break;
+                case "profile":      profileJson(c, path, outputPath); break;
                 default:
                     System.err.println("Unbekanntes Kommando: " + cmd);
                     usage();
@@ -55,7 +63,31 @@ public class AccessExtract {
     }
 
     private static void usage() {
-        System.err.println("Usage: AccessExtract <accdb-path> [list-tables|row-counts|schema|linked-tables] [--output FILE]");
+        System.err.println("Usage: AccessExtract <accdb-path> [list-tables|row-counts|schema|linked-tables|profile] [--output FILE]");
+    }
+
+    private static final int MEMO_SIZE_THRESHOLD = 1_000_000;
+    private static final int TOPVALUES_DISTINCT_THRESHOLD = 30;
+
+    private static boolean isNumericType(String typeName) {
+        if (typeName == null) return false;
+        String t = typeName.toUpperCase();
+        return t.contains("INT") || t.equals("SMALLINT") || t.equals("BIGINT")
+                || t.equals("DECIMAL") || t.equals("NUMERIC")
+                || t.equals("REAL") || t.equals("DOUBLE") || t.equals("FLOAT")
+                || t.equals("COUNTER") || t.equals("CURRENCY");
+    }
+
+    private static boolean isDateType(String typeName) {
+        if (typeName == null) return false;
+        String t = typeName.toUpperCase();
+        return t.contains("DATE") || t.contains("TIME") || t.contains("TIMESTAMP");
+    }
+
+    private static boolean isTextType(String typeName) {
+        if (typeName == null) return false;
+        String t = typeName.toUpperCase();
+        return t.contains("CHAR") || t.contains("TEXT") || t.equals("MEMO") || t.equals("LONGVARCHAR");
     }
 
     // ---------- Klartext-Kommandos ----------
@@ -251,6 +283,159 @@ public class AccessExtract {
             first = false;
         }
         out.append("\n  ]\n}\n");
+
+        emit(out.toString(), outputPath);
+    }
+
+    // ---------- Profiling ----------
+
+    private static void profileJson(Connection c, String accdbPath, String outputPath) throws Exception {
+        DatabaseMetaData md = c.getMetaData();
+        List<String> tables = userTables(c);
+
+        StringBuilder out = new StringBuilder();
+        out.append("{\n");
+        out.append("  \"path\": ").append(jsonStr(accdbPath)).append(",\n");
+        out.append("  \"tables\": [\n");
+
+        for (int ti = 0; ti < tables.size(); ti++) {
+            String t = tables.get(ti);
+            out.append("    {\n");
+            out.append("      \"name\": ").append(jsonStr(t)).append(",\n");
+
+            // Row count
+            long rowCount = -1;
+            try (Statement st = c.createStatement();
+                 ResultSet r = st.executeQuery("SELECT COUNT(*) FROM [" + t + "]")) {
+                r.next();
+                rowCount = r.getLong(1);
+            } catch (SQLException ignored) {}
+            out.append("      \"row_count\": ").append(rowCount).append(",\n");
+
+            // Columns + per-column profile
+            List<String[]> cols = new ArrayList<>(); // [name, type, size]
+            try (ResultSet r = md.getColumns(null, null, t, "%")) {
+                while (r.next()) {
+                    cols.add(new String[]{
+                            r.getString("COLUMN_NAME"),
+                            r.getString("TYPE_NAME"),
+                            String.valueOf(r.getInt("COLUMN_SIZE"))
+                    });
+                }
+            }
+
+            out.append("      \"columns\": [\n");
+            for (int ci = 0; ci < cols.size(); ci++) {
+                String colName = cols.get(ci)[0];
+                String typeName = cols.get(ci)[1];
+                int colSize = Integer.parseInt(cols.get(ci)[2]);
+                boolean isMemo = colSize >= MEMO_SIZE_THRESHOLD;
+                String quotedCol = "[" + colName + "]";
+
+                out.append("        {");
+                out.append("\"name\": ").append(jsonStr(colName));
+                out.append(", \"type\": ").append(jsonStr(typeName));
+
+                if (rowCount <= 0) {
+                    out.append("}");
+                    if (ci < cols.size() - 1) out.append(",");
+                    out.append("\n");
+                    continue;
+                }
+
+                // Null count + non-null count (immer, billig)
+                long nonNull = -1, distinct = -1;
+                try (Statement st = c.createStatement();
+                     ResultSet r = st.executeQuery(
+                             "SELECT COUNT(" + quotedCol + ") FROM [" + t + "]")) {
+                    r.next();
+                    nonNull = r.getLong(1);
+                } catch (SQLException ignored) {}
+                long nullCount = rowCount - nonNull;
+                out.append(", \"null_count\": ").append(nullCount);
+                out.append(", \"non_null_count\": ").append(nonNull);
+
+                if (isMemo) {
+                    // Bei Memo-Feldern: nur max length, kein distinct, kein top-N
+                    try (Statement st = c.createStatement();
+                         ResultSet r = st.executeQuery(
+                                 "SELECT MAX(LENGTH(" + quotedCol + ")) FROM [" + t + "]")) {
+                        r.next();
+                        long maxLen = r.getLong(1);
+                        out.append(", \"max_length\": ").append(maxLen);
+                    } catch (SQLException e) {
+                        out.append(", \"max_length_error\": ").append(jsonStr(e.getMessage()));
+                    }
+                    out.append(", \"is_memo\": true");
+                } else {
+                    // Distinct count
+                    try (Statement st = c.createStatement();
+                         ResultSet r = st.executeQuery(
+                                 "SELECT COUNT(DISTINCT " + quotedCol + ") FROM [" + t + "]")) {
+                        r.next();
+                        distinct = r.getLong(1);
+                        out.append(", \"distinct_count\": ").append(distinct);
+                    } catch (SQLException e) {
+                        out.append(", \"distinct_error\": ").append(jsonStr(e.getMessage()));
+                    }
+
+                    // Min / Max für numerische und Datums-Typen
+                    if (isNumericType(typeName) || isDateType(typeName)) {
+                        try (Statement st = c.createStatement();
+                             ResultSet r = st.executeQuery(
+                                     "SELECT MIN(" + quotedCol + "), MAX(" + quotedCol + ") FROM [" + t + "]")) {
+                            r.next();
+                            String minVal = r.getString(1);
+                            String maxVal = r.getString(2);
+                            out.append(", \"min\": ").append(jsonStr(minVal));
+                            out.append(", \"max\": ").append(jsonStr(maxVal));
+                        } catch (SQLException ignored) {}
+                    }
+
+                    // Max length für Text
+                    if (isTextType(typeName)) {
+                        try (Statement st = c.createStatement();
+                             ResultSet r = st.executeQuery(
+                                     "SELECT MAX(LENGTH(" + quotedCol + ")) FROM [" + t + "]")) {
+                            r.next();
+                            long maxLen = r.getLong(1);
+                            out.append(", \"max_length\": ").append(maxLen);
+                        } catch (SQLException ignored) {}
+                    }
+
+                    // Top-N-Werte nur für low-cardinality
+                    if (distinct > 0 && distinct <= TOPVALUES_DISTINCT_THRESHOLD) {
+                        out.append(", \"top_values\": [");
+                        try (Statement st = c.createStatement();
+                             ResultSet r = st.executeQuery(
+                                     "SELECT " + quotedCol + ", COUNT(*) AS c FROM [" + t + "] " +
+                                             "GROUP BY " + quotedCol + " " +
+                                             "ORDER BY c DESC")) {
+                            boolean firstTv = true;
+                            while (r.next()) {
+                                if (!firstTv) out.append(", ");
+                                String v = r.getString(1);
+                                long cnt = r.getLong(2);
+                                out.append("{\"value\": ").append(jsonStr(v));
+                                out.append(", \"count\": ").append(cnt).append("}");
+                                firstTv = false;
+                            }
+                        } catch (SQLException ignored) {}
+                        out.append("]");
+                    }
+                }
+
+                out.append("}");
+                if (ci < cols.size() - 1) out.append(",");
+                out.append("\n");
+            }
+            out.append("      ]\n");
+
+            out.append("    }");
+            if (ti < tables.size() - 1) out.append(",");
+            out.append("\n");
+        }
+        out.append("  ]\n}\n");
 
         emit(out.toString(), outputPath);
     }

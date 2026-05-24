@@ -42,29 +42,120 @@
 
 ## Auffälligkeiten
 
-- `001 Abteilungen.Hygienekontrolle täglich` ist ein **Memo-Feld** (16 MB max)
+- `001 Abteilungen.Hygienekontrolle täglich` ist ein **Memo-Feld** (16 MB max) — 29 Nulls von 30, max_len=0
+- `001 Abteilungen.Etage` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.BereichNr` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Bereich` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Abteilungs-Nr Kunde` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Kostenstelle` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Kostenträger` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Filter1` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.Filter2` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.Filter3` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.ABIstSu` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.Filter4` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.ABSollSu` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.Raum-Nr` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.High Risk` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.Low Risk` hat **nur 1 Distinct-Wert** über 30 Zeilen — tote Spalte?
+- `001 Abteilungen.Hygienekontrolle täglich` ist **96.7% NULL** (29/30)
+- `001 Abteilungen.HyTWert` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Bericht1` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Bericht2` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Bericht3` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Kontroll_intervall` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Stunden` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.KFaktor` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.täglich` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.wöchentlich` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.monatlich` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.jährlich` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Zusatz` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.proMonat` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Maschinennummer` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Abteilungsleiter-Nr` ist **vollständig NULL** (30 Zeilen)
+- `001 Abteilungen.Abteilungsleiter` ist **vollständig NULL** (30 Zeilen)
 - `002 Abt-Objekte` hat **keinen Primary Key** (162 Zeilen)
-- `002 Abt-Objekte.Besonderheiten` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M1` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M2` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M3` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M4` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M5` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M6` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M7` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M8` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.M9` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne.Hinweise zur Anpassung` ist ein **Memo-Feld** (16 MB max)
+- `002 Abt-Objekte.Besonderheiten` ist ein **Memo-Feld** (16 MB max) — 162 Nulls von 162, max_len=0
+- `002 Abt-Objekte.Letzte Reinigung` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Status` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Besonderheiten` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Kontrollpunkt` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.Maschinen Innenreinigung` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.nicht im HY` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.ZusatzText` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Dienstag` ist **96.3% NULL** (156/162)
+- `002 Abt-Objekte.DienstagT` ist **96.3% NULL** (156/162)
+- `002 Abt-Objekte.Mittwoch` ist **99.4% NULL** (161/162)
+- `002 Abt-Objekte.MittwochT` ist **99.4% NULL** (161/162)
+- `002 Abt-Objekte.Stunden` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.täglich` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.wöchentlich` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.monatlich` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.jährlich` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.Zusatz` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.proMonat` hat **nur 1 Distinct-Wert** über 162 Zeilen — tote Spalte?
+- `002 Abt-Objekte.Bericht1` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Bericht2` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Bericht3` ist **vollständig NULL** (162 Zeilen)
+- `002 Abt-Objekte.Maschinennummer` ist **vollständig NULL** (162 Zeilen)
+- `003 Hygienepläne.M1` ist ein **Memo-Feld** (16 MB max) — 0 Nulls von 4, max_len=118
+- `003 Hygienepläne.M2` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M3` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M4` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M5` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M6` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M7` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M8` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M9` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.Hinweise zur Anpassung` ist ein **Memo-Feld** (16 MB max) — 4 Nulls von 4, max_len=0
+- `003 Hygienepläne.M2` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M3` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M4` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M5` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M6` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M7` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M8` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.M9` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.Besonderheiten 1` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.Besonderheiten 2` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.Besonderheiten 3` ist **vollständig NULL** (4 Zeilen)
+- `003 Hygienepläne.Hinweise zur Anpassung` ist **vollständig NULL** (4 Zeilen)
 - `003 Hygienepläne Arbeitsschritte` hat **keinen Primary Key** (25 Zeilen)
-- `003 Hygienepläne Arbeitsschritte.Aufgaben` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne Arbeitsschritte.Verfahren` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne Arbeitsschritte.Geräte` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne Arbeitsschritte.Hinweise` ist ein **Memo-Feld** (16 MB max)
-- `003 Hygienepläne Arbeitsschritte.Hinweise zur Anpassung` ist ein **Memo-Feld** (16 MB max)
+- `003 Hygienepläne Arbeitsschritte.Aufgaben` ist ein **Memo-Feld** (16 MB max) — 0 Nulls von 25, max_len=187
+- `003 Hygienepläne Arbeitsschritte.Verfahren` ist ein **Memo-Feld** (16 MB max) — 0 Nulls von 25, max_len=439
+- `003 Hygienepläne Arbeitsschritte.Geräte` ist ein **Memo-Feld** (16 MB max) — 8 Nulls von 25, max_len=81
+- `003 Hygienepläne Arbeitsschritte.Hinweise` ist ein **Memo-Feld** (16 MB max) — 9 Nulls von 25, max_len=87
+- `003 Hygienepläne Arbeitsschritte.Hinweise zur Anpassung` ist ein **Memo-Feld** (16 MB max) — 25 Nulls von 25, max_len=0
+- `003 Hygienepläne Arbeitsschritte.Hinweise zur Anpassung` ist **vollständig NULL** (25 Zeilen)
 - `010 Arbeitsanweisungen alles` hat **keinen Primary Key** (165 Zeilen)
+- `010 Arbeitsanweisungen alles.Etage` ist **vollständig NULL** (165 Zeilen)
+- `010 Arbeitsanweisungen alles.BereichNr` ist **vollständig NULL** (165 Zeilen)
+- `010 Arbeitsanweisungen alles.Bereich` ist **vollständig NULL** (165 Zeilen)
+- `010 Arbeitsanweisungen alles.Abteilungs-Nr Kunde` ist **vollständig NULL** (165 Zeilen)
 - `011 Arbeitsanweisungen Abteilungen` hat **keinen Primary Key** (0 Zeilen)
 - `021 Gefahrstoffverzeichnis` hat **keinen Primary Key** (9 Zeilen)
+- `021 Gefahrstoffverzeichnis.Menge jährl` ist **vollständig NULL** (9 Zeilen)
+- `021 Gefahrstoffverzeichnis.Standort` ist **vollständig NULL** (9 Zeilen)
 - `022 Hygienekontrollen` hat **keinen Primary Key** (236 Zeilen)
-- `022 Hygienekontrollen.Hygienekontrollen` ist ein **Memo-Feld** (16 MB max)
+- `022 Hygienekontrollen.Hygienekontrollen` ist ein **Memo-Feld** (16 MB max) — 0 Nulls von 236, max_len=45
+- `022 Hygienekontrollen.Anzahl` ist **vollständig NULL** (236 Zeilen)
+- `022 Hygienekontrollen.ObID` ist **vollständig NULL** (236 Zeilen)
+- `022 Hygienekontrollen.BereichNr` ist **vollständig NULL** (236 Zeilen)
+- `022 Hygienekontrollen.Bereich` ist **vollständig NULL** (236 Zeilen)
 - `022 Hygienekontrollen Spezial 15` hat **keinen Primary Key** (162 Zeilen)
+- `022 Hygienekontrollen Spezial 15.Objekt Filter` ist **vollständig NULL** (162 Zeilen)
+- `022 Hygienekontrollen Spezial 15.Seitennummer` ist **vollständig NULL** (162 Zeilen)
+- `022 Hygienekontrollen Spezial 15.Bereichs-Nr` ist **vollständig NULL** (162 Zeilen)
+- `022 Hygienekontrollen Spezial 15.Bereich` ist **vollständig NULL** (162 Zeilen)
+- `022 Hygienekontrollen Spezial 15.Abteilungs-Nr Kunde` ist **vollständig NULL** (162 Zeilen)
+- `022 Hygienekontrollen Spezial 15.Abteilungsleiter-Nr` ist **vollständig NULL** (162 Zeilen)
+- `100 Firmendaten.Anrede` ist **vollständig NULL** (1 Zeilen)
 - `101 Maschinenpark.Memo` ist ein **Memo-Feld** (16 MB max)
+- `tmpBerichte.BerichtOrdnungsnummer` ist **vollständig NULL** (15 Zeilen)
+
+## Driver-Warnungen / Logs (gefiltert)
+
+```
+### profile (rc=0)
+```

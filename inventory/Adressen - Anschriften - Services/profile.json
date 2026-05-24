@@ -1,0 +1,106 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Adressen - Anschriften - Services.accdb",
+  "tables": [
+    {
+      "name": "Bewerbungen",
+      "row_count": 1,
+      "columns": [
+        {"name": "Bew-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "5", "max": "5", "top_values": [{"value": "5", "count": 1}]},
+        {"name": "Geschlecht", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Name", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Vorname", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Straße", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "PLZ", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Ort", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Beworben für", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 2, "top_values": [{"value": "63", "count": 1}]},
+        {"name": "Beworben am", "type": "TIMESTAMP", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Tel-Nr", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "zu erreichen ab", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Bemerkungen", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Art", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Zur Zeit", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Vorkentnisse", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "seid dem", "type": "TIMESTAMP", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Familienstand", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Sprachkenntnisse", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "1", "max": "1", "top_values": [{"value": "1", "count": 1}]},
+        {"name": "Nation", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Geb-Datum", "type": "TIMESTAMP", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Frühschicht", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Spätschicht", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Wechselschicht", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Gesundheitszugniss vorhanden", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]}
+      ]
+    },
+    {
+      "name": "Bewerbungen Hilfe",
+      "row_count": 23,
+      "columns": [
+        {"name": "Nation", "type": "VARCHAR", "null_count": 0, "non_null_count": 23, "distinct_count": 23, "max_length": 14, "top_values": [{"value": "deutsch", "count": 1}, {"value": "kolumbiansch", "count": 1}, {"value": "vietnamesisch", "count": 1}, {"value": "marokanisch", "count": 1}, {"value": "albanisch", "count": 1}, {"value": "palestinenser", "count": 1}, {"value": "russisch", "count": 1}, {"value": "nigerianisch", "count": 1}, {"value": "ghana", "count": 1}, {"value": "rumänisch", "count": 1}, {"value": "französich", "count": 1}, {"value": "niederländisch", "count": 1}, {"value": "englisch", "count": 1}, {"value": "greichisch", "count": 1}, {"value": "jugoslawisch", "count": 1}, {"value": "srilankesisch", "count": 1}, {"value": "kroatisch", "count": 1}, {"value": "bosnisch", "count": 1}, {"value": "portogiesisch", "count": 1}, {"value": "spanisch", "count": 1}, {"value": "türkisch", "count": 1}, {"value": "polnisch", "count": 1}, {"value": "amerikanisch", "count": 1}]},
+        {"name": "Nationnummer", "type": "INTEGER", "null_count": 0, "non_null_count": 23, "distinct_count": 3, "min": "0", "max": "2", "top_values": [{"value": "2", "count": 16}, {"value": "1", "count": 6}, {"value": "0", "count": 1}]}
+      ]
+    },
+    {
+      "name": "Kunden",
+      "row_count": 8,
+      "columns": [
+        {"name": "Reinigungsgruppe", "type": "INTEGER", "null_count": 0, "non_null_count": 8, "distinct_count": 8, "min": "0", "max": "999", "top_values": [{"value": "0", "count": 1}, {"value": "10", "count": 1}, {"value": "20", "count": 1}, {"value": "30", "count": 1}, {"value": "40", "count": 1}, {"value": "50", "count": 1}, {"value": "60", "count": 1}, {"value": "999", "count": 1}]},
+        {"name": "Kunden-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 8, "distinct_count": 8, "min": "0", "max": "999", "top_values": [{"value": "0", "count": 1}, {"value": "10", "count": 1}, {"value": "20", "count": 1}, {"value": "30", "count": 1}, {"value": "40", "count": 1}, {"value": "50", "count": 1}, {"value": "60", "count": 1}, {"value": "999", "count": 1}]},
+        {"name": "Firma", "type": "VARCHAR", "null_count": 0, "non_null_count": 8, "distinct_count": 8, "max_length": 25, "top_values": [{"value": "ausgeschieden", "count": 1}, {"value": "Münstermann H & I GmbH", "count": 1}, {"value": "Herta GmbH", "count": 1}, {"value": "Klein Geflügelfeinkost", "count": 1}, {"value": "Bäckerei Brinker", "count": 1}, {"value": "Abbelen GmbH", "count": 1}, {"value": "REWE Dortmund SE & Co. KG", "count": 1}, {"value": "Verwaltung", "count": 1}]},
+        {"name": "Zusatz", "type": "VARCHAR", "null_count": 0, "non_null_count": 8, "distinct_count": 3, "max_length": 13, "top_values": [{"value": "", "count": 6}, {"value": "GmbH & Co. KG", "count": 1}, {"value": "GmbH", "count": 1}]},
+        {"name": "Straße", "type": "VARCHAR", "null_count": 2, "non_null_count": 6, "distinct_count": 6, "max_length": 27, "top_values": [{"value": null, "count": 2}, {"value": "Harheils Kamp 4", "count": 1}, {"value": "Westerholter Straße 750-770", "count": 1}, {"value": "Schmiedestraße 3", "count": 1}, {"value": "Friedrich der Große 8", "count": 1}, {"value": "Kempener Str. 22", "count": 1}, {"value": "Asselner Hellweg 1-3", "count": 1}]},
+        {"name": "PLZ", "type": "VARCHAR", "null_count": 2, "non_null_count": 6, "distinct_count": 6, "max_length": 5, "top_values": [{"value": null, "count": 2}, {"value": "48231", "count": 1}, {"value": "45701", "count": 1}, {"value": "48317", "count": 1}, {"value": "44628", "count": 1}, {"value": "47918", "count": 1}, {"value": "44309", "count": 1}]},
+        {"name": "Ort", "type": "VARCHAR", "null_count": 2, "non_null_count": 6, "distinct_count": 6, "max_length": 13, "top_values": [{"value": null, "count": 2}, {"value": "Warendorf", "count": 1}, {"value": "Herten", "count": 1}, {"value": "Drensteinfurt", "count": 1}, {"value": "Herne", "count": 1}, {"value": "Tönisvorst", "count": 1}, {"value": "Dortmund", "count": 1}]},
+        {"name": "Postfach", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "PLZ Postfach", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "PLZ Postfach Ort", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Telefon", "type": "VARCHAR", "null_count": 5, "non_null_count": 3, "distinct_count": 3, "max_length": 18, "top_values": [{"value": null, "count": 5}, {"value": "02581 / 5219449", "count": 1}, {"value": "02156 / 97890", "count": 1}, {"value": "+49 231 / 2500-671", "count": 1}]},
+        {"name": "Telefax", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "1", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "2", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "3", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "4", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "5", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Pauschale", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Zusatzarbeiten", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Abstriche", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Kunden Matchcode", "type": "VARCHAR", "null_count": 5, "non_null_count": 3, "distinct_count": 3, "max_length": 5, "top_values": [{"value": null, "count": 5}, {"value": "Herta", "count": 1}, {"value": "Klein", "count": 1}, {"value": "Rewe", "count": 1}]},
+        {"name": "Schäden", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Reinigungsbeginn", "type": "TIMESTAMP", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Sitex Kdnummer", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Status", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Kto", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "BLZ", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Lieferbedingung", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Zahlungsbedingung", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "ab frei Haus", "type": "DECIMAL", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "min": "0.0000", "max": "0.0000", "top_values": [{"value": "0.0000", "count": 8}]},
+        {"name": "unsere Kd", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Geschäftsführer", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "direkter Vorgesetzter", "type": "VARCHAR", "null_count": 8, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Betreuer", "type": "VARCHAR", "null_count": 3, "non_null_count": 5, "distinct_count": 4, "max_length": 2, "top_values": [{"value": null, "count": 3}, {"value": "fm", "count": 2}, {"value": "ub", "count": 1}, {"value": "jg", "count": 1}, {"value": "mk", "count": 1}]},
+        {"name": "wöchentlich", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "monatlich", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Auswertung Urlaub", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Auswertung Krank", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Wäsche", "type": "BOOLEAN", "null_count": 0, "non_null_count": 8, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 8}]},
+        {"name": "Vorarbeiter", "type": "VARCHAR", "null_count": 4, "non_null_count": 4, "distinct_count": 4, "max_length": 23, "top_values": [{"value": null, "count": 4}, {"value": "Uwe Barth / Yevsi Gecer", "count": 1}, {"value": "Yevsi Gecer", "count": 1}, {"value": "Baris Sayar", "count": 1}, {"value": "fm", "count": 1}]},
+        {"name": "Bundesland", "type": "VARCHAR", "null_count": 1, "non_null_count": 7, "distinct_count": 1, "max_length": 2, "top_values": [{"value": "NW", "count": 7}, {"value": null, "count": 1}]},
+        {"name": "Bundesland_Nr", "type": "INTEGER", "null_count": 1, "non_null_count": 7, "distinct_count": 1, "min": "10", "max": "10", "top_values": [{"value": "10", "count": 7}, {"value": null, "count": 1}]}
+      ]
+    },
+    {
+      "name": "Kunden Ansprechpartner",
+      "row_count": 1,
+      "columns": [
+        {"name": "Kunden-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "140", "max": "140", "top_values": [{"value": "140", "count": 1}]},
+        {"name": "Geschlecht", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 4, "top_values": [{"value": "Herr", "count": 1}]},
+        {"name": "Vorname", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 9, "top_values": [{"value": "Seabstian", "count": 1}]},
+        {"name": "Name", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 8, "top_values": [{"value": "Niermann", "count": 1}]},
+        {"name": "Position", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 0, "top_values": [{"value": "", "count": 1}]},
+        {"name": "e-mail", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 0, "top_values": [{"value": "", "count": 1}]},
+        {"name": "Telefon", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 0, "top_values": [{"value": "", "count": 1}]},
+        {"name": "Fax", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 0, "top_values": [{"value": "", "count": 1}]},
+        {"name": "Hilfe", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "1", "max": "1", "top_values": [{"value": "1", "count": 1}]}
+      ]
+    }
+  ]
+}

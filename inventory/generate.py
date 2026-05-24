@@ -53,9 +53,10 @@ def run_access(accdb_path: Path, command: str, output: Path) -> tuple[int, str]:
     return proc.returncode, proc.stderr
 
 
-def write_report(db_name: str, db_dir: Path, schema: dict, linked: dict, stderr_log: str) -> None:
+def write_report(db_name: str, db_dir: Path, schema: dict, linked: dict, profile: dict, stderr_log: str) -> None:
     """Erzeugt eine schlanke Markdown-Zusammenfassung pro DB."""
     tables = schema.get("tables", [])
+    profile_by_table = {t["name"]: t for t in profile.get("tables", [])}
     lines: list[str] = [
         f"# Inventar: {db_name}",
         "",
@@ -89,14 +90,34 @@ def write_report(db_name: str, db_dir: Path, schema: dict, linked: dict, stderr_
         )
     lines.append("")
 
-    # Auffälligkeiten flaggen
+    # Auffälligkeiten flaggen (aus Schema + Profile)
     issues: list[str] = []
     for t in tables:
         if not t.get("primary_key"):
             issues.append(f"- `{t['name']}` hat **keinen Primary Key** ({t['row_count']} Zeilen)")
+        prof = profile_by_table.get(t["name"], {})
+        prof_cols = {c["name"]: c for c in prof.get("columns", [])}
         for c in t.get("columns", []):
             if c.get("size") == 16_777_216:
-                issues.append(f"- `{t['name']}.{c['name']}` ist ein **Memo-Feld** (16 MB max)")
+                pc = prof_cols.get(c["name"], {})
+                extra = ""
+                if "null_count" in pc and "max_length" in pc:
+                    extra = f" — {pc['null_count']} Nulls von {t['row_count']}, max_len={pc['max_length']}"
+                issues.append(f"- `{t['name']}.{c['name']}` ist ein **Memo-Feld** (16 MB max){extra}")
+        # Profiling-Auffälligkeiten: vollständig leere Spalten + nahezu-konstante Spalten
+        for cname, pc in prof_cols.items():
+            row_count = t["row_count"]
+            if row_count == 0:
+                continue
+            null_count = pc.get("null_count", 0)
+            distinct_count = pc.get("distinct_count", 0)
+            if null_count == row_count:
+                issues.append(f"- `{t['name']}.{cname}` ist **vollständig NULL** ({row_count} Zeilen)")
+            elif null_count >= row_count * 0.95 and row_count >= 20:
+                pct = round(100 * null_count / row_count, 1)
+                issues.append(f"- `{t['name']}.{cname}` ist **{pct}% NULL** ({null_count}/{row_count})")
+            elif distinct_count == 1 and row_count >= 20:
+                issues.append(f"- `{t['name']}.{cname}` hat **nur 1 Distinct-Wert** über {row_count} Zeilen — tote Spalte?")
     if issues:
         lines.append("## Auffälligkeiten")
         lines.append("")
@@ -141,6 +162,7 @@ def inventory_one(accdb_path: Path) -> dict:
 
     schema_path = db_dir / "schema.json"
     linked_path = db_dir / "linked_tables.json"
+    profile_path = db_dir / "profile.json"
     errors_log = db_dir / "errors.txt"
 
     print(f"  • {db_name}", flush=True)
@@ -158,6 +180,12 @@ def inventory_one(accdb_path: Path) -> dict:
         with errors_log.open("a", encoding="utf-8") as f:
             f.write(f"\nlinked-tables-Extraktion gescheitert (rc={rc2}):\n{stderr2}")
 
+    rc3, stderr3 = run_access(accdb_path, "profile", profile_path)
+    full_stderr.append(f"### profile (rc={rc3})\n{stderr3}")
+    if rc3 != 0:
+        with errors_log.open("a", encoding="utf-8") as f:
+            f.write(f"\nprofile-Extraktion gescheitert (rc={rc3}):\n{stderr3}")
+
     try:
         schema = json.loads(schema_path.read_text(encoding="utf-8")) if schema_path.exists() else {}
     except json.JSONDecodeError as e:
@@ -166,9 +194,13 @@ def inventory_one(accdb_path: Path) -> dict:
         linked = json.loads(linked_path.read_text(encoding="utf-8")) if linked_path.exists() else {}
     except json.JSONDecodeError as e:
         linked = {"error": str(e)}
+    try:
+        profile = json.loads(profile_path.read_text(encoding="utf-8")) if profile_path.exists() else {}
+    except json.JSONDecodeError as e:
+        profile = {"error": str(e)}
 
-    write_report(db_name, db_dir, schema, linked, "\n".join(full_stderr))
-    return {"db_name": db_name, "schema": schema, "linked": linked}
+    write_report(db_name, db_dir, schema, linked, profile, "\n".join(full_stderr))
+    return {"db_name": db_name, "schema": schema, "linked": linked, "profile": profile}
 
 
 def main(argv: list[str]) -> int:

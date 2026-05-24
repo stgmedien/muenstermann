@@ -1,0 +1,66 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Reinigungspläne.accdb",
+  "tables": [
+    {
+      "name": "003 Hygienepläne",
+      "row_count": 40,
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 40, "distinct_count": 40, "min": "1", "max": "91"},
+        {"name": "Plan", "type": "VARCHAR", "null_count": 0, "non_null_count": 40, "distinct_count": 39, "max_length": 3},
+        {"name": "T1", "type": "VARCHAR", "null_count": 0, "non_null_count": 40, "distinct_count": 40, "max_length": 70},
+        {"name": "M1", "type": "VARCHAR", "null_count": 31, "non_null_count": 9, "max_length": 155, "is_memo": true},
+        {"name": "M2", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M3", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M4", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M5", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M6", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M7", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M8", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M9", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "Besonderheiten 1", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Besonderheiten 2", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Besonderheiten 3", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "null_count": 40, "non_null_count": 0, "max_length": 0, "is_memo": true}
+      ]
+    },
+    {
+      "name": "003 Hygienepläne Arbeitsschritte",
+      "row_count": 244,
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 244, "distinct_count": 39, "min": "1", "max": "91"},
+        {"name": "Status", "type": "VARCHAR", "null_count": 111, "non_null_count": 133, "distinct_count": 28, "max_length": 28, "top_values": [{"value": null, "count": 111}, {"value": "Vorreinigung", "count": 17}, {"value": "Arbeitssicherheits- hinweise", "count": 16}, {"value": "Reinigung", "count": 14}, {"value": "Nachbehandlung", "count": 12}, {"value": "Grobreinigung", "count": 10}, {"value": "Nachspülen", "count": 10}, {"value": "Schaumreinigung", "count": 9}, {"value": "Desinfektion", "count": 6}, {"value": "Kontrolle", "count": 6}, {"value": "Demontage/ Sicherheit", "count": 5}, {"value": "Kontrolle\r\nVorreinigung", "count": 4}, {"value": "Kontrolle\r\nSchaumreinigung", "count": 4}, {"value": "Kontrolle / Auffülllen", "count": 3}, {"value": "Kontrolle Reinigung", "count": 2}, {"value": "Kontrolle Vorreinigung", "count": 2}, {"value": "Desinfektion Gullys", "count": 1}, {"value": "Schaumteppich", "count": 1}, {"value": "Reinigung Kutterwagen", "count": 1}, {"value": "Reinigung Gully", "count": 1}, {"value": "Behandlung", "count": 1}, {"value": "Vorbehandlung", "count": 1}, {"value": "Einlegen", "count": 1}, {"value": "Auskochen", "count": 1}, {"value": "Vorbereitung", "count": 1}, {"value": "Reinigung Kleinteile", "count": 1}, {"value": "Kontrolle Grobreinigung", "count": 1}, {"value": "Info", "count": 1}, {"value": "Desinfektion Kutterwagen", "count": 1}]},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "null_count": 0, "non_null_count": 244, "distinct_count": 14, "min": "1", "max": "14", "top_values": [{"value": "1", "count": 39}, {"value": "2", "count": 39}, {"value": "3", "count": 36}, {"value": "4", "count": 32}, {"value": "5", "count": 25}, {"value": "6", "count": 18}, {"value": "7", "count": 17}, {"value": "8", "count": 12}, {"value": "9", "count": 10}, {"value": "10", "count": 8}, {"value": "11", "count": 5}, {"value": "12", "count": 1}, {"value": "13", "count": 1}, {"value": "14", "count": 1}]},
+        {"name": "Aufgaben", "type": "VARCHAR", "null_count": 0, "non_null_count": 244, "max_length": 313, "is_memo": true},
+        {"name": "Verfahren", "type": "VARCHAR", "null_count": 14, "non_null_count": 230, "max_length": 552, "is_memo": true},
+        {"name": "Geräte", "type": "VARCHAR", "null_count": 76, "non_null_count": 168, "max_length": 81, "is_memo": true},
+        {"name": "Hinweise", "type": "VARCHAR", "null_count": 119, "non_null_count": 125, "max_length": 101, "is_memo": true},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "null_count": 244, "non_null_count": 0, "max_length": 0, "is_memo": true}
+      ]
+    },
+    {
+      "name": "021 Gefahrstoffverzeichnis",
+      "row_count": 23,
+      "columns": [
+        {"name": "ArtNr", "type": "INTEGER", "null_count": 0, "non_null_count": 23, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": "0", "count": 23}]},
+        {"name": "Artikelname", "type": "VARCHAR", "null_count": 0, "non_null_count": 23, "distinct_count": 23, "max_length": 33, "top_values": [{"value": "Orbin RT-P", "count": 1}, {"value": "Tribin ST", "count": 1}, {"value": "Spezial 38 S", "count": 1}, {"value": "C-Zitronensäure Monohydrat BP/USP", "count": 1}, {"value": "Debosan", "count": 1}, {"value": "WeCe-Fix", "count": 1}, {"value": "Urinex", "count": 1}, {"value": "Tolo Soft OD", "count": 1}, {"value": "SPRAYFRIS classic", "count": 1}, {"value": "NEOFRIS classic", "count": 1}, {"value": "O 33 aktiv", "count": 1}, {"value": "Stahlpflege RT", "count": 1}, {"value": "SANIFRIS classic", "count": 1}, {"value": "S 16", "count": 1}, {"value": "Lactopan", "count": 1}, {"value": "Tolo 330", "count": 1}, {"value": "Antisept HD", "count": 1}, {"value": "Tolo Sept AL", "count": 1}, {"value": "RHE DK", "count": 1}, {"value": "Spezial SN", "count": 1}, {"value": "Tolo Sterisol Super", "count": 1}, {"value": "Sibin E", "count": 1}, {"value": "G 440 Perfekt", "count": 1}]},
+        {"name": "Menge jährl", "type": "VARCHAR", "null_count": 23, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Standort", "type": "VARCHAR", "null_count": 23, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 23, "distinct_count": 23, "min": "0", "max": "78", "top_values": [{"value": "40", "count": 1}, {"value": "15", "count": 1}, {"value": "46", "count": 1}, {"value": "10", "count": 1}, {"value": "65", "count": 1}, {"value": "16", "count": 1}, {"value": "43", "count": 1}, {"value": "78", "count": 1}, {"value": "9", "count": 1}, {"value": "35", "count": 1}, {"value": "20", "count": 1}, {"value": "23", "count": 1}, {"value": "77", "count": 1}, {"value": "52", "count": 1}, {"value": "13", "count": 1}, {"value": "11", "count": 1}, {"value": "7", "count": 1}, {"value": "69", "count": 1}, {"value": "51", "count": 1}, {"value": "22", "count": 1}, {"value": "47", "count": 1}, {"value": "17", "count": 1}, {"value": "0", "count": 1}]},
+        {"name": "Pfadtext", "type": "VARCHAR", "null_count": 1, "non_null_count": 22, "max_length": 164, "is_memo": true}
+      ]
+    },
+    {
+      "name": "GullyCheck",
+      "row_count": 1,
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "1", "max": "1", "top_values": [{"value": "1", "count": 1}]},
+        {"name": "Sieb defekt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Geruchsverschluss fehlt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Geruchsverschluss defekt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Siebblech fehlt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Siebblech defekt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]},
+        {"name": "Sieb fehlt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1}]}
+      ]
+    }
+  ]
+}

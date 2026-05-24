@@ -1,0 +1,455 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/60 REWE 2026 V1.1 - Services.accdb",
+  "tables": [
+    {
+      "name": "001 Abteilungen",
+      "row_count": 124,
+      "columns": [
+        {"name": "Etage", "type": "VARCHAR", "null_count": 0, "non_null_count": 124, "distinct_count": 3, "max_length": 2, "top_values": [{"value": "EG", "count": 62}, {"value": "OG", "count": 59}, {"value": "ZG", "count": 3}]},
+        {"name": "BereichNr", "type": "INTEGER", "null_count": 77, "non_null_count": 47, "distinct_count": 3, "min": "100", "max": "300", "top_values": [{"value": null, "count": 77}, {"value": "100", "count": 23}, {"value": "200", "count": 19}, {"value": "300", "count": 5}]},
+        {"name": "Bereich", "type": "VARCHAR", "null_count": 77, "non_null_count": 47, "distinct_count": 3, "max_length": 10, "top_values": [{"value": null, "count": 77}, {"value": "Verwaltung", "count": 23}, {"value": "Produktion", "count": 19}, {"value": "Versand", "count": 5}]},
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 124, "distinct_count": 124, "min": "10", "max": "1390"},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "null_count": 10, "non_null_count": 114, "distinct_count": 112, "max_length": 12},
+        {"name": "Abteilung", "type": "VARCHAR", "null_count": 0, "non_null_count": 124, "distinct_count": 99, "max_length": 57},
+        {"name": "Kostenstelle", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Kostenträger", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Filter1", "type": "BOOLEAN", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 124}]},
+        {"name": "Filter2", "type": "BOOLEAN", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 124}]},
+        {"name": "Filter3", "type": "BOOLEAN", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 124}]},
+        {"name": "ABIstSu", "type": "DOUBLE", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 124}]},
+        {"name": "Filter4", "type": "BOOLEAN", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 124}]},
+        {"name": "ABSollSu", "type": "DOUBLE", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 124}]},
+        {"name": "Raum-Nr", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "High Risk", "type": "BOOLEAN", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 124}]},
+        {"name": "Low Risk", "type": "BOOLEAN", "null_count": 0, "non_null_count": 124, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 124}]},
+        {"name": "Hygienekontrolle täglich", "type": "VARCHAR", "null_count": 123, "non_null_count": 1, "max_length": 26, "is_memo": true},
+        {"name": "HyTWert", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Bericht1", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Bericht2", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Bericht3", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Stunden", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "KFaktor", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "täglich", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "wöchentlich", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "monatlich", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "jährlich", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Zusatz", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "proMonat", "type": "DOUBLE", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Maschinennummer", "type": "INTEGER", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER", "null_count": 77, "non_null_count": 47, "distinct_count": 47, "min": "100", "max": "570"},
+        {"name": "Abteilungsleiter", "type": "VARCHAR", "null_count": 124, "non_null_count": 0, "distinct_count": 0, "max_length": 0}
+      ]
+    },
+    {
+      "name": "002 Abt-Objekte",
+      "row_count": 869,
+      "columns": [
+        {"name": "ObID", "type": "INTEGER", "null_count": 0, "non_null_count": 869, "distinct_count": 869, "min": "8971", "max": "10263"},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "null_count": 0, "non_null_count": 869, "distinct_count": 35, "max_length": 3},
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 869, "distinct_count": 124, "min": "10", "max": "1390"},
+        {"name": "Anzahl", "type": "VARCHAR", "null_count": 794, "non_null_count": 75, "distinct_count": 12, "max_length": 6, "top_values": [{"value": null, "count": 794}, {"value": "2", "count": 21}, {"value": "1", "count": 20}, {"value": "3", "count": 10}, {"value": "4", "count": 6}, {"value": "12", "count": 5}, {"value": "7", "count": 3}, {"value": "div.", "count": 3}, {"value": "18", "count": 2}, {"value": "6", "count": 2}, {"value": "ca. 15", "count": 1}, {"value": "ca. 10", "count": 1}, {"value": "8", "count": 1}]},
+        {"name": "Letzte Reinigung", "type": "TIMESTAMP", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Status", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Objekt", "type": "VARCHAR", "null_count": 0, "non_null_count": 869, "distinct_count": 175, "max_length": 62},
+        {"name": "AusführungZahl", "type": "DOUBLE", "null_count": 39, "non_null_count": 830, "distinct_count": 4, "min": "1.0", "max": "4.0", "top_values": [{"value": "1.0", "count": 611}, {"value": "2.0", "count": 116}, {"value": "3.0", "count": 91}, {"value": null, "count": 39}, {"value": "4.0", "count": 12}]},
+        {"name": "Ausführung", "type": "VARCHAR", "null_count": 4, "non_null_count": 865, "distinct_count": 5, "max_length": 14, "top_values": [{"value": "wöchentlich", "count": 348}, {"value": "täglich", "count": 339}, {"value": "monatlich", "count": 89}, {"value": "jährlich", "count": 54}, {"value": "nach Anweisung", "count": 35}, {"value": null, "count": 4}]},
+        {"name": "AusführungKennziffer", "type": "VARCHAR", "null_count": 4, "non_null_count": 865, "distinct_count": 12, "max_length": 2, "top_values": [{"value": "10", "count": 299}, {"value": "20", "count": 230}, {"value": "22", "count": 87}, {"value": "30", "count": 79}, {"value": "11", "count": 45}, {"value": "52", "count": 35}, {"value": "41", "count": 35}, {"value": "21", "count": 26}, {"value": "43", "count": 12}, {"value": "31", "count": 10}, {"value": "42", "count": 4}, {"value": null, "count": 4}, {"value": "40", "count": 3}]},
+        {"name": "Besonderheiten", "type": "VARCHAR", "null_count": 868, "non_null_count": 1, "max_length": 31, "is_memo": true},
+        {"name": "Kontrollpunkt", "type": "BOOLEAN", "null_count": 0, "non_null_count": 869, "distinct_count": 2, "top_values": [{"value": "TRUE", "count": 816}, {"value": "FALSE", "count": 53}]},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 869}]},
+        {"name": "Maschinen Innenreinigung", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "null_count": 0, "non_null_count": 869, "distinct_count": 2, "max_length": 11, "top_values": [{"value": "Münstermann", "count": 865}, {"value": "Kunde", "count": 4}]},
+        {"name": "nicht im HY", "type": "BOOLEAN", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 869}]},
+        {"name": "Zusatzarbeiten", "type": "BOOLEAN", "null_count": 0, "non_null_count": 869, "distinct_count": 2, "top_values": [{"value": "FALSE", "count": 782}, {"value": "TRUE", "count": 87}]},
+        {"name": "ZusatzText", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Montag", "type": "SMALLINT", "null_count": 744, "non_null_count": 125, "distinct_count": 5, "min": "1", "max": "89", "top_values": [{"value": null, "count": 744}, {"value": "50", "count": 88}, {"value": "1", "count": 21}, {"value": "89", "count": 10}, {"value": "7", "count": 5}, {"value": "55", "count": 1}]},
+        {"name": "MontagT", "type": "VARCHAR", "null_count": 744, "non_null_count": 125, "distinct_count": 5, "max_length": 3, "top_values": [{"value": null, "count": 744}, {"value": "S.1", "count": 88}, {"value": "A.1", "count": 21}, {"value": "SM", "count": 10}, {"value": "C.2", "count": 5}, {"value": "R", "count": 1}]},
+        {"name": "Dienstag", "type": "SMALLINT", "null_count": 852, "non_null_count": 17, "distinct_count": 3, "min": "1", "max": "89", "top_values": [{"value": null, "count": 852}, {"value": "1", "count": 13}, {"value": "89", "count": 2}, {"value": "50", "count": 2}]},
+        {"name": "DienstagT", "type": "VARCHAR", "null_count": 852, "non_null_count": 17, "distinct_count": 3, "max_length": 3, "top_values": [{"value": null, "count": 852}, {"value": "A.1", "count": 13}, {"value": "SM", "count": 2}, {"value": "S.1", "count": 2}]},
+        {"name": "Mittwoch", "type": "SMALLINT", "null_count": 764, "non_null_count": 105, "distinct_count": 5, "min": "1", "max": "89", "top_values": [{"value": null, "count": 764}, {"value": "50", "count": 87}, {"value": "1", "count": 10}, {"value": "89", "count": 5}, {"value": "7", "count": 2}, {"value": "15", "count": 1}]},
+        {"name": "MittwochT", "type": "VARCHAR", "null_count": 764, "non_null_count": 105, "distinct_count": 5, "max_length": 3, "top_values": [{"value": null, "count": 764}, {"value": "S.1", "count": 87}, {"value": "A.1", "count": 10}, {"value": "SM", "count": 5}, {"value": "C.2", "count": 2}, {"value": "I.2", "count": 1}]},
+        {"name": "Donnerstag", "type": "SMALLINT", "null_count": 842, "non_null_count": 27, "distinct_count": 3, "min": "1", "max": "89", "top_values": [{"value": null, "count": 842}, {"value": "1", "count": 17}, {"value": "89", "count": 8}, {"value": "7", "count": 2}]},
+        {"name": "DonnerstagT", "type": "VARCHAR", "null_count": 842, "non_null_count": 27, "distinct_count": 3, "max_length": 3, "top_values": [{"value": null, "count": 842}, {"value": "A.1", "count": 17}, {"value": "SM", "count": 8}, {"value": "C.2", "count": 2}]},
+        {"name": "Freitag", "type": "SMALLINT", "null_count": 593, "non_null_count": 276, "distinct_count": 7, "min": "1", "max": "90", "top_values": [{"value": null, "count": 593}, {"value": "50", "count": 182}, {"value": "1", "count": 79}, {"value": "52", "count": 6}, {"value": "89", "count": 4}, {"value": "7", "count": 3}, {"value": "55", "count": 1}, {"value": "90", "count": 1}]},
+        {"name": "FreitagT", "type": "VARCHAR", "null_count": 593, "non_null_count": 276, "distinct_count": 7, "max_length": 3, "top_values": [{"value": null, "count": 593}, {"value": "S.1", "count": 182}, {"value": "A.1", "count": 79}, {"value": "S.3", "count": 6}, {"value": "SM", "count": 4}, {"value": "C.2", "count": 3}, {"value": "R", "count": 1}, {"value": "D", "count": 1}]},
+        {"name": "Samstag", "type": "SMALLINT", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "SamstagT", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Sonntag", "type": "SMALLINT", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "SonntagT", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "übrige", "type": "SMALLINT", "null_count": 359, "non_null_count": 510, "distinct_count": 11, "min": "1", "max": "90", "top_values": [{"value": null, "count": 359}, {"value": "50", "count": 221}, {"value": "1", "count": 217}, {"value": "74", "count": 28}, {"value": "51", "count": 17}, {"value": "55", "count": 9}, {"value": "52", "count": 5}, {"value": "7", "count": 4}, {"value": "89", "count": 4}, {"value": "53", "count": 3}, {"value": "90", "count": 1}, {"value": "41", "count": 1}]},
+        {"name": "übrigeT", "type": "VARCHAR", "null_count": 374, "non_null_count": 495, "distinct_count": 11, "max_length": 3, "top_values": [{"value": null, "count": 374}, {"value": "S.1", "count": 221}, {"value": "A.1", "count": 204}, {"value": "V.1", "count": 26}, {"value": "S.2", "count": 17}, {"value": "R", "count": 9}, {"value": "S.3", "count": 5}, {"value": "C.2", "count": 4}, {"value": "SM", "count": 4}, {"value": "S.4", "count": 3}, {"value": "D", "count": 1}, {"value": "O", "count": 1}]},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "null_count": 4, "non_null_count": 865, "distinct_count": 12, "min": "10", "max": "52", "top_values": [{"value": "10", "count": 300}, {"value": "20", "count": 229}, {"value": "22", "count": 87}, {"value": "30", "count": 79}, {"value": "11", "count": 45}, {"value": "52", "count": 35}, {"value": "41", "count": 35}, {"value": "21", "count": 26}, {"value": "43", "count": 12}, {"value": "31", "count": 10}, {"value": "42", "count": 4}, {"value": null, "count": 4}, {"value": "40", "count": 3}]},
+        {"name": "Stunden", "type": "DOUBLE", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "KFaktor", "type": "DOUBLE", "null_count": 62, "non_null_count": 807, "distinct_count": 7, "min": "0.0", "max": "21.75", "top_values": [{"value": "0.0", "count": 403}, {"value": "21.75", "count": 165}, {"value": "4.35", "count": 133}, {"value": "1.0", "count": 72}, {"value": null, "count": 62}, {"value": "8.7", "count": 26}, {"value": "13.05", "count": 5}, {"value": "0.08", "count": 3}]},
+        {"name": "täglich", "type": "DOUBLE", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 869}]},
+        {"name": "wöchentlich", "type": "DOUBLE", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 869}]},
+        {"name": "monatlich", "type": "DOUBLE", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 869}]},
+        {"name": "jährlich", "type": "DOUBLE", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 869}]},
+        {"name": "Zusatz", "type": "DOUBLE", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 869}]},
+        {"name": "proMonat", "type": "DOUBLE", "null_count": 0, "non_null_count": 869, "distinct_count": 1, "min": "0.0", "max": "0.0", "top_values": [{"value": "0.0", "count": 869}]},
+        {"name": "Bericht1", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Bericht2", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Bericht3", "type": "VARCHAR", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Maschinennummer", "type": "INTEGER", "null_count": 869, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "DurchführungMonat1", "type": "INTEGER", "null_count": 819, "non_null_count": 50, "distinct_count": 8, "min": "0", "max": "8", "top_values": [{"value": null, "count": 819}, {"value": "3", "count": 19}, {"value": "4", "count": 10}, {"value": "5", "count": 7}, {"value": "2", "count": 6}, {"value": "1", "count": 4}, {"value": "0", "count": 2}, {"value": "8", "count": 1}, {"value": "6", "count": 1}]},
+        {"name": "DurchführungMonat2", "type": "INTEGER", "null_count": 821, "non_null_count": 48, "distinct_count": 9, "min": "0", "max": "11", "top_values": [{"value": null, "count": 821}, {"value": "9", "count": 14}, {"value": "10", "count": 9}, {"value": "6", "count": 8}, {"value": "11", "count": 6}, {"value": "8", "count": 5}, {"value": "0", "count": 2}, {"value": "4", "count": 2}, {"value": "5", "count": 1}, {"value": "7", "count": 1}]},
+        {"name": "DurchführungMonat3", "type": "INTEGER", "null_count": 855, "non_null_count": 14, "distinct_count": 5, "min": "0", "max": "12", "top_values": [{"value": null, "count": 855}, {"value": "9", "count": 7}, {"value": "0", "count": 2}, {"value": "10", "count": 2}, {"value": "7", "count": 2}, {"value": "12", "count": 1}]},
+        {"name": "DurchführungMonat4", "type": "INTEGER", "null_count": 859, "non_null_count": 10, "distinct_count": 3, "min": "0", "max": "12", "top_values": [{"value": null, "count": 859}, {"value": "12", "count": 6}, {"value": "0", "count": 2}, {"value": "10", "count": 2}]},
+        {"name": "DurchführungKW1", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW2", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW3", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW4", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW5", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW6", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW7", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW8", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]},
+        {"name": "DurchführungKW9", "type": "INTEGER", "null_count": 867, "non_null_count": 2, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": null, "count": 867}, {"value": "0", "count": 2}]}
+      ]
+    },
+    {
+      "name": "003 Hygienepläne",
+      "row_count": 14,
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 14, "distinct_count": 14, "min": "1", "max": "90", "top_values": [{"value": "1", "count": 1}, {"value": "7", "count": 1}, {"value": "10", "count": 1}, {"value": "15", "count": 1}, {"value": "40", "count": 1}, {"value": "41", "count": 1}, {"value": "50", "count": 1}, {"value": "51", "count": 1}, {"value": "53", "count": 1}, {"value": "54", "count": 1}, {"value": "55", "count": 1}, {"value": "74", "count": 1}, {"value": "89", "count": 1}, {"value": "90", "count": 1}]},
+        {"name": "Plan", "type": "VARCHAR", "null_count": 0, "non_null_count": 14, "distinct_count": 14, "max_length": 3, "top_values": [{"value": "A.1", "count": 1}, {"value": "C.2", "count": 1}, {"value": "D", "count": 1}, {"value": "I.2", "count": 1}, {"value": "N", "count": 1}, {"value": "O", "count": 1}, {"value": "S.1", "count": 1}, {"value": "S.2", "count": 1}, {"value": "S.4", "count": 1}, {"value": "Q", "count": 1}, {"value": "R", "count": 1}, {"value": "V.1", "count": 1}, {"value": "SM", "count": 1}, {"value": "D.1", "count": 1}]},
+        {"name": "T1", "type": "VARCHAR", "null_count": 0, "non_null_count": 14, "distinct_count": 14, "max_length": 61, "top_values": [{"value": "Reinigung alkalisch / sauer inkl. Desinfektion", "count": 1}, {"value": "manuelle Reinigung empfindlicher Anlagen", "count": 1}, {"value": "Sonderbehandlung von Tischplatten / Schneidbretter", "count": 1}, {"value": "Reinigung von Injektornadeln", "count": 1}, {"value": "Reinigung von Klima- und Heißrauchanlagen", "count": 1}, {"value": "Reinigung von Rauchwagen", "count": 1}, {"value": "Reinigung des Sozialbereichs", "count": 1}, {"value": "Reinigung von sanitäre Einrichtungen", "count": 1}, {"value": "Reinigung mit Waschmaschine", "count": 1}, {"value": "Auffüllen der Spender an den Waschbecken, sowie Sohlenwäscher", "count": 1}, {"value": "Fegen der Bodenflächen", "count": 1}, {"value": "Reinigung von Verdampfern", "count": 1}, {"value": "Reinigung mit Saug-Schrubb-Maschine", "count": 1}, {"value": "Reinigung mit Dampfreiniger", "count": 1}]},
+        {"name": "M1", "type": "VARCHAR", "null_count": 4, "non_null_count": 10, "max_length": 167, "is_memo": true},
+        {"name": "M2", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M3", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M4", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M5", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M6", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M7", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M8", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "M9", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "Besonderheiten 1", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Besonderheiten 2", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Besonderheiten 3", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "R1", "type": "VARCHAR", "null_count": 1, "non_null_count": 13, "distinct_count": 10, "max_length": 21, "top_values": [{"value": "calgonit NN 497", "count": 3}, {"value": "calgonit NF 5401", "count": 2}, {"value": "calgonit DS 683", "count": 1}, {"value": "tru-lit GS Premium", "count": 1}, {"value": "Fussbodenreiniger Neo", "count": 1}, {"value": "Sanitärblitz", "count": 1}, {"value": "Mega Pur 60", "count": 1}, {"value": "Oxybac foam wash", "count": 1}, {"value": null, "count": 1}, {"value": "Tolo 330", "count": 1}, {"value": "Wasserdampf", "count": 1}]},
+        {"name": "R2", "type": "VARCHAR", "null_count": 11, "non_null_count": 3, "distinct_count": 3, "max_length": 27, "top_values": [{"value": null, "count": 11}, {"value": "calgonit SF 509", "count": 1}, {"value": "Allzweckreiniger mit Citrus", "count": 1}, {"value": "Starmaxx AL", "count": 1}]},
+        {"name": "Wie1", "type": "VARCHAR", "null_count": 3, "non_null_count": 11, "distinct_count": 6, "max_length": 15, "top_values": [{"value": "Schäumen", "count": 4}, {"value": null, "count": 3}, {"value": "Einlegen", "count": 2}, {"value": "manuell", "count": 2}, {"value": "man. Auftrtagen", "count": 1}, {"value": "wischen", "count": 1}, {"value": "sprühen/wischen", "count": 1}]},
+        {"name": "K1", "type": "VARCHAR", "null_count": 2, "non_null_count": 12, "distinct_count": 11, "max_length": 13, "top_values": [{"value": "Autodosierung", "count": 2}, {"value": null, "count": 2}, {"value": "3 %", "count": 1}, {"value": "0,5 %", "count": 1}, {"value": "25%", "count": 1}, {"value": "2%", "count": 1}, {"value": "5%", "count": 1}, {"value": "4-5%", "count": 1}, {"value": "0,5-2%", "count": 1}, {"value": "10-100%", "count": 1}, {"value": "pur", "count": 1}, {"value": "1-3 %", "count": 1}]},
+        {"name": "K2", "type": "VARCHAR", "null_count": 11, "non_null_count": 3, "distinct_count": 3, "max_length": 4, "top_values": [{"value": null, "count": 11}, {"value": "3 %", "count": 1}, {"value": "0,5%", "count": 1}, {"value": "pur", "count": 1}]},
+        {"name": "E1", "type": "VARCHAR", "null_count": 6, "non_null_count": 8, "distinct_count": 5, "max_length": 16, "top_values": [{"value": null, "count": 6}, {"value": "20 min.", "count": 4}, {"value": "Wischzeit", "count": 1}, {"value": "60 min.", "count": 1}, {"value": "programmabhängig", "count": 1}, {"value": "30 min.", "count": 1}]},
+        {"name": "E2", "type": "VARCHAR", "null_count": 13, "non_null_count": 1, "distinct_count": 1, "max_length": 7, "top_values": [{"value": null, "count": 13}, {"value": "20 min.", "count": 1}]},
+        {"name": "D1", "type": "VARCHAR", "null_count": 9, "non_null_count": 5, "distinct_count": 4, "max_length": 15, "top_values": [{"value": null, "count": 9}, {"value": "calgonit DS 622", "count": 2}, {"value": "calgonit NF 422", "count": 1}, {"value": "calgonit NN 497", "count": 1}, {"value": "calgonit Des-H", "count": 1}]},
+        {"name": "D2", "type": "VARCHAR", "null_count": 12, "non_null_count": 2, "distinct_count": 2, "max_length": 16, "top_values": [{"value": null, "count": 12}, {"value": "calgonit DS 683", "count": 1}, {"value": "Stokolan classic", "count": 1}]},
+        {"name": "DW", "type": "VARCHAR", "null_count": 9, "non_null_count": 5, "distinct_count": 4, "max_length": 15, "top_values": [{"value": null, "count": 9}, {"value": "Schäumen", "count": 2}, {"value": "man. Auftrtagen", "count": 1}, {"value": "Besprühen", "count": 1}, {"value": "manuell", "count": 1}]},
+        {"name": "DK1", "type": "VARCHAR", "null_count": 9, "non_null_count": 5, "distinct_count": 4, "max_length": 7, "top_values": [{"value": null, "count": 9}, {"value": "pur", "count": 2}, {"value": "2 - 5 %", "count": 1}, {"value": "10%", "count": 1}, {"value": "0,5%", "count": 1}]},
+        {"name": "DK2", "type": "VARCHAR", "null_count": 12, "non_null_count": 2, "distinct_count": 2, "max_length": 3, "top_values": [{"value": null, "count": 12}, {"value": "2 %", "count": 1}, {"value": "pur", "count": 1}]},
+        {"name": "DE1", "type": "VARCHAR", "null_count": 10, "non_null_count": 4, "distinct_count": 4, "max_length": 10, "top_values": [{"value": null, "count": 10}, {"value": "10-30 min.", "count": 1}, {"value": "10 min.", "count": 1}, {"value": "20 min.", "count": 1}, {"value": "30 min.", "count": 1}]},
+        {"name": "DE2", "type": "VARCHAR", "null_count": 13, "non_null_count": 1, "distinct_count": 1, "max_length": 7, "top_values": [{"value": null, "count": 13}, {"value": "20 min.", "count": 1}]},
+        {"name": "Reinigungsmittel", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Wie2", "type": "VARCHAR", "null_count": 11, "non_null_count": 3, "distinct_count": 3, "max_length": 8, "top_values": [{"value": null, "count": 11}, {"value": "Schäumen", "count": 1}, {"value": "wischen", "count": 1}, {"value": "manuell", "count": 1}]},
+        {"name": "DW1", "type": "VARCHAR", "null_count": 12, "non_null_count": 2, "distinct_count": 2, "max_length": 8, "top_values": [{"value": null, "count": 12}, {"value": "Schäumen", "count": 1}, {"value": "manuell", "count": 1}]},
+        {"name": "Einsatzort1", "type": "VARCHAR", "null_count": 1, "non_null_count": 13, "distinct_count": 13, "max_length": 25, "top_values": [{"value": "Betrieb allegemein", "count": 1}, {"value": "empfindliche Geräte", "count": 1}, {"value": "Tauchbehälter (Paloxen)", "count": 1}, {"value": "Waschbecken", "count": 1}, {"value": "Rauchkammern", "count": 1}, {"value": "Rauchwagen", "count": 1}, {"value": "Bodenfläche", "count": 1}, {"value": "sanitäre Objekte", "count": 1}, {"value": "Waschmaschine", "count": 1}, {"value": "Handseife", "count": 1}, {"value": null, "count": 1}, {"value": "Verdampferreinigung", "count": 1}, {"value": "Scheuersaugautomat", "count": 1}, {"value": "besondere Hygienebereiche", "count": 1}]},
+        {"name": "Einsatzort2", "type": "VARCHAR", "null_count": 11, "non_null_count": 3, "distinct_count": 3, "max_length": 19, "top_values": [{"value": null, "count": 11}, {"value": "Sonderreinigung", "count": 1}, {"value": "empfindliche Geräte", "count": 1}, {"value": "Handdesinfektion", "count": 1}]},
+        {"name": "Einsatzort3", "type": "VARCHAR", "null_count": 11, "non_null_count": 3, "distinct_count": 3, "max_length": 27, "top_values": [{"value": null, "count": 11}, {"value": "Betrieb allegemein", "count": 1}, {"value": "Mobilar/Fenster-Glasflächen", "count": 1}, {"value": "Sohlenwäsche", "count": 1}]},
+        {"name": "Einsatzort4", "type": "VARCHAR", "null_count": 12, "non_null_count": 2, "distinct_count": 2, "max_length": 18, "top_values": [{"value": null, "count": 12}, {"value": "Betrieb allegemein", "count": 1}, {"value": "Hautschutz", "count": 1}]},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "null_count": 14, "non_null_count": 0, "max_length": 0, "is_memo": true}
+      ]
+    },
+    {
+      "name": "003 Hygienepläne Arbeitsschritte",
+      "row_count": 87,
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 87, "distinct_count": 14, "min": "1", "max": "89", "top_values": [{"value": "1", "count": 12}, {"value": "15", "count": 10}, {"value": "50", "count": 9}, {"value": "11", "count": 7}, {"value": "74", "count": 7}, {"value": "40", "count": 6}, {"value": "51", "count": 6}, {"value": "7", "count": 5}, {"value": "89", "count": 5}, {"value": "41", "count": 5}, {"value": "10", "count": 5}, {"value": "53", "count": 5}, {"value": "54", "count": 3}, {"value": "55", "count": 2}]},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "null_count": 0, "non_null_count": 87, "distinct_count": 12, "min": "1", "max": "12", "top_values": [{"value": "2", "count": 14}, {"value": "1", "count": 14}, {"value": "3", "count": 13}, {"value": "4", "count": 12}, {"value": "5", "count": 11}, {"value": "6", "count": 7}, {"value": "7", "count": 6}, {"value": "9", "count": 3}, {"value": "8", "count": 3}, {"value": "10", "count": 2}, {"value": "11", "count": 1}, {"value": "12", "count": 1}]},
+        {"name": "Status", "type": "VARCHAR", "null_count": 30, "non_null_count": 57, "distinct_count": 20, "max_length": 28, "top_values": [{"value": null, "count": 30}, {"value": "Reinigung", "count": 9}, {"value": "Nachbehandlung", "count": 8}, {"value": "Arbeitssicherheits- hinweise", "count": 6}, {"value": "Vorreinigung", "count": 4}, {"value": "Grobreinigung", "count": 4}, {"value": "Kontrolle / Auffülllen", "count": 3}, {"value": "Schaumreinigung", "count": 3}, {"value": "Desinfektion", "count": 3}, {"value": "Nachspülen", "count": 3}, {"value": "Kontrolle", "count": 2}, {"value": "Demontage/ Sicherheit", "count": 2}, {"value": "Vorbereitung", "count": 2}, {"value": "Kontrolle\r\nSchaumreinigung", "count": 1}, {"value": "Kontrolle\r\nVorreinigung", "count": 1}, {"value": "Programmwahl", "count": 1}, {"value": "Maschinenpflege", "count": 1}, {"value": "Kontrolle Vorreinigung", "count": 1}, {"value": "Beladen", "count": 1}, {"value": "Waschmittelfach befüllen", "count": 1}, {"value": "nach dem Waschgang", "count": 1}]},
+        {"name": "Aufgaben", "type": "VARCHAR", "null_count": 4, "non_null_count": 83, "max_length": 306, "is_memo": true},
+        {"name": "Verfahren", "type": "VARCHAR", "null_count": 4, "non_null_count": 83, "max_length": 478, "is_memo": true},
+        {"name": "Geräte", "type": "VARCHAR", "null_count": 31, "non_null_count": 56, "max_length": 142, "is_memo": true},
+        {"name": "Hinweise", "type": "VARCHAR", "null_count": 40, "non_null_count": 47, "max_length": 101, "is_memo": true},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "null_count": 87, "non_null_count": 0, "max_length": 0, "is_memo": true}
+      ]
+    },
+    {
+      "name": "003a HP Arbeitsschritte",
+      "row_count": 83,
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 83, "distinct_count": 13, "min": "1", "max": "89", "top_values": [{"value": "1", "count": 12}, {"value": "15", "count": 10}, {"value": "50", "count": 9}, {"value": "11", "count": 7}, {"value": "74", "count": 7}, {"value": "40", "count": 6}, {"value": "51", "count": 6}, {"value": "7", "count": 5}, {"value": "89", "count": 5}, {"value": "41", "count": 5}, {"value": "10", "count": 5}, {"value": "52", "count": 4}, {"value": "55", "count": 2}]},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "null_count": 0, "non_null_count": 83, "distinct_count": 12, "min": "1", "max": "12", "top_values": [{"value": "2", "count": 13}, {"value": "1", "count": 13}, {"value": "4", "count": 12}, {"value": "3", "count": 12}, {"value": "5", "count": 10}, {"value": "6", "count": 7}, {"value": "7", "count": 6}, {"value": "9", "count": 3}, {"value": "8", "count": 3}, {"value": "10", "count": 2}, {"value": "11", "count": 1}, {"value": "12", "count": 1}]},
+        {"name": "Status", "type": "VARCHAR", "null_count": 34, "non_null_count": 49, "distinct_count": 15, "max_length": 28, "top_values": [{"value": null, "count": 34}, {"value": "Reinigung", "count": 9}, {"value": "Nachbehandlung", "count": 8}, {"value": "Arbeitssicherheits- hinweise", "count": 6}, {"value": "Grobreinigung", "count": 4}, {"value": "Vorreinigung", "count": 4}, {"value": "Desinfektion", "count": 3}, {"value": "Nachspülen", "count": 3}, {"value": "Schaumreinigung", "count": 3}, {"value": "Demontage/ Sicherheit", "count": 2}, {"value": "Kontrolle", "count": 2}, {"value": "Kontrolle\r\nSchaumreinigung", "count": 1}, {"value": "Kontrolle\r\nVorreinigung", "count": 1}, {"value": "Maschinenpflege", "count": 1}, {"value": "Vorbereitung", "count": 1}, {"value": "Kontrolle Vorreinigung", "count": 1}]},
+        {"name": "Aufgaben", "type": "VARCHAR", "null_count": 0, "non_null_count": 83, "max_length": 306, "is_memo": true},
+        {"name": "Verfahren", "type": "VARCHAR", "null_count": 4, "non_null_count": 79, "max_length": 478, "is_memo": true},
+        {"name": "Geräte", "type": "VARCHAR", "null_count": 25, "non_null_count": 58, "max_length": 81, "is_memo": true},
+        {"name": "Hinweise", "type": "VARCHAR", "null_count": 41, "non_null_count": 42, "max_length": 101, "is_memo": true},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "null_count": 83, "non_null_count": 0, "max_length": 0, "is_memo": true}
+      ]
+    },
+    {
+      "name": "003a HP Arbeitsschritte V01",
+      "row_count": 96,
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 96, "distinct_count": 16, "min": "1", "max": "90", "top_values": [{"value": "1", "count": 13}, {"value": "15", "count": 10}, {"value": "50", "count": 10}, {"value": "11", "count": 7}, {"value": "74", "count": 7}, {"value": "40", "count": 6}, {"value": "51", "count": 6}, {"value": "10", "count": 5}, {"value": "41", "count": 5}, {"value": "89", "count": 5}, {"value": "53", "count": 5}, {"value": "7", "count": 4}, {"value": "52", "count": 4}, {"value": "54", "count": 4}, {"value": "90", "count": 3}, {"value": "55", "count": 2}]},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "null_count": 0, "non_null_count": 96, "distinct_count": 13, "min": "1", "max": "13", "top_values": [{"value": "2", "count": 16}, {"value": "1", "count": 16}, {"value": "3", "count": 15}, {"value": "4", "count": 14}, {"value": "5", "count": 10}, {"value": "6", "count": 7}, {"value": "7", "count": 6}, {"value": "9", "count": 3}, {"value": "8", "count": 3}, {"value": "10", "count": 3}, {"value": "11", "count": 1}, {"value": "12", "count": 1}, {"value": "13", "count": 1}]},
+        {"name": "Status", "type": "VARCHAR", "null_count": 34, "non_null_count": 62, "distinct_count": 23, "max_length": 34, "top_values": [{"value": null, "count": 34}, {"value": "Reinigung", "count": 10}, {"value": "Nachbehandlung", "count": 7}, {"value": "Arbeitssicherheitshinweise", "count": 6}, {"value": "Grobreinigung", "count": 4}, {"value": "Vorreinigung", "count": 4}, {"value": "Kontrolle / Auffüllen", "count": 4}, {"value": "Nachspülen", "count": 3}, {"value": "Schaumreinigung", "count": 3}, {"value": "Desinfektion", "count": 3}, {"value": "Vorbereitung", "count": 3}, {"value": "Demontage/ Sicherheit", "count": 2}, {"value": "Kontrolle", "count": 2}, {"value": "Nachbereitung", "count": 1}, {"value": "Sonderreingung", "count": 1}, {"value": "nach dem Waschgang", "count": 1}, {"value": "Programmwahl", "count": 1}, {"value": "Waschmittelfach befüllen", "count": 1}, {"value": "Kontrolle Vorreinigung", "count": 1}, {"value": "Handwaschbecken / Hygieneschleusen", "count": 1}, {"value": "Kontrolle\r\nVorreinigung", "count": 1}, {"value": "Kontrolle\r\nSchaumreinigung", "count": 1}, {"value": "Beladen", "count": 1}, {"value": "Sonderreinigung", "count": 1}]},
+        {"name": "Aufgaben", "type": "VARCHAR", "null_count": 4, "non_null_count": 92, "max_length": 309, "is_memo": true},
+        {"name": "Verfahren1", "type": "VARCHAR", "null_count": 15, "non_null_count": 81, "max_length": 295, "is_memo": true},
+        {"name": "txtRGM1", "type": "VARCHAR", "null_count": 70, "non_null_count": 26, "max_length": 171, "is_memo": true},
+        {"name": "NrRGM1", "type": "INTEGER", "null_count": 0, "non_null_count": 96, "distinct_count": 16, "min": "187", "max": "353", "top_values": [{"value": "329", "count": 71}, {"value": "351", "count": 4}, {"value": "342", "count": 3}, {"value": "332", "count": 2}, {"value": "337", "count": 2}, {"value": "335", "count": 2}, {"value": "352", "count": 2}, {"value": "187", "count": 2}, {"value": "336", "count": 1}, {"value": "353", "count": 1}, {"value": "346", "count": 1}, {"value": "339", "count": 1}, {"value": "344", "count": 1}, {"value": "347", "count": 1}, {"value": "348", "count": 1}, {"value": "349", "count": 1}]},
+        {"name": "Verfahren2", "type": "VARCHAR", "null_count": 94, "non_null_count": 2, "distinct_count": 2, "max_length": 137, "top_values": [{"value": null, "count": 94}, {"value": "Im Wechsel oder nach Absprache einschäumen mit einem sauren Reinigungsmittel - systematisch von oben nach unten bzw. von innen nach außen", "count": 1}, {"value": "bei hartnäckigen Verschmutzungen", "count": 1}]},
+        {"name": "txtRGM2", "type": "VARCHAR", "null_count": 93, "non_null_count": 3, "max_length": 177, "is_memo": true},
+        {"name": "NrRGM2", "type": "INTEGER", "null_count": 0, "non_null_count": 96, "distinct_count": 4, "min": "175", "max": "364", "top_values": [{"value": "329", "count": 93}, {"value": "341", "count": 1}, {"value": "175", "count": 1}, {"value": "364", "count": 1}]},
+        {"name": "Verfahren3", "type": "VARCHAR", "null_count": 96, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "txtRGM3", "type": "VARCHAR", "null_count": 96, "non_null_count": 0, "max_length": 0, "is_memo": true},
+        {"name": "NrRGM3", "type": "INTEGER", "null_count": 0, "non_null_count": 96, "distinct_count": 1, "min": "329", "max": "329", "top_values": [{"value": "329", "count": 96}]},
+        {"name": "Geräte", "type": "VARCHAR", "null_count": 38, "non_null_count": 58, "max_length": 81, "is_memo": true},
+        {"name": "Hinweise", "type": "VARCHAR", "null_count": 55, "non_null_count": 41, "max_length": 101, "is_memo": true},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "null_count": 96, "non_null_count": 0, "max_length": 0, "is_memo": true}
+      ]
+    },
+    {
+      "name": "010 Arbeitsanweisungen alles",
+      "row_count": 1062,
+      "columns": [
+        {"name": "Etage", "type": "VARCHAR", "null_count": 0, "non_null_count": 1062, "distinct_count": 3, "max_length": 2, "top_values": [{"value": "EG", "count": 514}, {"value": "OG", "count": 493}, {"value": "ZG", "count": 55}]},
+        {"name": "BereichNr", "type": "INTEGER", "null_count": 448, "non_null_count": 614, "distinct_count": 3, "min": "100", "max": "300", "top_values": [{"value": null, "count": 448}, {"value": "100", "count": 313}, {"value": "200", "count": 226}, {"value": "300", "count": 75}]},
+        {"name": "Bereich", "type": "VARCHAR", "null_count": 448, "non_null_count": 614, "distinct_count": 3, "max_length": 10, "top_values": [{"value": null, "count": 448}, {"value": "Verwaltung", "count": 313}, {"value": "Produktion", "count": 226}, {"value": "Versand", "count": 75}]},
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 1062, "distinct_count": 124, "min": "10", "max": "1390"},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "null_count": 133, "non_null_count": 929, "distinct_count": 112, "max_length": 12},
+        {"name": "Abteilung", "type": "VARCHAR", "null_count": 0, "non_null_count": 1062, "distinct_count": 99, "max_length": 57},
+        {"name": "Objekt", "type": "VARCHAR", "null_count": 0, "non_null_count": 1062, "distinct_count": 170, "max_length": 45},
+        {"name": "PlanNr", "type": "INTEGER", "null_count": 0, "non_null_count": 1062, "distinct_count": 12, "min": "1", "max": "90", "top_values": [{"value": "50", "count": 563}, {"value": "1", "count": 359}, {"value": "89", "count": 33}, {"value": "52", "count": 28}, {"value": "74", "count": 28}, {"value": "51", "count": 17}, {"value": "7", "count": 16}, {"value": "55", "count": 11}, {"value": "53", "count": 3}, {"value": "90", "count": 2}, {"value": "15", "count": 1}, {"value": "41", "count": 1}]},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "null_count": 0, "non_null_count": 1062, "distinct_count": 34, "max_length": 3},
+        {"name": "ObID", "type": "INTEGER", "null_count": 0, "non_null_count": 1062, "distinct_count": 859, "min": "8971", "max": "10263"}
+      ]
+    },
+    {
+      "name": "021 GefahrstofflisteLWM",
+      "row_count": 13,
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 13, "distinct_count": 13, "min": "187", "max": "342", "top_values": [{"value": "187", "count": 1}, {"value": "330", "count": 1}, {"value": "331", "count": 1}, {"value": "332", "count": 1}, {"value": "333", "count": 1}, {"value": "335", "count": 1}, {"value": "336", "count": 1}, {"value": "337", "count": 1}, {"value": "338", "count": 1}, {"value": "339", "count": 1}, {"value": "340", "count": 1}, {"value": "341", "count": 1}, {"value": "342", "count": 1}]}
+      ]
+    },
+    {
+      "name": "021 Gefahrstoffverzeichnis",
+      "row_count": 22,
+      "columns": [
+        {"name": "ArtNr", "type": "INTEGER", "null_count": 0, "non_null_count": 22, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": "0", "count": 22}]},
+        {"name": "Artikelname", "type": "VARCHAR", "null_count": 0, "non_null_count": 22, "distinct_count": 21, "max_length": 27, "top_values": [{"value": "calgonit NF 5401", "count": 2}, {"value": "calgonit DS 683", "count": 1}, {"value": "Fussbodenreiniger Neo", "count": 1}, {"value": "Sanitärblitz", "count": 1}, {"value": "Allzweckreiniger mit Citrus", "count": 1}, {"value": "calgonit Des-H", "count": 1}, {"value": "Stokolan classic", "count": 1}, {"value": "Oxybac foam wash", "count": 1}, {"value": "Mega Pur 60", "count": 1}, {"value": "Starmaxx AL", "count": 1}, {"value": "Duftöl Citro-Wunder", "count": 1}, {"value": "calgonit NF 422", "count": 1}, {"value": "Tolo 330", "count": 1}, {"value": "calgonit NN 472", "count": 1}, {"value": "tru-lit Safe CL", "count": 1}, {"value": "calgonit SN 542", "count": 1}, {"value": "tru-lit GS Premium", "count": 1}, {"value": "calgonit SF 509", "count": 1}, {"value": "calgonit NN 497", "count": 1}, {"value": "Orbin Evolve", "count": 1}, {"value": "Eilfix Scheuermilch", "count": 1}]},
+        {"name": "Menge jährl", "type": "VARCHAR", "null_count": 22, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Standort", "type": "VARCHAR", "null_count": 16, "non_null_count": 6, "distinct_count": 1, "max_length": 19, "top_values": [{"value": null, "count": 16}, {"value": "Unterhaltsreinigung", "count": 6}]},
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 22, "distinct_count": 21, "min": "175", "max": "374", "top_values": [{"value": "335", "count": 2}, {"value": "332", "count": 1}, {"value": "364", "count": 1}, {"value": "365", "count": 1}, {"value": "362", "count": 1}, {"value": "339", "count": 1}, {"value": "347", "count": 1}, {"value": "346", "count": 1}, {"value": "348", "count": 1}, {"value": "344", "count": 1}, {"value": "374", "count": 1}, {"value": "349", "count": 1}, {"value": "187", "count": 1}, {"value": "340", "count": 1}, {"value": "330", "count": 1}, {"value": "333", "count": 1}, {"value": "336", "count": 1}, {"value": "341", "count": 1}, {"value": "342", "count": 1}, {"value": "175", "count": 1}, {"value": "373", "count": 1}]},
+        {"name": "Einsatz", "type": "VARCHAR", "null_count": 0, "non_null_count": 22, "distinct_count": 2, "max_length": 19, "top_values": [{"value": "Industriereinigung", "count": 16}, {"value": "Unterhaltsreinigung", "count": 6}]}
+      ]
+    },
+    {
+      "name": "022 Hygienekontrollen",
+      "row_count": 1858,
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 1858, "distinct_count": 124, "min": "10", "max": "1390"},
+        {"name": "Abteilung", "type": "VARCHAR", "null_count": 0, "non_null_count": 1858, "distinct_count": 99, "max_length": 57},
+        {"name": "BereichNr", "type": "INTEGER", "null_count": 1230, "non_null_count": 628, "distinct_count": 3, "min": "100", "max": "300", "top_values": [{"value": null, "count": 1230}, {"value": "100", "count": 324}, {"value": "200", "count": 226}, {"value": "300", "count": 78}]},
+        {"name": "Bereich", "type": "VARCHAR", "null_count": 1230, "non_null_count": 628, "distinct_count": 3, "max_length": 10, "top_values": [{"value": null, "count": 1230}, {"value": "Verwaltung", "count": 324}, {"value": "Produktion", "count": 226}, {"value": "Versand", "count": 78}]},
+        {"name": "ObID", "type": "INTEGER", "null_count": 1858, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "null_count": 798, "non_null_count": 1060, "distinct_count": 34, "max_length": 3},
+        {"name": "Hygienekontrollen", "type": "VARCHAR", "null_count": 0, "non_null_count": 1858, "max_length": 62, "is_memo": true},
+        {"name": "Anzahl", "type": "VARCHAR", "null_count": 1858, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "IntervallZahl", "type": "DOUBLE", "null_count": 1060, "non_null_count": 798, "distinct_count": 10, "min": "20.0", "max": "52.0", "top_values": [{"value": null, "count": 1060}, {"value": "20.0", "count": 354}, {"value": "30.0", "count": 109}, {"value": "22.0", "count": 87}, {"value": "52.0", "count": 70}, {"value": "41.0", "count": 70}, {"value": "21.0", "count": 52}, {"value": "43.0", "count": 22}, {"value": "31.0", "count": 20}, {"value": "42.0", "count": 8}, {"value": "40.0", "count": 6}]},
+        {"name": "IntV", "type": "VARCHAR", "null_count": 0, "non_null_count": 1858, "distinct_count": 16, "max_length": 15, "top_values": [{"value": "10", "count": 450}, {"value": "20", "count": 356}, {"value": "wöchentlich", "count": 354}, {"value": "monatlich", "count": 109}, {"value": "3 x wöchentlich", "count": 87}, {"value": "22", "count": 87}, {"value": "nach Anweisung", "count": 70}, {"value": "2 x jährlich", "count": 70}, {"value": "52", "count": 70}, {"value": "2 x wöchentlich", "count": 52}, {"value": "21", "count": 52}, {"value": "11", "count": 45}, {"value": "4 x jährlich", "count": 22}, {"value": "2 x monatlich", "count": 20}, {"value": "3 x jährlich", "count": 8}, {"value": "jährlich", "count": 6}]},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "null_count": 0, "non_null_count": 1858, "distinct_count": 2, "max_length": 11, "top_values": [{"value": "Münstermann", "count": 1848}, {"value": "Kunde", "count": 10}]}
+      ]
+    },
+    {
+      "name": "022 Hygienekontrollen Spezial 15",
+      "row_count": 0,
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER"},
+        {"name": "Abteilung", "type": "VARCHAR"},
+        {"name": "Objekt-Nr", "type": "VARCHAR"},
+        {"name": "Anzahl", "type": "VARCHAR"},
+        {"name": "Objekt", "type": "VARCHAR"},
+        {"name": "Objekt Filter", "type": "VARCHAR"},
+        {"name": "Seitennummer", "type": "INTEGER"},
+        {"name": "Bereichs-Nr", "type": "INTEGER"},
+        {"name": "Bereich", "type": "VARCHAR"},
+        {"name": "Kontroll_intervall", "type": "INTEGER"},
+        {"name": "IntervallText", "type": "VARCHAR"},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR"},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER"},
+        {"name": "KontrollZahl", "type": "DOUBLE"},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN"},
+        {"name": "Etage", "type": "VARCHAR"},
+        {"name": "NachHygPlan", "type": "VARCHAR"},
+        {"name": "PlanTxt", "type": "VARCHAR"},
+        {"name": "AusführungReinigung", "type": "VARCHAR"}
+      ]
+    },
+    {
+      "name": "022 Hygienekontrollen Unterhaltsreinigung",
+      "row_count": 0,
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER"},
+        {"name": "Abteilung", "type": "VARCHAR"},
+        {"name": "Objekt-Nr", "type": "VARCHAR"},
+        {"name": "Anzahl", "type": "VARCHAR"},
+        {"name": "Objekt", "type": "VARCHAR"},
+        {"name": "Objekt Filter", "type": "VARCHAR"},
+        {"name": "Seitennummer", "type": "INTEGER"},
+        {"name": "Bereichs-Nr", "type": "INTEGER"},
+        {"name": "Bereich", "type": "VARCHAR"},
+        {"name": "Kontroll_intervall", "type": "INTEGER"},
+        {"name": "IntervallText", "type": "VARCHAR"},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR"},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER"},
+        {"name": "KontrollZahl", "type": "DOUBLE"},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN"},
+        {"name": "AusführungReinigung", "type": "VARCHAR"},
+        {"name": "Etage", "type": "VARCHAR"}
+      ]
+    },
+    {
+      "name": "022_1 HK_nachHygPlan",
+      "row_count": 388,
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "null_count": 0, "non_null_count": 388, "distinct_count": 124, "min": "10", "max": "1390"},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "null_count": 2, "non_null_count": 386, "distinct_count": 113, "max_length": 12},
+        {"name": "Abteilung", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "distinct_count": 99, "max_length": 57},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "distinct_count": 173, "max_length": 8},
+        {"name": "Objekt", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "max_length": 371, "is_memo": true},
+        {"name": "Bereichs-Nr", "type": "INTEGER", "null_count": 388, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "Bereich", "type": "VARCHAR", "null_count": 53, "non_null_count": 335, "distinct_count": 4, "max_length": 10, "top_values": [{"value": "", "count": 121}, {"value": "Verwaltung", "count": 110}, {"value": "Produktion", "count": 83}, {"value": null, "count": 53}, {"value": "Versand", "count": 21}]},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "null_count": 0, "non_null_count": 388, "distinct_count": 12, "min": "10", "max": "52", "top_values": [{"value": "20", "count": 105}, {"value": "10", "count": 84}, {"value": "30", "count": 66}, {"value": "22", "count": 42}, {"value": "52", "count": 30}, {"value": "21", "count": 16}, {"value": "11", "count": 12}, {"value": "41", "count": 11}, {"value": "43", "count": 9}, {"value": "31", "count": 8}, {"value": "42", "count": 3}, {"value": "40", "count": 2}]},
+        {"name": "IntervallText", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "distinct_count": 5, "max_length": 14, "top_values": [{"value": "wöchentlich", "count": 163}, {"value": "täglich", "count": 96}, {"value": "monatlich", "count": 74}, {"value": "nach Anweisung", "count": 30}, {"value": "jährlich", "count": 25}]},
+        {"name": "KontrollZahl", "type": "DOUBLE", "null_count": 30, "non_null_count": 358, "distinct_count": 4, "min": "1.0", "max": "4.0", "top_values": [{"value": "1.0", "count": 257}, {"value": "2.0", "count": 47}, {"value": "3.0", "count": 45}, {"value": null, "count": 30}, {"value": "4.0", "count": 9}]},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "null_count": 0, "non_null_count": 388, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 388}]},
+        {"name": "Etage", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "distinct_count": 3, "max_length": 2, "top_values": [{"value": "OG", "count": 195}, {"value": "EG", "count": 178}, {"value": "ZG", "count": 15}]},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER", "null_count": 53, "non_null_count": 335, "distinct_count": 48, "min": "0", "max": "570"},
+        {"name": "HygPlan", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "distinct_count": 13, "max_length": 3, "top_values": [{"value": "S.1", "count": 176}, {"value": "A.1", "count": 131}, {"value": "S.3", "count": 26}, {"value": "SM", "count": 18}, {"value": "R", "count": 11}, {"value": "C.2", "count": 9}, {"value": "S.2", "count": 6}, {"value": "", "count": 3}, {"value": "S.4", "count": 3}, {"value": "D.1", "count": 2}, {"value": "O", "count": 1}, {"value": "I.2", "count": 1}, {"value": "V.1", "count": 1}]},
+        {"name": "PlanTxt", "type": "VARCHAR", "null_count": 0, "non_null_count": 388, "distinct_count": 13, "max_length": 46, "top_values": [{"value": "Reinigung des Sozialbereichs", "count": 176}, {"value": "Reinigung alkalisch / sauer inkl. Desinfektion", "count": 131}, {"value": "Reinigung von Fenster und Glasflächen", "count": 26}, {"value": "Reinigung mit Saug-Schrubb-Maschine", "count": 18}, {"value": "Fegen der Bodenflächen", "count": 11}, {"value": "manuelle Reinigung empfindlicher Anlagen", "count": 9}, {"value": "Reinigung von sanitäre Einrichtungen", "count": 6}, {"value": "", "count": 3}, {"value": "Reinigung mit Waschmaschine", "count": 3}, {"value": "Reinigung mit Dampfreiniger", "count": 2}, {"value": "Reinigung von Rauchwagen", "count": 1}, {"value": "Reinigung von Injektornadeln", "count": 1}, {"value": "Reinigung von Verdampfern", "count": 1}]},
+        {"name": "Mo", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 6, "min": "0", "max": "89", "top_values": [{"value": "0", "count": 270}, {"value": null, "count": 55}, {"value": "50", "count": 43}, {"value": "89", "count": 9}, {"value": "1", "count": 8}, {"value": "7", "count": 2}, {"value": "55", "count": 1}]},
+        {"name": "Di", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 4, "min": "0", "max": "89", "top_values": [{"value": "0", "count": 325}, {"value": null, "count": 55}, {"value": "1", "count": 5}, {"value": "52", "count": 2}, {"value": "89", "count": 1}]},
+        {"name": "Mi", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 6, "min": "0", "max": "89", "top_values": [{"value": "0", "count": 279}, {"value": null, "count": 55}, {"value": "50", "count": 42}, {"value": "1", "count": 5}, {"value": "89", "count": 5}, {"value": "15", "count": 1}, {"value": "7", "count": 1}]},
+        {"name": "Do", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 4, "min": "0", "max": "89", "top_values": [{"value": "0", "count": 318}, {"value": null, "count": 55}, {"value": "89", "count": 8}, {"value": "1", "count": 6}, {"value": "7", "count": 1}]},
+        {"name": "Fr", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 8, "min": "0", "max": "90", "top_values": [{"value": "0", "count": 203}, {"value": "50", "count": 79}, {"value": null, "count": 55}, {"value": "1", "count": 22}, {"value": "52", "count": 21}, {"value": "89", "count": 4}, {"value": "7", "count": 2}, {"value": "90", "count": 1}, {"value": "55", "count": 1}]},
+        {"name": "Sa", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": "0", "count": 333}, {"value": null, "count": 55}]},
+        {"name": "So", "type": "SMALLINT", "null_count": 55, "non_null_count": 333, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": "0", "count": 333}, {"value": null, "count": 55}]},
+        {"name": "uebrige", "type": "SMALLINT", "null_count": 0, "non_null_count": 388, "distinct_count": 1, "min": "0", "max": "0", "top_values": [{"value": "0", "count": 388}]}
+      ]
+    },
+    {
+      "name": "022_1 tempHK_nachHygPlan",
+      "row_count": 1636,
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "SMALLINT", "null_count": 0, "non_null_count": 1636, "distinct_count": 124, "min": "10", "max": "1390"},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "null_count": 176, "non_null_count": 1460, "distinct_count": 112, "max_length": 12},
+        {"name": "Abteilung", "type": "VARCHAR", "null_count": 0, "non_null_count": 1636, "distinct_count": 99, "max_length": 57},
+        {"name": "Abteilungsleiter-Nr", "type": "SMALLINT", "null_count": 758, "non_null_count": 878, "distinct_count": 47, "min": "100", "max": "570"},
+        {"name": "Objekt", "type": "VARCHAR", "null_count": 0, "non_null_count": 1636, "distinct_count": 165, "max_length": 62},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "null_count": 0, "non_null_count": 1636, "distinct_count": 35, "max_length": 3},
+        {"name": "Bereichs-Nr", "type": "SMALLINT", "null_count": 758, "non_null_count": 878, "distinct_count": 3, "min": "100", "max": "300", "top_values": [{"value": null, "count": 758}, {"value": "100", "count": 430}, {"value": "200", "count": 350}, {"value": "300", "count": 98}]},
+        {"name": "Bereich", "type": "VARCHAR", "null_count": 758, "non_null_count": 878, "distinct_count": 3, "max_length": 10, "top_values": [{"value": null, "count": 758}, {"value": "Verwaltung", "count": 430}, {"value": "Produktion", "count": 350}, {"value": "Versand", "count": 98}]},
+        {"name": "Etage", "type": "VARCHAR", "null_count": 0, "non_null_count": 1636, "distinct_count": 3, "max_length": 2, "top_values": [{"value": "EG", "count": 802}, {"value": "OG", "count": 760}, {"value": "ZG", "count": 74}]},
+        {"name": "Kontroll_intervall", "type": "SMALLINT", "null_count": 0, "non_null_count": 1636, "distinct_count": 12, "min": "10", "max": "52", "top_values": [{"value": "10", "count": 600}, {"value": "20", "count": 454}, {"value": "22", "count": 174}, {"value": "30", "count": 140}, {"value": "11", "count": 90}, {"value": "52", "count": 60}, {"value": "21", "count": 48}, {"value": "41", "count": 22}, {"value": "31", "count": 20}, {"value": "43", "count": 18}, {"value": "42", "count": 6}, {"value": "40", "count": 4}]},
+        {"name": "IntervallText", "type": "VARCHAR", "null_count": 0, "non_null_count": 1636, "distinct_count": 5, "max_length": 14, "top_values": [{"value": "täglich", "count": 690}, {"value": "wöchentlich", "count": 676}, {"value": "monatlich", "count": 160}, {"value": "nach Anweisung", "count": 60}, {"value": "jährlich", "count": 50}]},
+        {"name": "KontrollZahl", "type": "DOUBLE", "null_count": 60, "non_null_count": 1576, "distinct_count": 4, "min": "1.0", "max": "4.0", "top_values": [{"value": "1.0", "count": 1198}, {"value": "2.0", "count": 180}, {"value": "3.0", "count": 180}, {"value": null, "count": 60}, {"value": "4.0", "count": 18}]},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "null_count": 0, "non_null_count": 1636, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 1636}]},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "null_count": 0, "non_null_count": 1636, "distinct_count": 2, "max_length": 11, "top_values": [{"value": "Münstermann", "count": 1628}, {"value": "Kunde", "count": 8}]},
+        {"name": "NachHygPlan", "type": "VARCHAR", "null_count": 821, "non_null_count": 815, "distinct_count": 12, "max_length": 3, "top_values": [{"value": null, "count": 821}, {"value": "S.1", "count": 389}, {"value": "A.1", "count": 333}, {"value": "S.3", "count": 26}, {"value": "SM", "count": 18}, {"value": "S.2", "count": 17}, {"value": "C.2", "count": 13}, {"value": "R", "count": 11}, {"value": "S.4", "count": 3}, {"value": "D.1", "count": 2}, {"value": "I.2", "count": 1}, {"value": "V.1", "count": 1}, {"value": "O", "count": 1}]},
+        {"name": "PlanTxt", "type": "VARCHAR", "null_count": 821, "non_null_count": 815, "distinct_count": 12, "max_length": 46, "top_values": [{"value": null, "count": 821}, {"value": "Reinigung des Sozialbereichs", "count": 389}, {"value": "Reinigung alkalisch / sauer inkl. Desinfektion", "count": 333}, {"value": "Reinigung von Fenster und Glasflächen", "count": 26}, {"value": "Reinigung mit Saug-Schrubb-Maschine", "count": 18}, {"value": "Reinigung von sanitäre Einrichtungen", "count": 17}, {"value": "manuelle Reinigung empfindlicher Anlagen", "count": 13}, {"value": "Fegen der Bodenflächen", "count": 11}, {"value": "Reinigung mit Waschmaschine", "count": 3}, {"value": "Reinigung mit Dampfreiniger", "count": 2}, {"value": "Reinigung von Injektornadeln", "count": 1}, {"value": "Reinigung von Verdampfern", "count": 1}, {"value": "Reinigung von Rauchwagen", "count": 1}]},
+        {"name": "Mo", "type": "SMALLINT", "null_count": 1390, "non_null_count": 246, "distinct_count": 5, "min": "1", "max": "89", "top_values": [{"value": null, "count": 1390}, {"value": "50", "count": 176}, {"value": "1", "count": 42}, {"value": "89", "count": 18}, {"value": "7", "count": 8}, {"value": "55", "count": 2}]},
+        {"name": "Di", "type": "SMALLINT", "null_count": 1604, "non_null_count": 32, "distinct_count": 3, "min": "1", "max": "89", "top_values": [{"value": null, "count": 1604}, {"value": "1", "count": 26}, {"value": "52", "count": 4}, {"value": "89", "count": 2}]},
+        {"name": "Mi", "type": "SMALLINT", "null_count": 1428, "non_null_count": 208, "distinct_count": 5, "min": "1", "max": "89", "top_values": [{"value": null, "count": 1428}, {"value": "50", "count": 174}, {"value": "1", "count": 20}, {"value": "89", "count": 10}, {"value": "7", "count": 2}, {"value": "15", "count": 2}]},
+        {"name": "Do", "type": "SMALLINT", "null_count": 1582, "non_null_count": 54, "distinct_count": 3, "min": "1", "max": "89", "top_values": [{"value": null, "count": 1582}, {"value": "1", "count": 34}, {"value": "89", "count": 16}, {"value": "7", "count": 4}]},
+        {"name": "Fr", "type": "SMALLINT", "null_count": 1084, "non_null_count": 552, "distinct_count": 7, "min": "1", "max": "90", "top_values": [{"value": null, "count": 1084}, {"value": "50", "count": 334}, {"value": "1", "count": 158}, {"value": "52", "count": 42}, {"value": "89", "count": 8}, {"value": "7", "count": 6}, {"value": "90", "count": 2}, {"value": "55", "count": 2}]},
+        {"name": "Sa", "type": "SMALLINT", "null_count": 1636, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "So", "type": "SMALLINT", "null_count": 1636, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null},
+        {"name": "uebrige", "type": "SMALLINT", "null_count": 694, "non_null_count": 942, "distinct_count": 11, "min": "1", "max": "90", "top_values": [{"value": null, "count": 694}, {"value": "50", "count": 442}, {"value": "1", "count": 412}, {"value": "51", "count": 34}, {"value": "55", "count": 18}, {"value": "52", "count": 10}, {"value": "89", "count": 8}, {"value": "7", "count": 6}, {"value": "53", "count": 6}, {"value": "74", "count": 2}, {"value": "90", "count": 2}, {"value": "41", "count": 2}]}
+      ]
+    },
+    {
+      "name": "050 Kontrollintervalle",
+      "row_count": 18,
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 18, "distinct_count": 18, "min": "10", "max": "52", "top_values": [{"value": "10", "count": 1}, {"value": "45", "count": 1}, {"value": "43", "count": 1}, {"value": "42", "count": 1}, {"value": "41", "count": 1}, {"value": "40", "count": 1}, {"value": "33", "count": 1}, {"value": "32", "count": 1}, {"value": "51", "count": 1}, {"value": "31", "count": 1}, {"value": "29", "count": 1}, {"value": "23", "count": 1}, {"value": "22", "count": 1}, {"value": "21", "count": 1}, {"value": "20", "count": 1}, {"value": "11", "count": 1}, {"value": "30", "count": 1}, {"value": "52", "count": 1}]},
+        {"name": "KinterV", "type": "VARCHAR", "null_count": 0, "non_null_count": 18, "distinct_count": 18, "max_length": 15, "top_values": [{"value": "täglich", "count": 1}, {"value": "6 x jährlich", "count": 1}, {"value": "4 x jährlich", "count": 1}, {"value": "3 x jährlich", "count": 1}, {"value": "2 x jährlich", "count": 1}, {"value": "jährlich", "count": 1}, {"value": "4 x monatlich", "count": 1}, {"value": "3 x monatlich", "count": 1}, {"value": "nach Gebrauch", "count": 1}, {"value": "2 x monatlich", "count": 1}, {"value": "jede 3. Woche", "count": 1}, {"value": "4 x wöchentlich", "count": 1}, {"value": "3 x wöchentlich", "count": 1}, {"value": "2 x wöchentlich", "count": 1}, {"value": "wöchentlich", "count": 1}, {"value": "2 x täglich", "count": 1}, {"value": "monatlich", "count": 1}, {"value": "nach Anweisung", "count": 1}]},
+        {"name": "Kfaktor", "type": "DOUBLE", "null_count": 7, "non_null_count": 11, "distinct_count": 8, "min": "0.0", "max": "21.75", "top_values": [{"value": null, "count": 7}, {"value": "1.0", "count": 3}, {"value": "0.0", "count": 2}, {"value": "21.75", "count": 1}, {"value": "4.35", "count": 1}, {"value": "8.7", "count": 1}, {"value": "13.05", "count": 1}, {"value": "17.4", "count": 1}, {"value": "0.08", "count": 1}]},
+        {"name": "AusführungZahl", "type": "INTEGER", "null_count": 2, "non_null_count": 16, "distinct_count": 5, "min": "1", "max": "6", "top_values": [{"value": "1", "count": 5}, {"value": "2", "count": 4}, {"value": "3", "count": 3}, {"value": "4", "count": 3}, {"value": null, "count": 2}, {"value": "6", "count": 1}]},
+        {"name": "IntervallText", "type": "VARCHAR", "null_count": 0, "non_null_count": 18, "distinct_count": 7, "max_length": 14, "top_values": [{"value": "jährlich", "count": 5}, {"value": "wöchentlich", "count": 4}, {"value": "monatlich", "count": 4}, {"value": "täglich", "count": 2}, {"value": "jede 3. Woche", "count": 1}, {"value": "nach Gebrauch", "count": 1}, {"value": "nach Anweisung", "count": 1}]}
+      ]
+    },
+    {
+      "name": "100 Firmendaten",
+      "row_count": 1,
+      "columns": [
+        {"name": "Kunden-Code", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "60", "max": "60", "top_values": [{"value": "60", "count": 1}]},
+        {"name": "Firma", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 13, "top_values": [{"value": "REWE Dortmund", "count": 1}]},
+        {"name": "Anrede", "type": "VARCHAR", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "max_length": 0},
+        {"name": "Straße", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 20, "top_values": [{"value": "Asselner Hellweg 1-3", "count": 1}]},
+        {"name": "PLZ", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 5, "top_values": [{"value": "44309", "count": 1}]},
+        {"name": "Ort", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 8, "top_values": [{"value": "Dortmund", "count": 1}]},
+        {"name": "LU Stand", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 10, "top_values": [{"value": "01.06.2025", "count": 1}]},
+        {"name": "HP Stand", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 10, "top_values": [{"value": "01.06.2025", "count": 1}]},
+        {"name": "GfSt Stand", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 10, "top_values": [{"value": "01.06.2025", "count": 1}]},
+        {"name": "Logo", "type": "OTHER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "top_values": []}
+      ]
+    },
+    {
+      "name": "101 Maschinenpark",
+      "row_count": 0,
+      "columns": [
+        {"name": "Maschinennummer", "type": "INTEGER"},
+        {"name": "Hersteller", "type": "VARCHAR"},
+        {"name": "Art", "type": "VARCHAR"},
+        {"name": "Typ", "type": "VARCHAR"},
+        {"name": "Baujahr", "type": "VARCHAR"},
+        {"name": "Memo", "type": "VARCHAR"},
+        {"name": "Bild", "type": "BLOB"}
+      ]
+    },
+    {
+      "name": "Hilfe",
+      "row_count": 12,
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 12, "distinct_count": 12, "min": "1", "max": "12", "top_values": [{"value": "1", "count": 1}, {"value": "2", "count": 1}, {"value": "3", "count": 1}, {"value": "4", "count": 1}, {"value": "5", "count": 1}, {"value": "6", "count": 1}, {"value": "7", "count": 1}, {"value": "8", "count": 1}, {"value": "9", "count": 1}, {"value": "10", "count": 1}, {"value": "11", "count": 1}, {"value": "12", "count": 1}]}
+      ]
+    },
+    {
+      "name": "Version",
+      "row_count": 1,
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "4", "max": "4", "top_values": [{"value": "4", "count": 1}]},
+        {"name": "Version", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 3, "top_values": [{"value": "1.1", "count": 1}]},
+        {"name": "Stand", "type": "TIMESTAMP", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "2026-01-01 00:00:00.000000", "max": "2026-01-01 00:00:00.000000", "top_values": [{"value": "2026-01-01 00:00:00.000000", "count": 1}]},
+        {"name": "Kunde", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 4, "top_values": [{"value": "REWE", "count": 1}]},
+        {"name": "überarbeitet am", "type": "TIMESTAMP", "null_count": 1, "non_null_count": 0, "distinct_count": 0, "min": null, "max": null}
+      ]
+    },
+    {
+      "name": "Versionnierung",
+      "row_count": 1,
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "5", "max": "5", "top_values": [{"value": "5", "count": 1}]},
+        {"name": "Version", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 3, "top_values": [{"value": "1.1", "count": 1}]},
+        {"name": "Stand", "type": "TIMESTAMP", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "min": "2025-10-01 00:00:00.000000", "max": "2025-10-01 00:00:00.000000", "top_values": [{"value": "2025-10-01 00:00:00.000000", "count": 1}]},
+        {"name": "001 jährlich", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]},
+        {"name": "001 täglich", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]},
+        {"name": "004 Pläne", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]},
+        {"name": "Gefahrstoffe", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]},
+        {"name": "Hygieneplan", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]},
+        {"name": "Mängel", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]},
+        {"name": "Arbeitsanweisung", "type": "VARCHAR", "null_count": 0, "non_null_count": 1, "distinct_count": 1, "max_length": 14, "top_values": [{"value": "Ersterstellung", "count": 1}]}
+      ]
+    },
+    {
+      "name": "tmpBerichte",
+      "row_count": 29,
+      "columns": [
+        {"name": "BerichtName", "type": "VARCHAR", "null_count": 0, "non_null_count": 29, "distinct_count": 29, "max_length": 50, "top_values": [{"value": "000a Reinigungs- und Desinfektionsplan - REWE", "count": 1}, {"value": "z001a_1_2 Kontrolle tgl nach HygPlan U", "count": 1}, {"value": "z001a_1_2 Kontrolle tgl nach HygPlan", "count": 1}, {"value": "z001a Kontrollblatt täglich Unterhaltsreinigung", "count": 1}, {"value": "z001 Kontrollblatt nicht täglich", "count": 1}, {"value": "Z000 Reinigungs- und Desinfektionsplan gesamt", "count": 1}, {"value": "z#NEU001a_1_2 Kontrolle tgl nach HygPlan U", "count": 1}, {"value": "z#NEU001a_1_2 Kontrolle tgl nach HygPlan", "count": 1}, {"value": "Test_LangerText", "count": 1}, {"value": "rpt_FirmenLogo", "count": 1}, {"value": "022_1 htbl HK Spezial", "count": 1}, {"value": "010 Leitwertmessung", "count": 1}, {"value": "008c PSA beim Umgang mit RGM 2025", "count": 1}, {"value": "z001a_1_2 Kontrolle tgl nach HygPlan1", "count": 1}, {"value": "008b Gefahrstoffverzeichnis Arbeitssicherheit 2025", "count": 1}, {"value": "007h Blanko Kontrollblatt täglich", "count": 1}, {"value": "006 Gefahrstoffverzeichnis 2025", "count": 1}, {"value": "005 Arbeitsanweisung nur Abteilungen", "count": 1}, {"value": "004b_Unterbericht", "count": 1}, {"value": "004b Hygienepläne - Pikto - REWE spezial", "count": 1}, {"value": "004a Übersicht Hygienepläne", "count": 1}, {"value": "001d Kontrollblatt jährlich", "count": 1}, {"value": "001c Kontrollblatt nicht täglich U - REWE spezial", "count": 1}, {"value": "001c Kontrollblatt nicht täglich - REWE spezial", "count": 1}, {"value": "001a Kontrolle tgl nach HygPlan U - REWE spezial", "count": 1}, {"value": "001a Kontrolle tgl nach HygPlan - REWE spezial", "count": 1}, {"value": "000b Reinigungs- und Desinfektionsplan UH - REWE", "count": 1}, {"value": "007h Mängel", "count": 1}, {"value": "z001aa Kontrollblatt täglich sauer-alkalisch", "count": 1}]},
+        {"name": "BerichtAuswahl", "type": "BOOLEAN", "null_count": 0, "non_null_count": 29, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 29}]},
+        {"name": "BerichtOrdnungsnummer", "type": "VARCHAR", "null_count": 29, "non_null_count": 0, "distinct_count": 0, "max_length": 0}
+      ]
+    },
+    {
+      "name": "tmpGefStoffe",
+      "row_count": 21,
+      "columns": [
+        {"name": "GefStoffID", "type": "INTEGER", "null_count": 0, "non_null_count": 21, "distinct_count": 21, "min": "175", "max": "374", "top_values": [{"value": "175", "count": 1}, {"value": "365", "count": 1}, {"value": "364", "count": 1}, {"value": "362", "count": 1}, {"value": "349", "count": 1}, {"value": "348", "count": 1}, {"value": "347", "count": 1}, {"value": "346", "count": 1}, {"value": "344", "count": 1}, {"value": "373", "count": 1}, {"value": "342", "count": 1}, {"value": "340", "count": 1}, {"value": "339", "count": 1}, {"value": "336", "count": 1}, {"value": "335", "count": 1}, {"value": "333", "count": 1}, {"value": "332", "count": 1}, {"value": "330", "count": 1}, {"value": "187", "count": 1}, {"value": "341", "count": 1}, {"value": "374", "count": 1}]},
+        {"name": "GefStoffName", "type": "VARCHAR", "null_count": 0, "non_null_count": 21, "distinct_count": 21, "max_length": 27, "top_values": [{"value": "Orbin Evolve", "count": 1}, {"value": "Sanitärblitz", "count": 1}, {"value": "Fussbodenreiniger Neo", "count": 1}, {"value": "Allzweckreiniger mit Citrus", "count": 1}, {"value": "calgonit NF 422", "count": 1}, {"value": "Mega Pur 60", "count": 1}, {"value": "Stokolan classic", "count": 1}, {"value": "Oxybac foam wash", "count": 1}, {"value": "Starmaxx AL", "count": 1}, {"value": "Eilfix Scheuermilch", "count": 1}, {"value": "calgonit NN 497", "count": 1}, {"value": "calgonit NN 472", "count": 1}, {"value": "calgonit Des-H", "count": 1}, {"value": "tru-lit GS Premium", "count": 1}, {"value": "calgonit NF 5401", "count": 1}, {"value": "calgonit SN 542", "count": 1}, {"value": "calgonit DS 683", "count": 1}, {"value": "tru-lit Safe CL", "count": 1}, {"value": "Tolo 330", "count": 1}, {"value": "calgonit SF 509", "count": 1}, {"value": "Duftöl Citro-Wunder", "count": 1}]},
+        {"name": "GefStoffAuswahl", "type": "BOOLEAN", "null_count": 0, "non_null_count": 21, "distinct_count": 1, "top_values": [{"value": "FALSE", "count": 21}]}
+      ]
+    }
+  ]
+}
