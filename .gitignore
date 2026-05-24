@@ -1,0 +1,43 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Access source files — NIE ins Repo committen (Originaldaten)
+*.accdb
+*.mdb
+*.laccdb
+
+# Daten-Snapshots / Stichproben (können personenbezogen sein)
+inventory/samples/
+inventory/reports/*.html
+*.parquet
+
+# Secrets
+.env
+.env.*
+!.env.example
+ops/secrets/*
+!ops/secrets/.env.example
+
+# Tools (große Binaries)
+tools/*.zip
+tools/ucanaccess-*/
+!tools/.gitkeep
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs / Ergebnisse von Migrationsläufen
+logs/
+*.log
+
+# DB-Dumps
+*.sql.gz
+*.dump
