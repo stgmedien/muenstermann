@@ -56,8 +56,26 @@ begin
         join pg_namespace n on n.oid = t.typnamespace
         where t.typname = 'hygiene_control_type' and n.nspname = 'ops'
     ) then
-        create type ops.hygiene_control_type as enum ('STANDARD', 'SPECIAL_15');
+        create type ops.hygiene_control_type as enum (
+            'STANDARD',        -- aus 022 Hygienekontrollen
+            'SPECIAL_15',      -- aus 022 Hygienekontrollen Spezial 15
+            'REWE_BY_PLAN',    -- aus 022_1 HK_nachHygPlan (REWE-spezifisch, kuratiert)
+            'REWE_TEMP'        -- aus 022_1 tempHK_nachHygPlan (REWE-spezifisch, Working-Set)
+        );
     end if;
+end$$;
+
+-- Falls der Typ vorher schon mit weniger Werten existierte: add value idempotent
+do $$
+begin
+    alter type ops.hygiene_control_type add value if not exists 'REWE_BY_PLAN';
+exception when undefined_object then null;
+end$$;
+
+do $$
+begin
+    alter type ops.hygiene_control_type add value if not exists 'REWE_TEMP';
+exception when undefined_object then null;
 end$$;
 
 create table if not exists ops.hygiene_control_plan (
@@ -89,6 +107,63 @@ create index if not exists hygiene_control_plan_object_idx
     on ops.hygiene_control_plan (department_object_id);
 create index if not exists hygiene_control_plan_legacy_idx
     on ops.hygiene_control_plan (legacy_id);
+
+-- Erweiterung für REWE-Sonderformat (022_1 HK_nachHygPlan):
+-- - Verweis auf den Hygieneplan, nach dem kontrolliert wird
+-- - Wochentag-Schichten (Mo/Di/Mi/Do/Fr/Sa/So/uebrige) als JSONB,
+--   weil REWE ein eigenes Werteset nutzt (Schicht-Codes, nicht 0/1)
+do $$
+begin
+    if not exists (
+        select 1 from information_schema.columns
+        where table_schema = 'ops' and table_name = 'hygiene_control_plan'
+          and column_name = 'customer_hygiene_plan_id'
+    ) then
+        alter table ops.hygiene_control_plan
+            add column customer_hygiene_plan_id bigint
+                references ops.customer_hygiene_plan(id) on delete set null;
+    end if;
+end$$;
+
+do $$
+begin
+    if not exists (
+        select 1 from information_schema.columns
+        where table_schema = 'ops' and table_name = 'hygiene_control_plan'
+          and column_name = 'plan_text_snapshot'
+    ) then
+        alter table ops.hygiene_control_plan
+            add column plan_text_snapshot text;
+    end if;
+end$$;
+
+do $$
+begin
+    if not exists (
+        select 1 from information_schema.columns
+        where table_schema = 'ops' and table_name = 'hygiene_control_plan'
+          and column_name = 'weekday_schedule'
+    ) then
+        alter table ops.hygiene_control_plan
+            add column weekday_schedule jsonb;
+    end if;
+end$$;
+
+do $$
+begin
+    if not exists (
+        select 1 from information_schema.columns
+        where table_schema = 'ops' and table_name = 'hygiene_control_plan'
+          and column_name = 'legacy_attributes'
+    ) then
+        alter table ops.hygiene_control_plan
+            add column legacy_attributes jsonb;
+    end if;
+end$$;
+
+create index if not exists hygiene_control_plan_chp_idx
+    on ops.hygiene_control_plan (customer_hygiene_plan_id);
+
 comment on table ops.hygiene_control_plan is
     'Plan-Tabelle: was soll wo wie oft kontrolliert werden. Quellen: '
     '022 Hygienekontrollen (STANDARD) + 022 Hygienekontrollen Spezial 15 (SPECIAL_15). '

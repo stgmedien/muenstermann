@@ -34,6 +34,7 @@ DEFAULT_PATHS = [
 def find_sql_files(roots: list[Path]) -> list[Path]:
     files: list[Path] = []
     for r in roots:
+        r = r.resolve()
         if r.is_file() and r.suffix == ".sql":
             files.append(r)
         elif r.is_dir():
@@ -70,7 +71,10 @@ def main(argv: list[str]) -> int:
 
     failures: list[tuple[Path, str]] = []
     for f in files:
-        rel = f.relative_to(REPO_ROOT)
+        try:
+            rel = f.relative_to(REPO_ROOT)
+        except ValueError:
+            rel = f  # außerhalb des Repos → absoluter Pfad
         ok, err, stmts = validate(f)
         if ok:
             print(f"  ✓ {rel}  ({stmts} statement{'s' if stmts != 1 else ''})")

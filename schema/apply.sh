@@ -54,7 +54,8 @@ for seed in catalog_reinigungsmittel.sql \
             core_customer_domain.sql \
             ops_department_domain.sql \
             ops_customer_artifacts.sql \
-            ops_hygiene_control.sql; do
+            ops_hygiene_control.sql \
+            ops_hygiene_control_rewe.sql; do
     seed_path="schema/seeds/$seed"
     if [ -f "$ROOT/$seed_path" ]; then
         run "$seed_path"
