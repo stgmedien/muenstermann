@@ -1,0 +1,12 @@
+{
+  "linked_tables": [
+    {"name": "Gefährdungsfaktoren", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Personal\\Personal KG\\Adressen - Anschriften.accdb", "linked_table": "Gefährdungsfaktoren"},
+    {"name": "Hygienepläne", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Kunden\\Reinigungspläne.accdb", "linked_table": "003 Hygienepläne"},
+    {"name": "Hygienepläne Arbeitsschritte", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Kunden\\Reinigungspläne.accdb", "linked_table": "003 Hygienepläne Arbeitsschritte"},
+    {"name": "Kalender", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Büro\\Kalender\\Kalender 2026.accdb", "linked_table": "KalenderNW"},
+    {"name": "Kunden", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Personal\\Personal KG\\Adressen - Anschriften.accdb", "linked_table": "Kunden"},
+    {"name": "tblSymboleGefahren", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Büro\\Reinigungsmittel\\Reinigungsmittel_2025.accdb", "linked_table": "tblSymboleGefahren"},
+    {"name": "tblSymbolePSA", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Büro\\Reinigungsmittel\\Reinigungsmittel_2025.accdb", "linked_table": "tblSymbolePSA"},
+    {"name": "tbl_RGM_Eigenschaften_2025", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Büro\\Reinigungsmittel\\Reinigungsmittel_2025.accdb", "linked_table": "tbl_RGM_Eigenschaften_2025"}
+  ]
+}

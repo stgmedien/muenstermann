@@ -1,0 +1,276 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Reinigungsmittel_2025.accdb",
+  "driver_product": "UCanAccess driver for Microsoft Access databases using HSQLDB V2010 [VERSION_14]",
+  "tables": [
+    {
+      "name": "tblGIZ",
+      "row_count": 9,
+      "primary_key": ["GizID"],
+      "columns": [
+        {"name": "GizID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "GizOrt", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "GizName", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "GizTel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "GizE-Mail", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10547_10548", "unique": true, "columns": ["GizID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tblGefHhinweise_H-Sätze",
+      "row_count": 58,
+      "primary_key": [],
+      "columns": [
+        {"name": "H-Satz", "type": "VARCHAR", "size": 243, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Beschreibung", "type": "VARCHAR", "size": 150, "nullable": true, "default": null, "is_pk": false},
+        {"name": "H-Satz-Nr", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tblGefHinweis_Kategorien",
+      "row_count": 3,
+      "primary_key": ["GefHinw_KatNr"],
+      "columns": [
+        {"name": "GefHinw_Kategorie", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "GefHinw_KatNr", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10536_10537", "unique": true, "columns": ["GefHinw_KatNr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tblGefHinweis_Stand",
+      "row_count": 1,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "GefHinwStand", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Quelle_kurzText", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Quelle_langText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Quelle_Datum", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10542_10543", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tblRGM_Hersteller",
+      "row_count": 15,
+      "primary_key": ["HerstellerID"],
+      "columns": [
+        {"name": "HerstellerID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "RgmFirma", "type": "VARCHAR", "size": 150, "nullable": true, "default": null, "is_pk": false},
+        {"name": "RgmStraße", "type": "VARCHAR", "size": 150, "nullable": true, "default": null, "is_pk": false},
+        {"name": "RgmPLZ", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "RgmOrt", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "RgmAbt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "RgmNotrufnummer intern", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "RgmEMail", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "zuständige Giftzentrale", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10552_10553", "unique": true, "columns": ["HerstellerID"]},
+        {"name": "TBLRGM_HERSTELLER_RGMGIFTNOTRUFNUMMER", "unique": false, "columns": ["RgmNotrufnummer intern"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tblSymboleGefahren",
+      "row_count": 10,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Eigenschaft", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "GefPikto1", "type": "OTHER", "size": 0, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10559_10560", "unique": true, "columns": ["ID"]},
+        {"name": "TBLSYMBOLEGEFAHREN_SYMBOLEEIGENSCHAFT", "unique": false, "columns": ["Eigenschaft"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tblSymbolePSA",
+      "row_count": 6,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Bezeichnung", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Piktogramm", "type": "OTHER", "size": 0, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10566_10567", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tbl_RGM_Eigenschaften_2025",
+      "row_count": 292,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Artikelname", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hersteller", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Herstellerkurzbezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Betriebs-Nr", "type": "VARCHAR", "size": 6, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrstoffe 1", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrstoffe 2", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Version Büfa", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrstoffe 3", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrstoffe 4", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrstoffe 5", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrenbezeichnung", "type": "VARCHAR", "size": 9, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrenbezeichnung1", "type": "VARCHAR", "size": 9, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrenbezeichnung2", "type": "VARCHAR", "size": 9, "nullable": true, "default": null, "is_pk": false},
+        {"name": "pH-Wert SDB", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "H-Sätze", "type": "VARCHAR", "size": 40, "nullable": true, "default": null, "is_pk": false},
+        {"name": "P-Sätze", "type": "VARCHAR", "size": 45, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Lagerklasse", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "WGK", "type": "VARCHAR", "size": 2, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vbf", "type": "VARCHAR", "size": 2, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ADR/RID", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abfallschlüssel", "type": "VARCHAR", "size": 7, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Un-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "EAK", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sicherheitsdatenblatt", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Arbeitsbereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bezeichnung", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Art des Rgm", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konz", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kont-zeit", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Temperatur", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kurz Info", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrensymbol 1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Eigenschaft1", "type": "INTEGER", "size": 32, "nullable": true, "default": "10", "is_pk": false},
+        {"name": "Eigenschaft2", "type": "INTEGER", "size": 32, "nullable": true, "default": "10", "is_pk": false},
+        {"name": "Eigenschaft3", "type": "INTEGER", "size": 32, "nullable": true, "default": "10", "is_pk": false},
+        {"name": "Eigenschaft4", "type": "INTEGER", "size": 32, "nullable": true, "default": "10", "is_pk": false},
+        {"name": "Gebinde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Verwendung für", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "mögliche Verfahren", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "mögliche Einsatzorte", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Charakteristikum", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Giftinformationsnotrufnummer:", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Atemschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "KonzAtemPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Konzentrat Filterklasse", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Augenschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "KonzAugenPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Konzentrat Augenschutz Bezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Körperschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "KonzKörperPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Konzentrat Körperschutz Bezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Handschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "KonzHandPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Konzentrat Handschutz Bezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Handschutz Material", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Handschutz Materialstärke", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Handschutz Durchdringzeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrat Schutzschuhe", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "KonzSchuhPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Gemisch Atemschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "GemAtemPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Gemisch Filterklasse", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Augenschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "GemAugenPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Gemisch Augenschutz Bezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Körperschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "GemKörperPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Gemisch Körperschutz Bezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Handschutz", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "GemHandPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Gemisch Handschutz Bezeichnung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Handschutz Material", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Handschutz Materialstärke", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Handschutz Durchdringzeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gemisch Schutzschuhe", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "GemSchuhPik", "type": "INTEGER", "size": 32, "nullable": true, "default": "6", "is_pk": false},
+        {"name": "Leitwertmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Anleitung Messung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam1", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam2", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam3", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam4", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam5", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam6", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam7", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam8", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam9", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BioWirksam10", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Leitwertkurve", "type": "OTHER", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "LWK_Drucken", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "DatenblattPfadDE", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DatenblattPfadNL", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10523_10524", "unique": true, "columns": ["ID"]},
+        {"name": "TBL_RGM_EIGENSCHAFTEN_2025_ARTIKELNAME", "unique": false, "columns": ["Artikelname"]},
+        {"name": "TBL_RGM_EIGENSCHAFTEN_2025_IDM", "unique": false, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tbl_TRGS 510",
+      "row_count": 25,
+      "primary_key": ["LGK"],
+      "columns": [
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2A", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2B", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4_1A", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4_1B", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4_2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4_3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5_1A", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5_1B", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5_1C", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5_2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6_1A", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6_1B", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6_1C", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6_1D", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6_2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8A", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8B", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10-13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "LGK", "type": "VARCHAR", "size": 255, "nullable": false, "default": null, "is_pk": true}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10530_10531", "unique": true, "columns": ["LGK"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    }
+  ]
+}

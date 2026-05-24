@@ -1,0 +1,1103 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Kalender 2026.accdb",
+  "driver_product": "UCanAccess driver for Microsoft Access databases using HSQLDB V2010 [VERSION_14]",
+  "tables": [
+    {
+      "name": "Feiertage",
+      "row_count": 20,
+      "primary_key": ["Datum"],
+      "columns": [
+        {"name": "Datum", "type": "TIMESTAMP", "size": 26, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Monat", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Feiertag", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "konstant", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Region", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Bundesländer", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BW", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "BY", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "BE", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "BB", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "HB", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "HH", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "HE", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "MV", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "NI", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "NW", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "RP", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "SL", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "SN", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "ST", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "SH", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "TH", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "NL", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_11166_11167", "unique": true, "columns": ["Datum"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Initialisierung",
+      "row_count": 1,
+      "primary_key": [],
+      "columns": [
+        {"name": "Abrechnungsmonat", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abrechnungsmonat Text", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatLodas", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "LfdKalenderJahr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kalender",
+      "row_count": 365,
+      "primary_key": ["Datum"],
+      "columns": [
+        {"name": "Datum", "type": "TIMESTAMP", "size": 26, "nullable": false, "default": null, "is_pk": true},
+        {"name": "DatumTag", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Tag", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KW", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KW Zahl", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Region", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_11172_11173", "unique": true, "columns": ["Datum"]},
+        {"name": "KALENDER_KALENDERJAHR", "unique": false, "columns": ["Jahr"]},
+        {"name": "KALENDER_KALENDERKW", "unique": false, "columns": ["KW"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kalender Könecke",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDER KÖNECKE_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderBB",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERBB_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderBE",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERBE_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderBW",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERBW_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderBY",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERBY_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderHB",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERHB_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderHE",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERHE_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderHH",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERHH_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderMV",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERMV_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderNI",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERNI_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderNL",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERNL_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderNW",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERNW_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderRP",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERRP_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderSH",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERSH_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderSL",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERSL_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderSN",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERSN_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderST",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERST_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderTH",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KALENDERTH_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "KalenderWochen",
+      "row_count": 53,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "KW", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "WO", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Montag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Dienstag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Mittwoch", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Donnerstag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Freitag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Samstag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sonntag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Monatsnamen",
+      "row_count": 12,
+      "primary_key": ["tblMNameMonat"],
+      "columns": [
+        {"name": "tblMNameMonat", "type": "VARCHAR", "size": 255, "nullable": false, "default": null, "is_pk": true},
+        {"name": "tblMNameName", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_11178_11179", "unique": true, "columns": ["tblMNameMonat"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Temp_KalenderHoch",
+      "row_count": 365,
+      "primary_key": ["Datum"],
+      "columns": [
+        {"name": "Datum", "type": "TIMESTAMP", "size": 26, "nullable": false, "default": null, "is_pk": true},
+        {"name": "DatumTag", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Tag", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KW", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KW Zahl", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Region", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_11189_11190", "unique": true, "columns": ["Datum"]},
+        {"name": "TEMP_KALENDERHOCH_KALENDERJAHR", "unique": false, "columns": ["Jahr"]},
+        {"name": "TEMP_KALENDERHOCH_KALENDERKW", "unique": false, "columns": ["KW"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Temp_KalenderQuer",
+      "row_count": 12,
+      "primary_key": [],
+      "columns": [
+        {"name": "Jahr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Monat", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MonatText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "13", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "14", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "15", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "16", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "17", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "18", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "19", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "20", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "21", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "22", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "23", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "24", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "25", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "26", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "27", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "28", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "29", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "30", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "31", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Konzentrationsmessung", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "TEMP_KALENDERQUER_KALENDER KÖNECKEJAHR", "unique": false, "columns": ["Jahr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Wartungsplan",
+      "row_count": 11,
+      "primary_key": [],
+      "columns": [
+        {"name": "Standort", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Art", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Arbeitsmittel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Intervall", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Intervallzahl", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Qualifikation / Tätigkeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Anmerkung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zuständigkeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ausführung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tbl_Bundesländer",
+      "row_count": 17,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Bundesland", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BL_Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "BL_Kürzel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_11184_11185", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    }
+  ]
+}

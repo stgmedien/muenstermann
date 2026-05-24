@@ -1,0 +1,97 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Reinigungspläne.accdb",
+  "driver_product": "UCanAccess driver for Microsoft Access databases using HSQLDB V2007 [VERSION_12]",
+  "tables": [
+    {
+      "name": "003 Hygienepläne",
+      "row_count": 40,
+      "primary_key": ["PlanNr"],
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "Plan", "type": "VARCHAR", "size": 5, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T1", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M1", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M2", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M3", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M4", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M5", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M6", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M7", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M8", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M9", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten 1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten 2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten 3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10407_10408", "unique": true, "columns": ["PlanNr"]},
+        {"name": "Z_003 HYGIENEPLÄNE_PLANPLAN", "unique": false, "columns": ["Plan"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "003 Hygienepläne Arbeitsschritte",
+      "row_count": 244,
+      "primary_key": [],
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Aufgaben", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Verfahren", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geräte", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_003 HYGIENEPLÄNE ARBEITSSCHRITTE_PLANNR", "unique": false, "columns": ["PlanNr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "021 Gefahrstoffverzeichnis",
+      "row_count": 23,
+      "primary_key": [],
+      "columns": [
+        {"name": "ArtNr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Artikelname", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Menge jährl", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Standort", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Pfadtext", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_021 GEFAHRSTOFFVERZEICHNIS_GEFAHRSTOFFVERZEICHNIS EINZELHEITENARTIKEL-NR", "unique": false, "columns": ["Artikelname"]},
+        {"name": "Z_021 GEFAHRSTOFFVERZEICHNIS_ID", "unique": false, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "GullyCheck",
+      "row_count": 1,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Sieb defekt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Geruchsverschluss fehlt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Geruchsverschluss defekt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Siebblech fehlt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Siebblech defekt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Sieb fehlt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10412_10413", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    }
+  ]
+}

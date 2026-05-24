@@ -1,0 +1,233 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Adressen - Anschriften - H und I.accdb",
+  "driver_product": "UCanAccess driver for Microsoft Access databases using HSQLDB V2007 [VERSION_12]",
+  "tables": [
+    {
+      "name": "Bewerbungen",
+      "row_count": 1,
+      "primary_key": [],
+      "columns": [
+        {"name": "Bew-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geschlecht", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Name", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vorname", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Straße", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ort", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Beworben für", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Beworben am", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Tel-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "zu erreichen ab", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bemerkungen", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Art", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zur Zeit", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vorkentnisse", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "seid dem", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Familienstand", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sprachkenntnisse", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Nation", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geb-Datum", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Frühschicht", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Spätschicht", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Wechselschicht", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Gesundheitszugniss vorhanden", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Bewerbungen Hilfe",
+      "row_count": 23,
+      "primary_key": [],
+      "columns": [
+        {"name": "Nation", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Nationnummer", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "BEWERBUNGEN HILFE_NATIONNUMMER", "unique": false, "columns": ["Nationnummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Gefährdungsfaktoren",
+      "row_count": 1,
+      "primary_key": [],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1 Mechanische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1-1 Ungeschützte bewegte Teile", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1-2 Teile mit gefährlichen Oberflächen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1-3 Bewegte Transportmittel, Arbeitsmittel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1-4 Unkontrollierte bewegte Teile", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1-5 Ausrutschen, Stolpern, Umknicken, Fehltreten", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1-6 Absturz", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2 Elektrische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2-1 Durchströmung (auch Elektrostatik)", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2-2 Lichtbogen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3 Chemische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3-1 Flüssigkeit, Gas, Feststoff, Dampf, Staub, Rauch, Nebel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3-2 Hautbelastungen (inkl Feuchtarbeit)", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3-3 Gerüche", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4 Biologische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4-1 Gezielter Umgang mit biolog GefStoff", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4-2 Unbeabsichtigter Umgang mit biolog GefStoff", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4-3 Einwirkung aus der Arbeitsumgebung biolog GefStoff", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5 Brand- und Exlosionsgefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5-1 Brennbare Feststoffe, Flüssigkeiten, Gase", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5-2 Explosionsfähige Atmosphäre", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5-3 Thermische Zersetzungen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5-4 Schweißarbeiten", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6 Thermische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6-1 Heiße und Kalte Oberflächen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6-2 Heiße und Kalte Medien", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "6-3 Aufenthalt in Kühlräumen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7 Physikalische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7-1 Lärm", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7-2 Ganzkörperschwingungen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7-3 Hand-Arm-Schwingungen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "7-4 Strahlung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8 Gefährdung durch die Arbeitsumgebung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8-1 Klima", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8-2 Beleuchtung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "8-3 Raumbedarf, Verkehrswege", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9 Physische Gefährdung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9-1 Manuelle Handhabung von Lasten", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9-2 Erzwungene Körperhaltungen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "9-3 Einseitige Bewegungen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10 Gefährdung aus Wahrnehmung und Handbarkeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10-1 Gestaltung von Bildschirmen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10-2 Anordnung von Stellteilen und Anzeigen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "10-3 Handhabbarkeit von Arbeitsmitteln", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11 Psychomentale Fehlbelastung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11-1 Ständig wechselnde Arbeitsstätten", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11-2 Arbeiten unter Zeitdruck", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11-3 kurzzyklisch sich wiederholende Tätigkeiten", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11-4 Nachtarbeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "11-5 Überforderung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12 Gefährdung durch Mängel in der Arbeitsorganisation", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12-1 Unterweisung, Betriebsanweisung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12-2 Erste Hilfe", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12-3 Alleinarbeit", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12-4 Bereitstellung von geeigneten Arbeitsmitteln", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12-5 Arbeitsmedizinische Vorsorge", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "12-6 Prüfpflichtige Anlagen", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kunden",
+      "row_count": 81,
+      "primary_key": ["Reinigungsgruppe"],
+      "columns": [
+        {"name": "Reinigungsgruppe", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "Betreuer", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vorarbeiter", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "StdZettel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kunden-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Firma", "type": "VARCHAR", "size": 100, "nullable": false, "default": null, "is_pk": false},
+        {"name": "Zusatz", "type": "VARCHAR", "size": 100, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Straße", "type": "VARCHAR", "size": 60, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ort", "type": "VARCHAR", "size": 40, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bundesland", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Reinigungsbeginn", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ende Dienstleistungsvertrag", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Anmeldung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Region", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Reinigungsmittel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Desinfektionsmittel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Postfach", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ Postfach", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ Postfach Ort", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Telefon", "type": "VARCHAR", "size": 24, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Telefax", "type": "VARCHAR", "size": 60, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Pauschale", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zusatzarbeiten", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abstriche", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kunden Matchcode", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Schäden", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sitex Kdnummer", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kto", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BLZ", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Lieferbedingung", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zahlungsbedingung", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ab frei Haus", "type": "DECIMAL", "size": 100, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "unsere Kd", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geschäftsführer", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "direkter Vorgesetzter", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "wöchentlich", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "monatlich", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Auswertung Urlaub", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Auswertung Krank", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Wäsche", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_KUNDEN_KUNDEN-NR_10513", "unique": true, "columns": ["Reinigungsgruppe"]},
+        {"name": "SYS_IDX_SYS_PK_10519_10520", "unique": true, "columns": ["Reinigungsgruppe"]},
+        {"name": "KUNDEN_FIRMA", "unique": false, "columns": ["Firma"]},
+        {"name": "KUNDEN_KUNDEN MATCHCODE", "unique": false, "columns": ["Kunden Matchcode"]},
+        {"name": "KUNDEN_ORT", "unique": false, "columns": ["Ort"]},
+        {"name": "KUNDEN_SITEX KDNUMMER", "unique": false, "columns": ["Sitex Kdnummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kunden Ansprechpartner",
+      "row_count": 1,
+      "primary_key": [],
+      "columns": [
+        {"name": "Kunden-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Geschlecht", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Vorname", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Name", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Position", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "e-mail", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Telefon", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Fax", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Hilfe", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KUNDEN ANSPRECHPARTNER_KUNDEN-CODE", "unique": false, "columns": ["Kunden-Nr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kunden Mibikontrolle",
+      "row_count": 11,
+      "primary_key": ["Nr"],
+      "columns": [
+        {"name": "Nr", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "Nom", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_KUNDEN MIBIKONTROLLE_KUNDEN-NR_10526", "unique": true, "columns": ["Nr"]},
+        {"name": "SYS_IDX_SYS_PK_10530_10531", "unique": true, "columns": ["Nr"]},
+        {"name": "KUNDEN MIBIKONTROLLE_KUNDEN MATCHCODE", "unique": false, "columns": ["Nom"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    }
+  ]
+}

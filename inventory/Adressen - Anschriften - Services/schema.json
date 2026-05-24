@@ -1,0 +1,140 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/Adressen - Anschriften - Services.accdb",
+  "driver_product": "UCanAccess driver for Microsoft Access databases using HSQLDB V2007 [VERSION_12]",
+  "tables": [
+    {
+      "name": "Bewerbungen",
+      "row_count": 1,
+      "primary_key": [],
+      "columns": [
+        {"name": "Bew-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geschlecht", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Name", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vorname", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Straße", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ort", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Beworben für", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Beworben am", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Tel-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "zu erreichen ab", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bemerkungen", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Art", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zur Zeit", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vorkentnisse", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "seid dem", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Familienstand", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sprachkenntnisse", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Nation", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geb-Datum", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Frühschicht", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Spätschicht", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Wechselschicht", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Gesundheitszugniss vorhanden", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Bewerbungen Hilfe",
+      "row_count": 23,
+      "primary_key": [],
+      "columns": [
+        {"name": "Nation", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Nationnummer", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "BEWERBUNGEN HILFE_NATIONNUMMER", "unique": false, "columns": ["Nationnummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kunden",
+      "row_count": 8,
+      "primary_key": ["Reinigungsgruppe"],
+      "columns": [
+        {"name": "Reinigungsgruppe", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "Kunden-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Firma", "type": "VARCHAR", "size": 100, "nullable": false, "default": null, "is_pk": false},
+        {"name": "Zusatz", "type": "VARCHAR", "size": 100, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Straße", "type": "VARCHAR", "size": 60, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ort", "type": "VARCHAR", "size": 40, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Postfach", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ Postfach", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ Postfach Ort", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Telefon", "type": "VARCHAR", "size": 24, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Telefax", "type": "VARCHAR", "size": 60, "nullable": true, "default": null, "is_pk": false},
+        {"name": "1", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "2", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "3", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "4", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "5", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Pauschale", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zusatzarbeiten", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abstriche", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kunden Matchcode", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Schäden", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Reinigungsbeginn", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sitex Kdnummer", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kto", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BLZ", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Lieferbedingung", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zahlungsbedingung", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ab frei Haus", "type": "DECIMAL", "size": 100, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "unsere Kd", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geschäftsführer", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "direkter Vorgesetzter", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Betreuer", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "wöchentlich", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "monatlich", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Auswertung Urlaub", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Auswertung Krank", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Wäsche", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Vorarbeiter", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bundesland", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bundesland_Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_KUNDEN_KUNDEN-NR_10444", "unique": true, "columns": ["Reinigungsgruppe"]},
+        {"name": "SYS_IDX_SYS_PK_10450_10451", "unique": true, "columns": ["Reinigungsgruppe"]},
+        {"name": "KUNDEN_FIRMA", "unique": false, "columns": ["Firma"]},
+        {"name": "KUNDEN_KUNDEN MATCHCODE", "unique": false, "columns": ["Kunden Matchcode"]},
+        {"name": "KUNDEN_ORT", "unique": false, "columns": ["Ort"]},
+        {"name": "KUNDEN_SITEX KDNUMMER", "unique": false, "columns": ["Sitex Kdnummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Kunden Ansprechpartner",
+      "row_count": 1,
+      "primary_key": [],
+      "columns": [
+        {"name": "Kunden-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Geschlecht", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Vorname", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Name", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Position", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "e-mail", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Telefon", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Fax", "type": "VARCHAR", "size": 50, "nullable": true, "default": "", "is_pk": false},
+        {"name": "Hilfe", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "KUNDEN ANSPRECHPARTNER_KUNDEN-CODE", "unique": false, "columns": ["Kunden-Nr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    }
+  ]
+}

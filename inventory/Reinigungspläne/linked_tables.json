@@ -1,0 +1,5 @@
+{
+  "linked_tables": [
+    {"name": "Reinigungsmittel Eigenschaften", "linked_db": "Z:\\sonstige Datenbanken\\Reinigungsmittel1.accdb", "linked_table": "Reinigungsmittel Eigenschaften"}
+  ]
+}

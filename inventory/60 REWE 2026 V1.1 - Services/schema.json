@@ -1,0 +1,637 @@
+{
+  "path": "/Users/jonathankreutzheide/Downloads/Probedaten Datenbank Muenstermann  Test/60 REWE 2026 V1.1 - Services.accdb",
+  "driver_product": "UCanAccess driver for Microsoft Access databases using HSQLDB V2007 [VERSION_12]",
+  "tables": [
+    {
+      "name": "001 Abteilungen",
+      "row_count": 124,
+      "primary_key": ["Abteilungs-Nr"],
+      "columns": [
+        {"name": "Etage", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BereichNr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kostenstelle", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kostenträger", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Filter1", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Filter2", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Filter3", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ABIstSu", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Filter4", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ABSollSu", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Raum-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "High Risk", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Low Risk", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Hygienekontrolle täglich", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "HyTWert", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bericht1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bericht2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bericht3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Stunden", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KFaktor", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "täglich", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "wöchentlich", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "monatlich", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "jährlich", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zusatz", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "proMonat", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Maschinennummer", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungsleiter", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10717_10718", "unique": true, "columns": ["Abteilungs-Nr"]},
+        {"name": "Z_001 ABTEILUNGEN_002 ABTEILUNGENABTEILUNGS-NR", "unique": false, "columns": ["Abteilungs-Nr"]},
+        {"name": "Z_001 ABTEILUNGEN_MASCHINENNUMMER", "unique": false, "columns": ["Maschinennummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "002 Abt-Objekte",
+      "row_count": 869,
+      "primary_key": [],
+      "columns": [
+        {"name": "ObID", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Anzahl", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Letzte Reinigung", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "AusführungZahl", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ausführung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "AusführungKennziffer", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontrollpunkt", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "true", "is_pk": false},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Maschinen Innenreinigung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "size": 255, "nullable": true, "default": "Münstermann", "is_pk": false},
+        {"name": "nicht im HY", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Zusatzarbeiten", "type": "BOOLEAN", "size": 0, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ZusatzText", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Montag", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MontagT", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Dienstag", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DienstagT", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Mittwoch", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "MittwochT", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Donnerstag", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DonnerstagT", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Freitag", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "FreitagT", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Samstag", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "SamstagT", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Sonntag", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "SonntagT", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "übrige", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "übrigeT", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Stunden", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KFaktor", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "täglich", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "wöchentlich", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "monatlich", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "jährlich", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Zusatz", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "proMonat", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Bericht1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bericht2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bericht3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Maschinennummer", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DurchführungMonat1", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungMonat2", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungMonat3", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungMonat4", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW1", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW2", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW3", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW4", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW5", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW6", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW7", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW8", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "DurchführungKW9", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_002 ABT-OBJEKTE_003 ABT-OBJEKTEABTEILUNGS-NR", "unique": false, "columns": ["Abteilungs-Nr"]},
+        {"name": "Z_002 ABT-OBJEKTE_ABT-OBJEKTEINTERVALL", "unique": false, "columns": ["Ausführung"]},
+        {"name": "Z_002 ABT-OBJEKTE_ABTEILUNGS-NR", "unique": false, "columns": ["Abteilungs-Nr", "ObID"]},
+        {"name": "Z_002 ABT-OBJEKTE_B_NUMMER", "unique": false, "columns": ["Objekt-Nr"]},
+        {"name": "Z_002 ABT-OBJEKTE_INTERVALL", "unique": false, "columns": ["AusführungZahl"]},
+        {"name": "Z_002 ABT-OBJEKTE_INTERVALL1", "unique": false, "columns": ["AusführungKennziffer"]},
+        {"name": "Z_002 ABT-OBJEKTE_MASCHINENNUMMER", "unique": false, "columns": ["Maschinennummer"]},
+        {"name": "Z_002 ABT-OBJEKTE_NICHT IM HY", "unique": false, "columns": ["nicht im HY"]},
+        {"name": "Z_002 ABT-OBJEKTE_ZUSATZARBEITEN", "unique": false, "columns": ["Zusatzarbeiten"]},
+        {"name": "Z_002 ABT-OBJEKTE_ÜBRIGE", "unique": false, "columns": ["übrige"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "003 Hygienepläne",
+      "row_count": 14,
+      "primary_key": ["PlanNr"],
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "Plan", "type": "VARCHAR", "size": 5, "nullable": true, "default": null, "is_pk": false},
+        {"name": "T1", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M1", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M2", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M3", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M4", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M5", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M6", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M7", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M8", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "M9", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten 1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten 2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Besonderheiten 3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "R1", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "R2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Wie1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "K1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "K2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "E1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "E2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "D1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "D2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DW", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DK1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DK2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DE1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DE2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Reinigungsmittel", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Wie2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "DW1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Einsatzort1", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Einsatzort2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Einsatzort3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Einsatzort4", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10723_10724", "unique": true, "columns": ["PlanNr"]},
+        {"name": "Z_003 HYGIENEPLÄNE_PLANPLAN", "unique": false, "columns": ["Plan"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "003 Hygienepläne Arbeitsschritte",
+      "row_count": 87,
+      "primary_key": [],
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Aufgaben", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Verfahren", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geräte", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_003 HYGIENEPLÄNE ARBEITSSCHRITTE_PLANNR", "unique": false, "columns": ["PlanNr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "003a HP Arbeitsschritte",
+      "row_count": 83,
+      "primary_key": [],
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Aufgaben", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Verfahren", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Geräte", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_003A HP ARBEITSSCHRITTE_PLANNR", "unique": false, "columns": ["PlanNr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "003a HP Arbeitsschritte V01",
+      "row_count": 96,
+      "primary_key": [],
+      "columns": [
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Arbeitsschritt", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Status", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Aufgaben", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Verfahren1", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "txtRGM1", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "NrRGM1", "type": "INTEGER", "size": 32, "nullable": true, "default": "329", "is_pk": false},
+        {"name": "Verfahren2", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "txtRGM2", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "NrRGM2", "type": "INTEGER", "size": 32, "nullable": true, "default": "329", "is_pk": false},
+        {"name": "Verfahren3", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "txtRGM3", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "NrRGM3", "type": "INTEGER", "size": 32, "nullable": true, "default": "329", "is_pk": false},
+        {"name": "Geräte", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hinweise zur Anpassung", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_003A HP ARBEITSSCHRITTE V01_PLANNR", "unique": false, "columns": ["PlanNr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "010 Arbeitsanweisungen alles",
+      "row_count": 1062,
+      "primary_key": [],
+      "columns": [
+        {"name": "Etage", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BereichNr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt", "type": "VARCHAR", "size": 45, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PlanNr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ObID", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_010 ARBEITSANWEISUNGEN ALLES_ABTEILUNGS-NR", "unique": false, "columns": ["Abteilungs-Nr", "ObID"]},
+        {"name": "Z_010 ARBEITSANWEISUNGEN ALLES_PLANNR", "unique": false, "columns": ["PlanNr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "021 GefahrstofflisteLWM",
+      "row_count": 13,
+      "primary_key": [],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_021 GEFAHRSTOFFLISTELWM_ID", "unique": false, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "021 Gefahrstoffverzeichnis",
+      "row_count": 22,
+      "primary_key": [],
+      "columns": [
+        {"name": "ArtNr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Artikelname", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Menge jährl", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Standort", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Einsatz", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_021 GEFAHRSTOFFVERZEICHNIS_GEFAHRSTOFFVERZEICHNIS EINZELHEITENARTIKEL-NR", "unique": false, "columns": ["Artikelname"]},
+        {"name": "Z_021 GEFAHRSTOFFVERZEICHNIS_ID", "unique": false, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "022 Hygienekontrollen",
+      "row_count": 1858,
+      "primary_key": [],
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "BereichNr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "ObID", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hygienekontrollen", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Anzahl", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntervallZahl", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntV", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_022 HYGIENEKONTROLLEN_ABTEILUNGS-NR", "unique": false, "columns": ["Abteilungs-Nr"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN_INTERVALLZAHL", "unique": false, "columns": ["IntervallZahl"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN_OBID", "unique": false, "columns": ["ObID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "022 Hygienekontrollen Spezial 15",
+      "row_count": 0,
+      "primary_key": [],
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Anzahl", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt Filter", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Seitennummer", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereichs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntervallText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "KontrollZahl", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Etage", "type": "VARCHAR", "size": 20, "nullable": true, "default": null, "is_pk": false},
+        {"name": "NachHygPlan", "type": "VARCHAR", "size": 5, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PlanTxt", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_022 HYGIENEKONTROLLEN SPEZIAL 15_ABTEILUNGS-NRINTERVALLTEXTOBJEKT", "unique": false, "columns": ["Abteilungs-Nr", "IntervallText", "Objekt"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN SPEZIAL 15_AUSFÜHRUNGZAHL", "unique": false, "columns": ["KontrollZahl"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN SPEZIAL 15_OBJEKT-NR", "unique": false, "columns": ["Objekt-Nr"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN SPEZIAL 15_SEITENNUMMER", "unique": false, "columns": ["Seitennummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "022 Hygienekontrollen Unterhaltsreinigung",
+      "row_count": 0,
+      "primary_key": [],
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Anzahl", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt Filter", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Seitennummer", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereichs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntervallText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "KontrollZahl", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Etage", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_022 HYGIENEKONTROLLEN UNTERHALTSREINIGUNG_ABTEILUNGS-NRINTERVALLTEXTOBJEKT", "unique": false, "columns": ["Abteilungs-Nr", "IntervallText", "Objekt"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN UNTERHALTSREINIGUNG_AUSFÜHRUNGZAHL", "unique": false, "columns": ["KontrollZahl"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN UNTERHALTSREINIGUNG_OBJEKT-NR", "unique": false, "columns": ["Objekt-Nr"]},
+        {"name": "Z_022 HYGIENEKONTROLLEN UNTERHALTSREINIGUNG_SEITENNUMMER", "unique": false, "columns": ["Seitennummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "022_1 HK_nachHygPlan",
+      "row_count": 388,
+      "primary_key": [],
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereichs-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontroll_intervall", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntervallText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KontrollZahl", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "Etage", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungsleiter-Nr", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "HygPlan", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PlanTxt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Mo", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Di", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Mi", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Do", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Fr", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Sa", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "So", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "uebrige", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_022_1 HK_NACHHYGPLAN_AUSFÜHRUNGZAHL", "unique": false, "columns": ["KontrollZahl"]},
+        {"name": "Z_022_1 HK_NACHHYGPLAN_OBJEKT-NR", "unique": false, "columns": ["Objekt-Nr"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "022_1 tempHK_nachHygPlan",
+      "row_count": 1636,
+      "primary_key": [],
+      "columns": [
+        {"name": "Abteilungs-Nr", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungs-Nr Kunde", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilung", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Abteilungsleiter-Nr", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Objekt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Objekt-Nr", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereichs-Nr", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bereich", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Etage", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kontroll_intervall", "type": "SMALLINT", "size": 16, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntervallText", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KontrollZahl", "type": "DOUBLE", "size": 64, "nullable": true, "default": null, "is_pk": false},
+        {"name": "KontrolleEinzeln", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "AusführungReinigung", "type": "VARCHAR", "size": 100, "nullable": true, "default": null, "is_pk": false},
+        {"name": "NachHygPlan", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PlanTxt", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Mo", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Di", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Mi", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Do", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Fr", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "Sa", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "So", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "uebrige", "type": "SMALLINT", "size": 16, "nullable": true, "default": "0", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "Z_022_1 TEMPHK_NACHHYGPLAN_AUSFÜHRUNGZAHL", "unique": false, "columns": ["KontrollZahl"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "050 Kontrollintervalle",
+      "row_count": 18,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "KinterV", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kfaktor", "type": "DOUBLE", "size": 64, "nullable": true, "default": "0", "is_pk": false},
+        {"name": "AusführungZahl", "type": "INTEGER", "size": 32, "nullable": true, "default": null, "is_pk": false},
+        {"name": "IntervallText", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10729_10730", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "100 Firmendaten",
+      "row_count": 1,
+      "primary_key": ["Kunden-Code"],
+      "columns": [
+        {"name": "Kunden-Code", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "Firma", "type": "VARCHAR", "size": 40, "nullable": false, "default": null, "is_pk": false},
+        {"name": "Anrede", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Straße", "type": "VARCHAR", "size": 60, "nullable": true, "default": null, "is_pk": false},
+        {"name": "PLZ", "type": "VARCHAR", "size": 10, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Ort", "type": "VARCHAR", "size": 40, "nullable": true, "default": null, "is_pk": false},
+        {"name": "LU Stand", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "HP Stand", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "GfSt Stand", "type": "VARCHAR", "size": 50, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Logo", "type": "OTHER", "size": 0, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10736_10737", "unique": true, "columns": ["Kunden-Code"]},
+        {"name": "Z_100 FIRMENDATEN_FIRMA", "unique": false, "columns": ["Firma"]},
+        {"name": "Z_100 FIRMENDATEN_ORT", "unique": false, "columns": ["Ort"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "101 Maschinenpark",
+      "row_count": 0,
+      "primary_key": ["Maschinennummer"],
+      "columns": [
+        {"name": "Maschinennummer", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Hersteller", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Art", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Typ", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Baujahr", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Memo", "type": "VARCHAR", "size": 16777216, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Bild", "type": "BLOB", "size": 1073741824, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10743_10744", "unique": true, "columns": ["Maschinennummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Hilfe",
+      "row_count": 12,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10749_10750", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Version",
+      "row_count": 1,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Version", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Stand", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Kunde", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "überarbeitet am", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10768_10769", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "Versionnierung",
+      "row_count": 1,
+      "primary_key": ["ID"],
+      "columns": [
+        {"name": "ID", "type": "INTEGER", "size": 32, "nullable": false, "default": null, "is_pk": true},
+        {"name": "Version", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Stand", "type": "TIMESTAMP", "size": 26, "nullable": true, "default": null, "is_pk": false},
+        {"name": "001 jährlich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "001 täglich", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "004 Pläne", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Gefahrstoffe", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Hygieneplan", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Mängel", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false},
+        {"name": "Arbeitsanweisung", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10773_10774", "unique": true, "columns": ["ID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tmpBerichte",
+      "row_count": 29,
+      "primary_key": ["BerichtName"],
+      "columns": [
+        {"name": "BerichtName", "type": "VARCHAR", "size": 255, "nullable": false, "default": null, "is_pk": true},
+        {"name": "BerichtAuswahl", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false},
+        {"name": "BerichtOrdnungsnummer", "type": "VARCHAR", "size": 255, "nullable": true, "default": null, "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10755_10756", "unique": true, "columns": ["BerichtName"]},
+        {"name": "TMPBERICHTE_BERICHTORDNUNGSNUMMER", "unique": false, "columns": ["BerichtOrdnungsnummer"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    },
+    {
+      "name": "tmpGefStoffe",
+      "row_count": 21,
+      "primary_key": ["GefStoffID"],
+      "columns": [
+        {"name": "GefStoffID", "type": "INTEGER", "size": 32, "nullable": false, "default": "0", "is_pk": true},
+        {"name": "GefStoffName", "type": "VARCHAR", "size": 255, "nullable": false, "default": null, "is_pk": false},
+        {"name": "GefStoffAuswahl", "type": "BOOLEAN", "size": 0, "nullable": true, "default": "false", "is_pk": false}
+      ],
+      "indexes": [
+        {"name": "SYS_IDX_SYS_PK_10761_10762", "unique": true, "columns": ["GefStoffID"]},
+        {"name": "TMPGEFSTOFFE_GEFSTOFFID", "unique": false, "columns": ["GefStoffID"]}
+      ],
+      "foreign_keys": [
+
+      ]
+    }
+  ]
+}

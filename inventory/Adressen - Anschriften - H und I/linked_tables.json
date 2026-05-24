@@ -1,0 +1,6 @@
+{
+  "linked_tables": [
+    {"name": "Bundesländer", "linked_db": "C:\\OneDrive - Münstermann H. & I. GmbH & Co. KG\\Büro\\# Büro Allgemein\\ListenAllgemein.accdb", "linked_table": "Bundesländer"},
+    {"name": "Personalstammdaten", "linked_db": "Z:\\Abrechnungen 2019\\Personalstamm 2019.accdb", "linked_table": "Personalstammdaten"}
+  ]
+}
