@@ -55,7 +55,7 @@ create table if not exists ops.customer_hygiene_plan_step (
     customer_hygiene_plan_id    bigint not null references ops.customer_hygiene_plan(id) on delete cascade,
     step_number                 integer not null,                                       -- aus Arbeitsschritt
     status                      text,
-    task_description            text not null,                                          -- aus Aufgaben (Memo)
+    task_description            text,                                                   -- aus Aufgaben (Memo) — leer wenn nur procedure/notes gepflegt
     procedure                   text,                                                   -- aus Verfahren
     equipment                   text,                                                   -- aus Geräte
     notes                       text,                                                   -- aus Hinweise
@@ -64,6 +64,12 @@ create table if not exists ops.customer_hygiene_plan_step (
 );
 create index if not exists customer_hygiene_plan_step_plan_idx
     on ops.customer_hygiene_plan_step (customer_hygiene_plan_id);
+-- Idempotent für bereits applied Schemas
+do $$
+begin
+    alter table ops.customer_hygiene_plan_step alter column task_description drop not null;
+exception when others then null;
+end$$;
 
 -- ---------- Arbeitsanweisung pro Objekt (welcher Hygieneplan gilt) ----------
 

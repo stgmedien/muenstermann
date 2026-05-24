@@ -243,14 +243,37 @@ def customer_insert_statements(df: pd.DataFrame) -> list[str]:
     return stmts
 
 
-def contact_insert_statements(df: pd.DataFrame, business_unit_id: int) -> list[str]:
+def contact_insert_statements(df: pd.DataFrame, business_unit_id: int,
+                              valid_customer_numbers: set[int] | None = None) -> list[str]:
+    """Insert pro Contact — überspringt Contacts ohne passenden Customer.
+
+    Datenfehler aus der Quelle (z. B. Services-Adressbuch hat einen Contact mit
+    Kunden-Nr 140, aber die 8 Services-Kunden haben diese Nr nicht) werden
+    als Quarantäne-Kommentar in den Seed eingebettet, nicht als Insert.
+    """
     if df.empty:
         return [f"-- core.customer_contact_person (BU {business_unit_id}): 0 Zeilen"]
     stmts = [f"-- core.customer_contact_person (BU {business_unit_id}): {len(df)} Zeilen"]
+    skipped = 0
     for _, r in df.iterrows():
+        try:
+            cust_num = int(r["_customer_legacy_id"])
+        except (TypeError, ValueError):
+            stmts.append(
+                f"-- SKIP contact {r.get('last_name', '')!r}: ungültige Kunden-Nr {r['_customer_legacy_id']!r}"
+            )
+            skipped += 1
+            continue
+        if valid_customer_numbers is not None and cust_num not in valid_customer_numbers:
+            stmts.append(
+                f"-- SKIP contact {r.get('last_name', '')!r}: Kunden-Nr {cust_num} "
+                f"existiert nicht in BU {business_unit_id} (Quell-Datenfehler)"
+            )
+            skipped += 1
+            continue
         customer_lookup = (
             f"(select id from core.customer where business_unit_id = {business_unit_id} "
-            f"and customer_number = {int(r['_customer_legacy_id'])})"
+            f"and customer_number = {cust_num})"
         )
         cols = ["customer_id", "salutation", "first_name", "last_name", "position",
                 "email", "phone", "fax"]
@@ -268,6 +291,8 @@ def contact_insert_statements(df: pd.DataFrame, business_unit_id: int) -> list[s
             f"insert into core.customer_contact_person ({', '.join(cols)}) "
             f"values ({', '.join(values)});"
         )
+    if skipped:
+        stmts.insert(1, f"-- WARNUNG: {skipped} Contact(s) übersprungen (siehe SKIP-Kommentare)")
     return stmts
 
 
@@ -348,16 +373,19 @@ def main(argv: list[str]) -> int:
         f"Kunden-Nr-Overlap: {len(overlap)} — durch business_unit getrennt OK) |"
     )
 
-    # Ansprechpartner
+    # Ansprechpartner — vorab pruefen welche Kunden-Nrs jeweils existieren,
+    # um Contacts ohne passenden Customer zu skipen (Quell-Datenfehler).
     print("• core.customer_contact_person")
+    valid_hi = set(cust_hi["customer_number"].dropna().astype("int64").tolist())
+    valid_sv = set(cust_sv["customer_number"].dropna().astype("int64").tolist())
     cp_hi = transform_contact_person(accdb_hund_i)
     cp_sv = transform_contact_person(accdb_services)
     write_parquet(pd.concat([cp_hi, cp_sv], ignore_index=True),
                   "customer_contact_person")
     sections.append(("core.customer_contact_person (H und I)",
-                     contact_insert_statements(cp_hi, BUSINESS_UNIT_HUND_I)))
+                     contact_insert_statements(cp_hi, BUSINESS_UNIT_HUND_I, valid_hi)))
     sections.append(("core.customer_contact_person (Services)",
-                     contact_insert_statements(cp_sv, BUSINESS_UNIT_SERVICES)))
+                     contact_insert_statements(cp_sv, BUSINESS_UNIT_SERVICES, valid_sv)))
     report_lines.append(
         f"| `core.customer_contact_person` | Kunden Ansprechpartner | "
         f"{len(cp_hi) + len(cp_sv)} | ✓ (H und I: {len(cp_hi)}, Services: {len(cp_sv)}) |"

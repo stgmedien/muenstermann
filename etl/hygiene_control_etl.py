@@ -232,7 +232,7 @@ def hygiene_plan_insert_stmts(df: pd.DataFrame, bu_map: dict[int, int]) -> list[
         ]
         stmts.append(
             f"insert into ops.hygiene_control_plan ({', '.join(cols)}) values "
-            f"({', '.join(values)});"
+            f"({', '.join(values)}) on conflict (legacy_id) do nothing;"
         )
     return stmts
 

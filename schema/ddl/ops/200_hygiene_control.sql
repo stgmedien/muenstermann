@@ -108,6 +108,38 @@ create index if not exists hygiene_control_plan_object_idx
 create index if not exists hygiene_control_plan_legacy_idx
     on ops.hygiene_control_plan (legacy_id);
 
+-- legacy_id muss eindeutig sein für ON CONFLICT DO NOTHING in den Seeds.
+-- Erst Duplikate aus früheren nicht-idempotenten Apply-Läufen aufräumen.
+do $$
+begin
+    delete from ops.hygiene_control_plan
+    where id in (
+        select id from (
+            select id, row_number() over (partition by legacy_id order by id) as rn
+            from ops.hygiene_control_plan
+        ) t where rn > 1
+    );
+exception when others then null;
+end$$;
+
+do $$
+begin
+    alter table ops.hygiene_control_plan add constraint hygiene_control_plan_legacy_id_key unique (legacy_id);
+exception when duplicate_table then null;
+        when duplicate_object then null;
+end$$;
+
+-- department_id darf NULL sein: in den Probedaten gibt es Plan-Zeilen,
+-- die auf Abteilungs-Nrn verweisen, die im 001-Abteilungen-Bestand nicht
+-- existieren (z. B. Borgmeier hat Plan-Einträge mit Abt-Nr 5100, aber
+-- die Abteilung selbst fehlt). Wir migrieren die Plan-Zeile trotzdem
+-- und behalten department_number_snapshot zur Diagnose.
+do $$
+begin
+    alter table ops.hygiene_control_plan alter column department_id drop not null;
+exception when others then null;
+end$$;
+
 -- Erweiterung für REWE-Sonderformat (022_1 HK_nachHygPlan):
 -- - Verweis auf den Hygieneplan, nach dem kontrolliert wird
 -- - Wochentag-Schichten (Mo/Di/Mi/Do/Fr/Sa/So/uebrige) als JSONB,

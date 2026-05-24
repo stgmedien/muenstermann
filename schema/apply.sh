@@ -41,8 +41,9 @@ run schema/ddl/core/200_calendar_domain.sql
 
 echo "=== Ops-Domäne ==="
 run schema/ddl/ops/100_department_domain.sql
-run schema/ddl/ops/200_hygiene_control.sql
+# 300 vor 200: 200 hat ALTER TABLE mit FK auf customer_hygiene_plan aus 300
 run schema/ddl/ops/300_customer_artifacts.sql
+run schema/ddl/ops/200_hygiene_control.sql
 
 echo "=== Seeds (idempotent — können wiederholt werden) ==="
 # Reihenfolge der Seeds bedacht: erst Kataloge (referenzierte Stammdaten),

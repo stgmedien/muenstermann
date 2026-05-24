@@ -230,7 +230,7 @@ def insert_stmts(df: pd.DataFrame, label: str) -> list[str]:
         ]
         stmts.append(
             f"insert into ops.hygiene_control_plan ({', '.join(cols)}) values "
-            f"({', '.join(values)});"
+            f"({', '.join(values)}) on conflict (legacy_id) do nothing;"
         )
     return stmts
 

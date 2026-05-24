@@ -188,20 +188,36 @@ def customer_hygiene_plan_stmts(df: pd.DataFrame, bu_map: dict[int, int]) -> lis
     return stmts
 
 
-def customer_hygiene_plan_step_stmts(df: pd.DataFrame, bu_map: dict[int, int]) -> list[str]:
+def customer_hygiene_plan_step_stmts(df: pd.DataFrame, bu_map: dict[int, int],
+                                     valid_plans: set[tuple[int, int]] | None = None) -> list[str]:
+    """Step-Inserts mit FK-Existenz-Check.
+
+    valid_plans = Set of (customer_number, plan_number)-Tupeln, für die ein
+    customer_hygiene_plan existiert. Steps die auf nicht-existente Pläne
+    verweisen werden als SKIP-Kommentar in den Seed eingebettet (Quell-Datenfehler).
+    """
     if df.empty:
         return ["-- ops.customer_hygiene_plan_step: 0 Zeilen"]
     stmts = [f"-- ops.customer_hygiene_plan_step: {len(df)} Zeilen"]
     cols = ["legacy_id", "customer_hygiene_plan_id", "step_number", "status",
             "task_description", "procedure", "equipment", "notes"]
+    skipped = 0
     for _, r in df.iterrows():
         cust_num = int(r["_customer_number"])
+        plan_num = int(r["_plan_number"])
+        if valid_plans is not None and (cust_num, plan_num) not in valid_plans:
+            stmts.append(
+                f"-- SKIP step {r['legacy_id']}: Plan ({cust_num}, {plan_num}) "
+                "existiert nicht (Quell-Datenfehler, orphan step)"
+            )
+            skipped += 1
+            continue
         bu = bu_map[cust_num]
         plan_lookup = (
             f"(select chp.id from ops.customer_hygiene_plan chp "
             f"join core.customer c on c.id = chp.customer_id "
             f"where c.business_unit_id = {bu} and c.customer_number = {cust_num} "
-            f"and chp.plan_number = {int(r['_plan_number'])})"
+            f"and chp.plan_number = {plan_num})"
         )
         values = [
             _sql_value(r["legacy_id"]),
@@ -217,6 +233,8 @@ def customer_hygiene_plan_step_stmts(df: pd.DataFrame, bu_map: dict[int, int]) -
             f"insert into ops.customer_hygiene_plan_step ({', '.join(cols)}) values "
             f"({', '.join(values)}) on conflict (customer_hygiene_plan_id, step_number) do nothing;"
         )
+    if skipped:
+        stmts.insert(1, f"-- WARNUNG: {skipped} orphan step(s) übersprungen")
     return stmts
 
 
@@ -366,9 +384,16 @@ def main() -> int:
     write_parquet(wi_df, "work_instruction")
     write_parquet(haz_df, "customer_hazard_substance")
 
+    # valide (customer_number, plan_number)-Paare für Step-FK-Check
+    valid_plans: set[tuple[int, int]] = set()
+    if not plans_df.empty:
+        for _, r in plans_df.iterrows():
+            valid_plans.add((int(r["_customer_number"]), int(r["plan_number"])))
+
     sections = [
         ("ops.customer_hygiene_plan", customer_hygiene_plan_stmts(plans_df, bu_map)),
-        ("ops.customer_hygiene_plan_step", customer_hygiene_plan_step_stmts(steps_df, bu_map)),
+        ("ops.customer_hygiene_plan_step",
+         customer_hygiene_plan_step_stmts(steps_df, bu_map, valid_plans)),
         ("ops.work_instruction", work_instruction_stmts(wi_df, bu_map)),
         ("ops.customer_hazard_substance", customer_hazard_substance_stmts(haz_df, bu_map)),
     ]
