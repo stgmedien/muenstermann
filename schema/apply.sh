@@ -37,6 +37,7 @@ run schema/ddl/catalog/210_hazard_factors.sql
 
 echo "=== Core-Domäne ==="
 run schema/ddl/core/100_customer_domain.sql
+run schema/ddl/core/200_calendar_domain.sql
 
 echo "=== Ops-Domäne ==="
 run schema/ddl/ops/100_department_domain.sql
@@ -52,6 +53,7 @@ echo "=== Seeds (idempotent — können wiederholt werden) ==="
 for seed in catalog_reinigungsmittel.sql \
             catalog_hygiene_plans.sql \
             core_customer_domain.sql \
+            core_calendar_domain.sql \
             ops_department_domain.sql \
             ops_customer_artifacts.sql \
             ops_hygiene_control.sql \
