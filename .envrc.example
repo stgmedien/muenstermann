@@ -1,0 +1,16 @@
+# Source this file to get a self-contained dev environment without
+# touching system Java / Homebrew.
+#
+# Usage:
+#   source .envrc
+#
+# Copy to .envrc to use (will be picked up by direnv if installed).
+
+export JAVA_HOME="$(pwd)/tools/jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Aktiviere venv
+if [ -f .venv/bin/activate ]; then
+    # shellcheck disable=SC1091
+    . .venv/bin/activate
+fi

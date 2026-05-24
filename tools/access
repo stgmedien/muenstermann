@@ -1,0 +1,22 @@
+#!/bin/bash
+# Wrapper: ruft AccessExtract via lokales JDK + UCanAccess auf.
+# Filtert HSQLDB-Lognoise raus, lässt echte Fehler stehen.
+#
+# Aufruf:
+#   tools/access <accdb-path> [list-tables | row-counts | linked-tables]
+#
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+JAVA_HOME="$SCRIPT_DIR/jdk/Contents/Home"
+CP="$SCRIPT_DIR:$SCRIPT_DIR/UCanAccess-5.0.1.bin/ucanaccess-5.0.1.jar:$SCRIPT_DIR/UCanAccess-5.0.1.bin/lib/*"
+
+if [ ! -x "$JAVA_HOME/bin/java" ]; then
+    echo "FEHLER: Lokales JDK nicht gefunden unter $JAVA_HOME" >&2
+    exit 3
+fi
+
+# Stderr in einen Filter, Stdout durchlassen
+"$JAVA_HOME/bin/java" -cp "$CP" AccessExtract "$@" 2> >(
+    grep -vE "^(INFORMATION:|Mai |Mär |Feb |Jan |Apr |Mai |Jun |Jul |Aug |Sep |Okt |Nov |Dez ).*hsqldb|^INFORMATION:" >&2
+)

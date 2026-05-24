@@ -1,0 +1,207 @@
+============================================================
+DB: 100 Borgmeier 2026 V1.12
+============================================================
+Anwendertabellen: 16
+  - 001 Abteilungen: 37
+  - 002 Abt-Objekte: 390
+  - 003 Hygienepläne: 10
+  - 003 Hygienepläne Arbeitsschritte: 71
+  - 010 Arbeitsanweisungen alles: 468
+  - 011 Arbeitsanweisungen Abteilungen: 0
+  - 021 Gefahrstoffverzeichnis: 21
+  - 022 Hygienekontrollen: 570
+  - 022 Hygienekontrollen Spezial 15: 476
+  - 050 Kontrollintervalle: 18
+  - 100 Firmendaten: 1
+  - 101 Maschinenpark: 0
+  - Hilfe: 12
+  - Version: 1
+  - tmpBerichte: 14
+  - tmpGefStoffe: 15
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Personal\Personal KG\Adressen - Anschriften.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Personal\Personal KG\Adressen - Anschriften.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+
+============================================================
+DB: 540 Bittner 2026 V1.1
+============================================================
+Anwendertabellen: 16
+  - 001 Abteilungen: 30
+  - 002 Abt-Objekte: 162
+  - 003 Hygienepläne: 4
+  - 003 Hygienepläne Arbeitsschritte: 25
+  - 010 Arbeitsanweisungen alles: 165
+  - 011 Arbeitsanweisungen Abteilungen: 0
+  - 021 Gefahrstoffverzeichnis: 9
+  - 022 Hygienekontrollen: 236
+  - 022 Hygienekontrollen Spezial 15: 162
+  - 050 Kontrollintervalle: 17
+  - 100 Firmendaten: 1
+  - 101 Maschinenpark: 0
+  - Hilfe: 12
+  - Version: 1
+  - tmpBerichte: 15
+  - tmpGefStoffe: 9
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Personal\Personal KG\Adressen - Anschriften.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Personal\Personal KG\Adressen - Anschriften.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+
+============================================================
+DB: 60 REWE 2026 V1.1 - Services
+============================================================
+Anwendertabellen: 22
+  - 001 Abteilungen: 124
+  - 002 Abt-Objekte: 869
+  - 003 Hygienepläne: 14
+  - 003 Hygienepläne Arbeitsschritte: 87
+  - 003a HP Arbeitsschritte: 83
+  - 003a HP Arbeitsschritte V01: 96
+  - 010 Arbeitsanweisungen alles: 1062
+  - 021 GefahrstofflisteLWM: 13
+  - 021 Gefahrstoffverzeichnis: 22
+  - 022 Hygienekontrollen: 1858
+  - 022 Hygienekontrollen Spezial 15: 0
+  - 022 Hygienekontrollen Unterhaltsreinigung: 0
+  - 022_1 HK_nachHygPlan: 388
+  - 022_1 tempHK_nachHygPlan: 1636
+  - 050 Kontrollintervalle: 18
+  - 100 Firmendaten: 1
+  - 101 Maschinenpark: 0
+  - Hilfe: 12
+  - Version: 1
+  - Versionnierung: 1
+  - tmpBerichte: 29
+  - tmpGefStoffe: 21
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Personal\Personal KG\Adressen - Anschriften.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+
+============================================================
+DB: Adressen - Anschriften - H und I
+============================================================
+Anwendertabellen: 6
+  - Bewerbungen: 1
+  - Bewerbungen Hilfe: 23
+  - Gefährdungsfaktoren: 1
+  - Kunden: 81
+  - Kunden Ansprechpartner: 1
+  - Kunden Mibikontrolle: 11
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\# Büro Allgemein\ListenAllgemein.accdb
+WARNING:given file does not exist: Z:\Abrechnungen 2019\Personalstamm 2019.accdb
+
+============================================================
+DB: Adressen - Anschriften - Services
+============================================================
+Anwendertabellen: 4
+  - Bewerbungen: 1
+  - Bewerbungen Hilfe: 23
+  - Kunden: 8
+  - Kunden Ansprechpartner: 1
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH & Co. KG\Büro\# Büro Allgemein\ListenAllgemein.accdb
+
+============================================================
+DB: Kalender 2026
+============================================================
+Anwendertabellen: 27
+  - Feiertage: 20
+  - Initialisierung: 1
+  - Kalender: 365
+  - Kalender Könecke: 12
+  - KalenderBB: 12
+  - KalenderBE: 12
+  - KalenderBW: 12
+  - KalenderBY: 12
+  - KalenderHB: 12
+  - KalenderHE: 12
+  - KalenderHH: 12
+  - KalenderMV: 12
+  - KalenderNI: 12
+  - KalenderNL: 12
+  - KalenderNW: 12
+  - KalenderRP: 12
+  - KalenderSH: 12
+  - KalenderSL: 12
+  - KalenderSN: 12
+  - KalenderST: 12
+  - KalenderTH: 12
+  - KalenderWochen: 53
+  - Monatsnamen: 12
+  - Temp_KalenderHoch: 365
+  - Temp_KalenderQuer: 12
+  - Wartungsplan: 11
+  - tbl_Bundesländer: 17
+WARNING:Error in the metadata of the table Kalender Könecke: table's row count in the metadata is 24 but 12 records have been found and loaded by UCanAccess. All will work fine, but it's better to repair your database.
+WARNING:Error in the metadata of the table Temp_KalenderQuer: table's row count in the metadata is 156 but 12 records have been found and loaded by UCanAccess. All will work fine, but it's better to repair your database.
+
+============================================================
+DB: Musterdatenbank 2026
+============================================================
+Anwendertabellen: 18
+  - 001 Abteilungen: 27
+  - 002 Abt-Objekte: 217
+  - 003 Hygienepläne: 9
+  - 003 Hygienepläne Arbeitsschritte: 63
+  - 010 Arbeitsanweisungen alles: 462
+  - 011 Arbeitsanweisungen Abteilungen: 0
+  - 021 GefahrstofflisteLWM: 16
+  - 021 Gefahrstoffverzeichnis: 21
+  - 022 Hygienekontrollen: 242
+  - 022 Hygienekontrollen Spezial 15: 217
+  - 050 Kontrollintervalle: 18
+  - 100 Firmendaten: 1
+  - 101 Maschinenpark: 0
+  - Hilfe: 12
+  - Version: 1
+  - Wartungsplan: 11
+  - tmpBerichte: 26
+  - tmpGefStoffe: 19
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Kunden\Reinigungspläne.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Büro\Kalender\Kalender 2026.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Personal\Personal KG\Adressen - Anschriften.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+WARNING:given file does not exist: C:\OneDrive - Münstermann H. & I. GmbH\Büro\Reinigungsmittel\Reinigungsmittel_2025.accdb
+
+============================================================
+DB: Reinigungsmittel_2025
+============================================================
+Anwendertabellen: 9
+  - tblGIZ: 9
+  - tblGefHhinweise_H-Sätze: 58
+  - tblGefHinweis_Kategorien: 3
+  - tblGefHinweis_Stand: 1
+  - tblRGM_Hersteller: 15
+  - tblSymboleGefahren: 10
+  - tblSymbolePSA: 6
+  - tbl_RGM_Eigenschaften_2025: 292
+  - tbl_TRGS 510: 25
+WARNING:Error in the metadata of the table tbl_RGM_Eigenschaften_2025: table's row count in the metadata is 293 but 292 records have been found and loaded by UCanAccess. All will work fine, but it's better to repair your database.
+
+============================================================
+DB: Reinigungspläne
+============================================================
+Anwendertabellen: 4
+  - 003 Hygienepläne: 40
+  - 003 Hygienepläne Arbeitsschritte: 244
+  - 021 Gefahrstoffverzeichnis: 23
+  - GullyCheck: 1
+WARNING:given file does not exist: Z:\sonstige Datenbanken\Reinigungsmittel1.accdb
+

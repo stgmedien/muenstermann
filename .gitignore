@@ -23,9 +23,12 @@ inventory/reports/*.html
 ops/secrets/*
 !ops/secrets/.env.example
 
-# Tools (große Binaries)
+# Tools (große Binaries — werden lokal gehalten, nicht versioniert)
 tools/*.zip
-tools/ucanaccess-*/
+tools/*.tar.gz
+tools/*.class
+tools/jdk/
+tools/UCanAccess-*/
 !tools/.gitkeep
 
 # IDE / OS
