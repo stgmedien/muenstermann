@@ -40,6 +40,7 @@ run schema/ddl/core/100_customer_domain.sql
 
 echo "=== Ops-Domäne ==="
 run schema/ddl/ops/100_department_domain.sql
+run schema/ddl/ops/200_hygiene_control.sql
 
 echo "=== Seeds (idempotent — können wiederholt werden) ==="
 # Reihenfolge der Seeds bedacht: erst Kataloge (referenzierte Stammdaten),
@@ -47,7 +48,8 @@ echo "=== Seeds (idempotent — können wiederholt werden) ==="
 for seed in catalog_reinigungsmittel.sql \
             catalog_hygiene_plans.sql \
             core_customer_domain.sql \
-            ops_department_domain.sql; do
+            ops_department_domain.sql \
+            ops_hygiene_control.sql; do
     seed_path="schema/seeds/$seed"
     if [ -f "$ROOT/$seed_path" ]; then
         run "$seed_path"
