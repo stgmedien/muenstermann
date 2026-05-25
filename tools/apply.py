@@ -34,6 +34,7 @@ DDL_ORDER = [
     # das FK auf customer_hygiene_plan (in 300) setzt.
     "schema/ddl/ops/300_customer_artifacts.sql",
     "schema/ddl/ops/200_hygiene_control.sql",
+    "schema/ddl/ops/400_inspection.sql",
 ]
 
 SEED_ORDER = [
