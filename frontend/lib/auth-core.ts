@@ -6,14 +6,32 @@
 //   - getrennte Cookie-Namen + Secrets — d.h. Kompromittierung des Portal-
 //     Secrets kompromittiert NICHT die Admin-Sessions.
 
-import { createHmac, randomBytes, scrypt, timingSafeEqual } from "node:crypto";
-import { promisify } from "node:util";
-
-const scryptAsync = promisify(scrypt);
+import {
+  createHmac,
+  randomBytes,
+  scrypt as scryptCb,
+  timingSafeEqual,
+  type ScryptOptions,
+} from "node:crypto";
 
 const SCRYPT_N = 16384;
 const SCRYPT_KEYLEN = 64;
 const SCRYPT_SALT_BYTES = 16;
+
+/** scrypt mit Options-Overload promisified (Node types raten falsch ohne Wrapper). */
+function scryptAsync(
+  password: string | Buffer,
+  salt: Buffer,
+  keylen: number,
+  options: ScryptOptions,
+): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    scryptCb(password, salt, keylen, options, (err, derived) => {
+      if (err) reject(err);
+      else resolve(derived);
+    });
+  });
+}
 
 // ---------------- Passwort ----------------
 
@@ -22,9 +40,9 @@ export async function hashPassword(password: string): Promise<string> {
     throw new Error("Passwort zu kurz (mindestens 8 Zeichen)");
   }
   const salt = randomBytes(SCRYPT_SALT_BYTES);
-  const hash = (await scryptAsync(password, salt, SCRYPT_KEYLEN, {
+  const hash = await scryptAsync(password, salt, SCRYPT_KEYLEN, {
     N: SCRYPT_N,
-  })) as Buffer;
+  });
   return `scrypt$${SCRYPT_N}$${salt.toString("hex")}$${hash.toString("hex")}`;
 }
 
@@ -46,9 +64,7 @@ export async function verifyPassword(
   }
   let derived: Buffer;
   try {
-    derived = (await scryptAsync(password, salt, expected.length, {
-      N,
-    })) as Buffer;
+    derived = await scryptAsync(password, salt, expected.length, { N });
   } catch {
     return false;
   }

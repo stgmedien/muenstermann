@@ -1,0 +1,20 @@
+# Lokale Env-Dateien — Vercel zieht Secrets aus dem Dashboard, niemals aus dem Repo
+.env
+.env.*
+!.env.example
+
+# Build-Caches & temporäre Artefakte
+.next/
+node_modules/.cache/
+/tmp/
+/coverage/
+*.tsbuildinfo
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

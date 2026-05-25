@@ -43,6 +43,8 @@ export async function writeAsUser<T>(
     // SET LOCAL setzt die Variable für die Dauer der Transaktion;
     // der audit-Trigger liest sie via current_setting('app.user_id', true).
     await tx.execute(sql`select set_config('app.user_id', ${user}, true)`);
-    return await fn(tx);
+    // PgTransaction trägt alle Methoden von db (execute, query etc.), aber
+    // den $client-Marker nicht — daher Cast.
+    return await fn(tx as unknown as typeof db);
   });
 }

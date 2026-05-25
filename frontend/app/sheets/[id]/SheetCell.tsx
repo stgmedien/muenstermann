@@ -32,6 +32,8 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
   if (!cell) {
     return <div className="w-12 h-10 bg-slate-50" />;
   }
+  // Narrow to non-null in closures (TS verliert Narrowing über Callback-Captures)
+  const c: Cell = cell;
 
   const vIcon = V_SYMBOLS[v] ?? V_SYMBOLS.PENDING;
   const kIcon = K_SYMBOLS[k ?? "null"];
@@ -41,7 +43,7 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
   function applyV(target: "PENDING" | "DONE" | "PROBLEM" | "SKIPPED", commentText: string | null) {
     setV(target);
     const fd = new FormData();
-    fd.append("task_id", String(cell.task_id));
+    fd.append("task_id", String(c.task_id));
     fd.append("sheet_id", String(sheetId));
     fd.append("action", "v_set");
     fd.append("target_status", target);
@@ -51,7 +53,7 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
         await sheetCellAction(fd);
       } catch {
         // Rollback der optimistischen Anzeige bei Fehler
-        setV(cell.status);
+        setV(c.status);
       }
     });
   }
@@ -69,7 +71,7 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
   function doKAccept() {
     setK("ACCEPTED");
     const fd = new FormData();
-    fd.append("task_id", String(cell.task_id));
+    fd.append("task_id", String(c.task_id));
     fd.append("sheet_id", String(sheetId));
     fd.append("action", "k_accept");
     startTransition(async () => {
@@ -81,7 +83,7 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
     setK("DISPUTED");
     setShowDispute(false);
     const fd = new FormData();
-    fd.append("task_id", String(cell.task_id));
+    fd.append("task_id", String(c.task_id));
     fd.append("sheet_id", String(sheetId));
     fd.append("action", "k_dispute");
     fd.append("reason", reason);
@@ -93,7 +95,7 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
   function doKClear() {
     setK(null);
     const fd = new FormData();
-    fd.append("task_id", String(cell.task_id));
+    fd.append("task_id", String(c.task_id));
     fd.append("sheet_id", String(sheetId));
     fd.append("action", "k_clear");
     startTransition(async () => {

@@ -94,7 +94,8 @@ export default async function MobileTourPage({
   const canComplete = open === 0 && tour.status === "IN_PROGRESS";
 
   // Gruppiere nach Abteilung für übersichtlichere Mobile-Ansicht
-  const grouped = new Map<string, typeof tasks>();
+  type TaskItem = (typeof tasks)[number];
+  const grouped = new Map<string, TaskItem[]>();
   for (const t of tasks) {
     const key = t.department_name_snapshot ?? "(ohne Abteilung)";
     if (!grouped.has(key)) grouped.set(key, []);
