@@ -31,6 +31,7 @@ DDL_ORDER = [
     "schema/ddl/catalog/210_hazard_factors.sql",
     "schema/ddl/core/100_customer_domain.sql",
     "schema/ddl/core/200_calendar_domain.sql",
+    "schema/ddl/core/300_customer_user.sql",
     "schema/ddl/ops/100_department_domain.sql",
     # 300 vor 200: hygiene_control_plan (200) hat ein ALTER TABLE,
     # das FK auf customer_hygiene_plan (in 300) setzt.

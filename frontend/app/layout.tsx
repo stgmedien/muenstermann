@@ -29,12 +29,18 @@ function isPrintRoute(pathname: string): boolean {
   );
 }
 
+function isPortalRoute(pathname: string): boolean {
+  // Kunden-Portal hat eigenen Layout-Subtree → Sidebar überspringen
+  return pathname.startsWith("/portal") || pathname.startsWith("/m");
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const h = await headers();
   const pathname = h.get("x-app-pathname") ?? "";
   const print = isPrintRoute(pathname);
+  const portal = isPortalRoute(pathname);
 
   return (
     <html lang="de">
@@ -45,7 +51,7 @@ export default async function RootLayout({
             : "bg-slate-50 text-slate-900 antialiased"
         }
       >
-        {print ? (
+        {print || portal ? (
           children
         ) : (
           <div className="flex min-h-screen">
