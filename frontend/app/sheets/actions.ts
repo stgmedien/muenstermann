@@ -245,3 +245,83 @@ export async function sheetCellAction(formData: FormData) {
 
   if (sheetId) revalidatePath(`/sheets/${sheetId}`);
 }
+
+/**
+ * Sheet wird vom Kunden mit Signatur abgenommen.
+ * FormData:
+ *   sheet_id          number
+ *   signer_name       string (Pflicht)
+ *   signer_role       string optional
+ *   signature_png     data:image/png;base64,...
+ *
+ * Logik:
+ *   - Validiert dass keine PENDING-Vorarbeiter-Status mehr offen sind
+ *   - Schreibt ops.signature (tour_id ist nullable, hier signer auf Sheet)
+ *   - Sheet-Status: ACCEPTED wenn keine K=DISPUTED, sonst DISPUTED
+ */
+export async function finalizeSheet(formData: FormData) {
+  const user = await getCurrentUser();
+  const sheetId = Number(formData.get("sheet_id"));
+  const signerName = String(formData.get("signer_name") ?? "").trim();
+  const signerRole = String(formData.get("signer_role") ?? "").trim() || null;
+  const signaturePng = String(formData.get("signature_png") ?? "");
+
+  if (!Number.isFinite(sheetId)) throw new Error("sheet_id fehlt.");
+  if (!signerName) throw new Error("Name des Abnehmenden ist Pflicht.");
+  if (!signaturePng.startsWith("data:image/png;base64,"))
+    throw new Error("Unterschrift fehlt.");
+
+  await writeAsUser(user, async (tx) => {
+    // 1. Sanity-Check: keine PENDING-Vorarbeiter-Status mehr
+    const pending = await tx.execute<{ n: number }>(sql`
+      select count(*)::int as n
+      from ops.inspection_task
+      where cleaning_sheet_id = ${sheetId} and status = 'PENDING'
+    `);
+    if (pending[0].n > 0)
+      throw new Error(
+        `Es sind noch ${pending[0].n} Plan-Punkte offen (V steht auf PENDING). Bitte erst alle bearbeiten.`,
+      );
+
+    // 2. Anzahl offener Kunden-Acceptances
+    const undecidedK = await tx.execute<{ n: number }>(sql`
+      select count(*)::int as n
+      from ops.inspection_task
+      where cleaning_sheet_id = ${sheetId} and customer_acceptance is null
+    `);
+    if (undecidedK[0].n > 0)
+      throw new Error(
+        `${undecidedK[0].n} Punkte sind noch nicht durch den Kunden abgenommen oder beanstandet.`,
+      );
+
+    // 3. Disputes zählen
+    const disputed = await tx.execute<{ n: number }>(sql`
+      select count(*)::int as n
+      from ops.inspection_task
+      where cleaning_sheet_id = ${sheetId} and customer_acceptance = 'DISPUTED'
+    `);
+    const newStatus = disputed[0].n > 0 ? "DISPUTED" : "ACCEPTED";
+
+    // 4. Signatur speichern (tour_id NULL für sheet-Abnahme — Schema lässt das zu wenn nullable)
+    await tx.execute(sql`
+      insert into ops.signature
+        (cleaning_sheet_id, signer_name, signer_role, signer_kind, signature_png)
+      values
+        (${sheetId}, ${signerName}, ${signerRole}, 'CUSTOMER', ${signaturePng})
+    `);
+
+    // 5. Sheet finalisieren
+    await tx.execute(sql`
+      update ops.cleaning_sheet
+      set status = ${newStatus}::text,
+          accepted_at = now(),
+          accepted_by_name = ${signerName},
+          accepted_by_role = ${signerRole},
+          updated_at = now()
+      where id = ${sheetId}
+    `);
+  });
+
+  revalidatePath(`/sheets/${sheetId}`);
+  redirect(`/sheets/${sheetId}`);
+}

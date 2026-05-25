@@ -116,6 +116,8 @@ export default async function SheetDetailPage({
   const acceptedCount = cells.filter((c) => c.customer_acceptance === "ACCEPTED").length;
   const disputedCount = cells.filter((c) => c.customer_acceptance === "DISPUTED").length;
 
+  const pendingCount = cells.filter((c) => c.status === "PENDING").length;
+
   return (
     <div className="space-y-5">
       <header className="flex items-start justify-between">
@@ -127,14 +129,38 @@ export default async function SheetDetailPage({
           <p className="text-sm text-slate-500 mt-0.5">
             {sheet.customer_name} · {sheet.period_from} bis {sheet.period_to}
             {sheet.assignee && ` · Vorarbeiter: ${sheet.assignee}`}
+            {` · Status: `}<strong>{sheet.status}</strong>
           </p>
         </div>
-        <div className="text-right text-xs">
-          <div className="font-semibold text-slate-700">{cells.length} Zellen</div>
-          <div className="text-emerald-700 mt-1">V✓ {doneCount}</div>
-          {problemCount > 0 && <div className="text-amber-700">V⚠ {problemCount}</div>}
-          <div className="text-blue-700">K✓ {acceptedCount}</div>
-          {disputedCount > 0 && <div className="text-rose-700">K✗ {disputedCount}</div>}
+        <div className="flex flex-col items-end gap-2">
+          <div className="text-right text-xs">
+            <div className="font-semibold text-slate-700">{cells.length} Zellen</div>
+            <div className="text-emerald-700 mt-1">V✓ {doneCount}</div>
+            {problemCount > 0 && <div className="text-amber-700">V⚠ {problemCount}</div>}
+            <div className="text-blue-700">K✓ {acceptedCount}</div>
+            {disputedCount > 0 && <div className="text-rose-700">K✗ {disputedCount}</div>}
+          </div>
+          <div className="flex gap-2">
+            <Link
+              href={`/sheets/${sheet.id}/pdf`}
+              target="_blank"
+              className="px-3 py-1.5 text-xs rounded-md border border-slate-300 hover:bg-slate-100"
+            >
+              📄 PDF
+            </Link>
+            {!locked && (
+              <Link
+                href={`/sheets/${sheet.id}/abschluss`}
+                className={`px-3 py-1.5 text-xs rounded-md text-white ${
+                  pendingCount === 0
+                    ? "bg-slate-900 hover:bg-slate-700"
+                    : "bg-slate-400"
+                }`}
+              >
+                Abnahme starten
+              </Link>
+            )}
+          </div>
         </div>
       </header>
 
