@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { sql } from "drizzle-orm";
+import { VerifyChainPanel } from "./VerifyChainPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -65,9 +66,27 @@ export default async function AuditPage({
         <h1 className="text-2xl font-semibold">Audit-Log</h1>
         <p className="text-sm text-slate-500 mt-1">
           Universeller Änderungsverlauf. Jede INSERT/UPDATE/DELETE in catalog, core und ops wird
-          protokolliert.
+          protokolliert — und durch eine SHA-256-Hash-Chain gegen Manipulation geschützt.
         </p>
       </header>
+
+      <VerifyChainPanel />
+
+      <section className="rounded-lg bg-white border border-slate-200 p-5">
+        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">
+          Audit-Paket
+        </h2>
+        <p className="text-sm text-slate-600 mb-3">
+          PDF mit allen Sheets, Touren, Complaints, Signaturen und Hash-Verifikation für einen
+          Kunden in einem Monat. Format passt für IFS- und HACCP-Audits.
+        </p>
+        <a
+          href="/audit/paket"
+          className="inline-block px-4 py-2 text-sm rounded-md bg-slate-900 text-white hover:bg-slate-700"
+        >
+          📄 Paket erzeugen
+        </a>
+      </section>
 
       <section className="grid md:grid-cols-3 gap-4">
         <div className="rounded-lg bg-white border border-slate-200 p-4">

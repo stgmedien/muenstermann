@@ -22,7 +22,11 @@ const NAV = [
 
 function isPrintRoute(pathname: string): boolean {
   // Pfade die ohne Sidebar/Chrome gerendert werden sollen
-  return pathname.endsWith("/pdf") || pathname.includes("/pdf/");
+  return (
+    pathname.endsWith("/pdf") ||
+    pathname.includes("/pdf/") ||
+    pathname.includes("/audit/paket/render")
+  );
 }
 
 export default async function RootLayout({
