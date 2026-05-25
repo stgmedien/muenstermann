@@ -25,6 +25,7 @@ DDL_ORDER = [
     "schema/ddl/000_schemas.sql",
     "schema/ddl/audit/010_audit_framework.sql",
     "schema/ddl/audit/020_hash_chain.sql",
+    "schema/ddl/audit/030_tamper_demo.sql",
     "schema/ddl/catalog/100_catalog_domain.sql",
     "schema/ddl/catalog/200_hygiene_plans.sql",
     "schema/ddl/catalog/210_hazard_factors.sql",

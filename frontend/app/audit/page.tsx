@@ -74,6 +74,23 @@ export default async function AuditPage({
 
       <section className="rounded-lg bg-white border border-slate-200 p-5">
         <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">
+          Integritäts-Beweis (für Auditoren)
+        </h2>
+        <p className="text-sm text-slate-600 mb-3">
+          Live-Demonstration, dass die Hash-Chain Manipulationen erkennt: ein
+          UPDATE wird simuliert, Verify schlägt aus, anschließend wird der
+          Originalzustand garantiert wiederhergestellt.
+        </p>
+        <a
+          href="/audit/integritaet"
+          className="inline-block px-4 py-2 text-sm rounded-md bg-rose-700 text-white hover:bg-rose-800"
+        >
+          ⚖ Beweis-Test öffnen
+        </a>
+      </section>
+
+      <section className="rounded-lg bg-white border border-slate-200 p-5">
+        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">
           Audit-Paket
         </h2>
         <p className="text-sm text-slate-600 mb-3">
