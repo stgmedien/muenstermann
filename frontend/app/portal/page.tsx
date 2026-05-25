@@ -54,6 +54,7 @@ async function getStats(customerId: number) {
     open_complaints: string;
     last_inspection: string | null;
     pending_acceptance: string;
+    first_pending_tour_id: string | null;
   }>(sql`
     select
       (select count(*) from ops.complaint comp
@@ -66,7 +67,11 @@ async function getStats(customerId: number) {
       ) as last_inspection,
       (select count(*) from ops.tour t
         where t.customer_id = ${customerId} and t.status::text = 'COMPLETED'
-      )::text as pending_acceptance
+      )::text as pending_acceptance,
+      (select t.id::text from ops.tour t
+        where t.customer_id = ${customerId} and t.status::text = 'COMPLETED'
+        order by t.tour_date desc limit 1
+      ) as first_pending_tour_id
   `);
   return rows[0];
 }
@@ -103,7 +108,11 @@ export default async function PortalDashboard() {
             value={Number(stats.pending_acceptance).toLocaleString("de-DE")}
             tone={Number(stats.pending_acceptance) > 0 ? "warning" : "neutral"}
             href={
-              Number(stats.pending_acceptance) > 0 ? "/portal/touren" : undefined
+              stats.first_pending_tour_id
+                ? `/portal/touren/${stats.first_pending_tour_id}/abnahme`
+                : Number(stats.pending_acceptance) > 0
+                  ? "/portal/touren"
+                  : undefined
             }
           />
           <StatCard

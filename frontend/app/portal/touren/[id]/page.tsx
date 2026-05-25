@@ -70,11 +70,14 @@ async function getComplaints(tourId: number) {
 
 export default async function PortalTourDetail({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ accepted?: string }>;
 }) {
   const user = await requirePortalUser();
   const { id: idStr } = await params;
+  const { accepted } = await searchParams;
   const id = Number(idStr);
   if (!Number.isFinite(id)) notFound();
 
@@ -124,6 +127,52 @@ export default async function PortalTourDetail({
                 : " noch nicht begonnen"}
           </div>
         </div>
+
+        {accepted === "1" && (
+          <div className="rounded-lg bg-emerald-50 border border-emerald-300 p-4 text-sm text-emerald-900">
+            <div className="font-semibold mb-0.5">✓ Abnahme gespeichert</div>
+            <p>
+              Vielen Dank — Ihre Unterschrift und Bewertung sind fälschungssicher
+              im Audit-Log dokumentiert.
+            </p>
+          </div>
+        )}
+
+        {tour.status === "COMPLETED" && (
+          <div className="rounded-lg bg-blue-50 border border-blue-300 p-4 flex items-center justify-between gap-3">
+            <div>
+              <div className="font-semibold text-blue-900">
+                Diese Tour wartet auf Ihre Abnahme
+              </div>
+              <p className="text-sm text-blue-800">
+                Bitte prüfen Sie die Inspektionspunkte und unterschreiben Sie.
+              </p>
+            </div>
+            <Link
+              href={`/portal/touren/${tour.id}/abnahme`}
+              className="px-5 py-3 rounded-md bg-blue-700 text-white font-semibold text-sm hover:bg-blue-800 whitespace-nowrap"
+            >
+              Jetzt abnehmen →
+            </Link>
+          </div>
+        )}
+
+        {(tour.status === "ACCEPTED" || tour.status === "DISPUTED") && (
+          <div
+            className={`rounded-lg p-4 text-sm border ${
+              tour.status === "ACCEPTED"
+                ? "bg-emerald-50 border-emerald-200 text-emerald-900"
+                : "bg-amber-50 border-amber-200 text-amber-900"
+            }`}
+          >
+            <div className="font-semibold">
+              {tour.status === "ACCEPTED" ? "✓ Tour abgenommen" : "⚠ Tour beanstandet"}
+            </div>
+            <p className="text-xs mt-0.5">
+              Diese Tour ist abgeschlossen — keine weiteren Änderungen möglich.
+            </p>
+          </div>
+        )}
 
         <section className="grid grid-cols-2 md:grid-cols-5 gap-2">
           <SummaryCard label="Gesamt" value={counts.total} />
