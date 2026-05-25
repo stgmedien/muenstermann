@@ -41,7 +41,8 @@ function isPrintRoute(pathname: string): boolean {
   return (
     pathname.endsWith("/pdf") ||
     pathname.includes("/pdf/") ||
-    pathname.includes("/audit/paket/render")
+    pathname.includes("/audit/paket/render") ||
+    pathname.includes("/portal/dokumente/render")
   );
 }
 
