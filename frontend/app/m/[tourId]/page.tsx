@@ -48,6 +48,30 @@ async function getTasks(tourId: number) {
   `);
 }
 
+type PhotoMeta = {
+  inspection_task_id: number;
+  id: number;
+  caption: string | null;
+  uploaded_at: string;
+  uploaded_by: string;
+};
+
+async function getPhotosByTask(tourId: number): Promise<Map<number, PhotoMeta[]>> {
+  const rows = await db.execute<PhotoMeta>(sql`
+    select p.inspection_task_id, p.id, p.caption, p.uploaded_at::text, p.uploaded_by
+    from ops.inspection_photo p
+    join ops.inspection_task t on t.id = p.inspection_task_id
+    where t.tour_id = ${tourId}
+    order by p.uploaded_at desc
+  `);
+  const map = new Map<number, PhotoMeta[]>();
+  for (const r of rows) {
+    if (!map.has(r.inspection_task_id)) map.set(r.inspection_task_id, []);
+    map.get(r.inspection_task_id)!.push(r);
+  }
+  return map;
+}
+
 export default async function MobileTourPage({
   params,
 }: {
@@ -58,6 +82,7 @@ export default async function MobileTourPage({
   if (!tour) notFound();
 
   const tasks = await getTasks(tour.id);
+  const photosByTask = await getPhotosByTask(tour.id);
   const total = tasks.length;
   const open = tasks.filter((t) => t.status === "PENDING").length;
   const done = tasks.filter((t) => t.status === "DONE").length;
@@ -140,7 +165,13 @@ export default async function MobileTourPage({
           </h2>
           <div className="space-y-2">
             {deptTasks.map((t) => (
-              <InspectionItem key={t.id} task={t} locked={locked} />
+              <InspectionItem
+                key={t.id}
+                task={t}
+                locked={locked}
+                photos={photosByTask.get(t.id) ?? []}
+                redirectPath={`/m/${tour.id}`}
+              />
             ))}
           </div>
         </section>

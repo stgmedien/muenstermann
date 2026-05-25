@@ -50,6 +50,18 @@ type SignatureRow = {
   signature_png: string;
 };
 
+type PhotoRow = {
+  id: number;
+  uploaded_by: string;
+  uploaded_at: string;
+  caption: string | null;
+  inspection_task_id: number;
+  task_status: string;
+  task_comment: string | null;
+  department_name: string | null;
+  object_name: string | null;
+};
+
 async function loadPaketData(
   bu: string,
   customerNumber: number,
@@ -120,6 +132,20 @@ async function loadPaketData(
     order by s.signed_at
   `);
 
+  const photos = await db.execute<PhotoRow>(sql`
+    select p.id, p.uploaded_by, p.uploaded_at::text, p.caption,
+           p.inspection_task_id,
+           t.status::text as task_status,
+           t.comment as task_comment,
+           t.department_name_snapshot as department_name,
+           t.object_name_snapshot as object_name
+    from ops.inspection_photo p
+    join ops.inspection_task t on t.id = p.inspection_task_id
+    where t.customer_id = ${customerId}
+      and p.uploaded_at::date between ${monthFrom}::date and ${monthTo}::date
+    order by p.uploaded_at
+  `);
+
   const verify = await db.execute<{
     ok: boolean;
     total_rows: string;
@@ -133,6 +159,7 @@ async function loadPaketData(
     tours,
     complaints,
     signatures,
+    photos,
     verify: verify[0],
   };
 }
@@ -161,7 +188,7 @@ export default async function PaketRenderPage({
   const data = await loadPaketData(bu, customerNumber, from, to);
   if (!data) notFound();
 
-  const { customer, sheets, tours, complaints, signatures, verify } = data;
+  const { customer, sheets, tours, complaints, signatures, photos, verify } = data;
 
   return (
     <div className="paket-doc">
@@ -330,7 +357,35 @@ export default async function PaketRenderPage({
         </div>
       )}
 
-      <h2>5. Signaturen ({signatures.length})</h2>
+      <h2>5. Foto-Belege ({photos.length})</h2>
+      {photos.length === 0 ? (
+        <p className="meta">Keine Foto-Belege im Zeitraum.</p>
+      ) : (
+        <div className="signatures">
+          {photos.map((p) => (
+            <div key={p.id} className="sig-box">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/api/photo/${p.id}`}
+                alt={p.caption ?? "Foto-Beleg"}
+                style={{ maxHeight: 120, maxWidth: "100%", objectFit: "contain" }}
+              />
+              <div className="sig-meta">
+                <strong>{p.department_name ?? "—"}</strong>
+                {p.object_name && ` · ${p.object_name}`}
+                <br />
+                Status: <strong>{p.task_status}</strong>
+                {p.caption && <><br />„{p.caption}"</>}
+                {p.task_comment && <><br /><em>Notiz: {p.task_comment}</em></>}
+                <br />
+                {new Date(p.uploaded_at).toLocaleString("de-DE")} · {p.uploaded_by}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <h2>6. Signaturen ({signatures.length})</h2>
       {signatures.length === 0 ? (
         <p className="meta">Keine Signaturen im Zeitraum.</p>
       ) : (

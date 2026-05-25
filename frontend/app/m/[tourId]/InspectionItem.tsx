@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { updateInspectionItem } from "@/app/touren/actions";
+import { PhotoUpload } from "./PhotoUpload";
 
 type Task = {
   id: number;
@@ -12,7 +13,24 @@ type Task = {
   comment: string | null;
 };
 
-export function InspectionItem({ task, locked }: { task: Task; locked: boolean }) {
+type Photo = {
+  id: number;
+  caption: string | null;
+  uploaded_at: string;
+  uploaded_by: string;
+};
+
+export function InspectionItem({
+  task,
+  locked,
+  photos,
+  redirectPath,
+}: {
+  task: Task;
+  locked: boolean;
+  photos: Photo[];
+  redirectPath: string;
+}) {
   const [expanded, setExpanded] = useState<"SKIPPED" | "PROBLEM" | null>(null);
   const [pending, startTransition] = useTransition();
   const [optimisticStatus, setOptimisticStatus] = useState(task.status);
@@ -90,6 +108,14 @@ export function InspectionItem({ task, locked }: { task: Task; locked: boolean }
             ⊘
           </button>
         </div>
+      )}
+
+      {(optimisticStatus === "PROBLEM" || optimisticStatus === "SKIPPED" || photos.length > 0) && !locked && (
+        <PhotoUpload
+          taskId={task.id}
+          existing={photos}
+          redirectPath={redirectPath}
+        />
       )}
 
       {expanded && !isDone && (
