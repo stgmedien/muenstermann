@@ -35,6 +35,7 @@ DDL_ORDER = [
     "schema/ddl/ops/300_customer_artifacts.sql",
     "schema/ddl/ops/200_hygiene_control.sql",
     "schema/ddl/ops/400_inspection.sql",
+    "schema/ddl/ops/500_cleaning_sheet.sql",
 ]
 
 SEED_ORDER = [
