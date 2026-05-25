@@ -36,7 +36,10 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    // Alles außer Next.js-Internals und statische Assets
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.svg).*)",
+    // Alles außer Next.js-Internals, statische Assets und unsere Public-Symbole
+    // (die Next.js Image-Optimization-Route holt /symbols/* intern OHNE Cookies,
+    // also muss /symbols/* von der Auth befreit sein. Da Bilder keine sensitiven
+    // Daten sind, ist das OK.)
+    "/((?!_next/static|_next/image|favicon.ico|symbols/|.*\\.svg|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.bmp).*)",
   ],
 };
