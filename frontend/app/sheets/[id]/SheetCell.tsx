@@ -36,16 +36,34 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
   const vIcon = V_SYMBOLS[v] ?? V_SYMBOLS.PENDING;
   const kIcon = K_SYMBOLS[k ?? "null"];
 
-  function doVCycle() {
-    const next = v === "PENDING" ? "DONE" : v === "DONE" ? "PROBLEM" : v === "PROBLEM" ? "SKIPPED" : "PENDING";
-    setV(next);
+  const [showComment, setShowComment] = useState<"PROBLEM" | "SKIPPED" | null>(null);
+
+  function applyV(target: "PENDING" | "DONE" | "PROBLEM" | "SKIPPED", commentText: string | null) {
+    setV(target);
     const fd = new FormData();
     fd.append("task_id", String(cell.task_id));
     fd.append("sheet_id", String(sheetId));
-    fd.append("action", "v_cycle");
+    fd.append("action", "v_set");
+    fd.append("target_status", target);
+    if (commentText) fd.append("comment", commentText);
     startTransition(async () => {
-      await sheetCellAction(fd);
+      try {
+        await sheetCellAction(fd);
+      } catch {
+        // Rollback der optimistischen Anzeige bei Fehler
+        setV(cell.status);
+      }
     });
+  }
+
+  function doVCycle() {
+    const next = v === "PENDING" ? "DONE" : v === "DONE" ? "PROBLEM" : v === "PROBLEM" ? "SKIPPED" : "PENDING";
+    if (next === "PROBLEM" || next === "SKIPPED") {
+      // Dialog öffnen, Comment einsammeln, dann erst Update
+      setShowComment(next);
+      return;
+    }
+    applyV(next, null);
   }
 
   function doKAccept() {
@@ -128,6 +146,69 @@ export function SheetCell({ cell, sheetId, locked = false }: { cell: Cell | null
           onCancel={() => setShowDispute(false)}
         />
       )}
+      {showComment && (
+        <CommentDialog
+          kind={showComment}
+          onConfirm={(text) => {
+            applyV(showComment, text);
+            setShowComment(null);
+          }}
+          onCancel={() => setShowComment(null)}
+        />
+      )}
+    </div>
+  );
+}
+
+function CommentDialog({
+  kind,
+  onConfirm,
+  onCancel,
+}: {
+  kind: "PROBLEM" | "SKIPPED";
+  onConfirm: (text: string) => void;
+  onCancel: () => void;
+}) {
+  const [text, setText] = useState("");
+  const title = kind === "PROBLEM" ? "Problem melden" : "Übersprungen melden";
+  const placeholder =
+    kind === "PROBLEM"
+      ? "Was war auffällig? (z. B. Sieb fehlt, Boden uneben)"
+      : "Warum konnte der Punkt nicht erledigt werden? (z. B. Halle gesperrt)";
+  return (
+    <div className="fixed inset-0 z-50 bg-black/30 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-5 space-y-3">
+        <h3 className="font-semibold text-slate-900">{title}</h3>
+        <p className="text-sm text-slate-600">
+          Eine Begründung ist Pflicht. Sie wandert ins Audit-Log und ist im
+          Backoffice einsehbar.
+        </p>
+        <textarea
+          autoFocus
+          rows={3}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder={placeholder}
+          className="w-full px-3 py-2 rounded-md border border-slate-300 bg-white text-sm focus:border-amber-500 focus:outline-none"
+        />
+        <div className="flex justify-end gap-2">
+          <button
+            onClick={onCancel}
+            className="px-4 py-2 text-sm rounded-md border border-slate-300 hover:bg-slate-100"
+          >
+            Abbrechen
+          </button>
+          <button
+            onClick={() => text.trim() && onConfirm(text.trim())}
+            disabled={!text.trim()}
+            className={`px-4 py-2 text-sm rounded-md text-white disabled:opacity-50 ${
+              kind === "PROBLEM" ? "bg-amber-600 hover:bg-amber-700" : "bg-slate-600 hover:bg-slate-700"
+            }`}
+          >
+            Speichern
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

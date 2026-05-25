@@ -120,10 +120,14 @@ create table if not exists ops.inspection_task (
     created_at                  timestamptz not null default now(),
     updated_at                  timestamptz not null default now(),
 
-    -- Constraint inspection_task_comment_required wurde absichtlich entfernt:
-    -- im Sheet-Workflow soll Status schnell cyclbar sein, ohne pro Klick
-    -- einen Comment-Dialog. Im Mobile-UI (große Buttons) erzwingt die
-    -- App-Logik weiterhin den Kommentar bei SKIPPED/PROBLEM.
+    -- Compliance-Anforderung: bei SKIPPED oder PROBLEM ist ein nicht-leerer
+    -- Kommentar Pflicht. Im Frontend (Sheet + Mobile-UI) öffnet sich vor
+    -- dem Status-Update ein Comment-Dialog, der die Eingabe einsammelt.
+    constraint inspection_task_comment_required
+        check (
+            status in ('PENDING', 'DONE') or
+            (status in ('SKIPPED', 'PROBLEM') and comment is not null and trim(comment) <> '')
+        ),
     constraint inspection_task_dispute_reason_required
         check (
             (customer_acceptance <> 'DISPUTED') or

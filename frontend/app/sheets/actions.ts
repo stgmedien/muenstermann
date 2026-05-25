@@ -174,22 +174,36 @@ export async function sheetCellAction(formData: FormData) {
   const taskId = Number(formData.get("task_id"));
   const action = String(formData.get("action") ?? "");
   const reason = String(formData.get("reason") ?? "").trim() || null;
+  const comment = String(formData.get("comment") ?? "").trim() || null;
+  const targetStatus = String(formData.get("target_status") ?? "").trim() as
+    | "PENDING"
+    | "DONE"
+    | "PROBLEM"
+    | "SKIPPED"
+    | "";
   const sheetId = Number(formData.get("sheet_id"));
 
   const user = await getCurrentUser();
   await writeAsUser(user, async (tx) => {
-    if (action === "v_cycle") {
+    if (action === "v_set") {
+      // Expliziter Status-Wechsel mit explizitem Comment (Pflicht für PROBLEM/SKIPPED).
+      if (!["PENDING", "DONE", "PROBLEM", "SKIPPED"].includes(targetStatus)) {
+        throw new Error(`Ungültiger target_status: ${targetStatus}`);
+      }
+      if ((targetStatus === "PROBLEM" || targetStatus === "SKIPPED") && !comment) {
+        throw new Error("Comment ist Pflicht bei PROBLEM/SKIPPED.");
+      }
+      // Bei Reset zu PENDING: Comment löschen
+      const newComment =
+        targetStatus === "PENDING" || targetStatus === "DONE"
+          ? null
+          : comment;
       await tx.execute(sql`
         update ops.inspection_task
-        set status = case status::text
-                       when 'PENDING' then 'DONE'::ops.inspection_item_status
-                       when 'DONE' then 'PROBLEM'::ops.inspection_item_status
-                       when 'PROBLEM' then 'SKIPPED'::ops.inspection_item_status
-                       when 'SKIPPED' then 'PENDING'::ops.inspection_item_status
-                       else 'DONE'::ops.inspection_item_status
-                     end,
-            completed_at = case when status::text = 'PENDING' then now() else completed_at end,
-            completed_by = ${user},
+        set status = ${targetStatus}::ops.inspection_item_status,
+            comment = ${newComment},
+            completed_at = case when ${targetStatus} = 'PENDING' then null else now() end,
+            completed_by = case when ${targetStatus} = 'PENDING' then null else ${user} end,
             updated_at = now()
         where id = ${taskId}
       `);
