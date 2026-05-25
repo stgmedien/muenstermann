@@ -163,8 +163,16 @@ export default async function CustomerDetailPage({
               <div className="text-sm text-slate-500">{customer.name_supplement}</div>
             )}
           </div>
-          <div className="text-sm text-slate-500 tabular-nums">
-            Kunden-Nr. {customer.customer_number} · {customer.bu_name}
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-slate-500 tabular-nums">
+              Kunden-Nr. {customer.customer_number} · {customer.bu_name}
+            </div>
+            <Link
+              href={`/kunden/${customer.bu_code}/${customer.customer_number}/edit`}
+              className="px-3 py-1.5 text-sm rounded-md bg-slate-900 text-white hover:bg-slate-700"
+            >
+              Bearbeiten
+            </Link>
           </div>
         </div>
       </header>

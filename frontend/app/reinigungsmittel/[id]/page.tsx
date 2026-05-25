@@ -85,14 +85,22 @@ export default async function CleaningAgentDetailPage({
 
   return (
     <div className="space-y-6">
-      <header>
-        <Link href="/reinigungsmittel" className="text-sm text-blue-600 hover:underline">
-          ← Alle Reinigungsmittel
+      <header className="flex items-start justify-between">
+        <div>
+          <Link href="/reinigungsmittel" className="text-sm text-blue-600 hover:underline">
+            ← Alle Reinigungsmittel
+          </Link>
+          <h1 className="text-2xl font-semibold mt-2">{agent.name}</h1>
+          {agent.operations_number && (
+            <p className="text-sm text-slate-500 mt-1">Betriebs-Nr.: {agent.operations_number}</p>
+          )}
+        </div>
+        <Link
+          href={`/reinigungsmittel/${agent.id}/edit`}
+          className="px-3 py-1.5 text-sm rounded-md bg-slate-900 text-white hover:bg-slate-700"
+        >
+          Bearbeiten
         </Link>
-        <h1 className="text-2xl font-semibold mt-2">{agent.name}</h1>
-        {agent.operations_number && (
-          <p className="text-sm text-slate-500 mt-1">Betriebs-Nr.: {agent.operations_number}</p>
-        )}
       </header>
 
       <section className="grid md:grid-cols-2 gap-6">

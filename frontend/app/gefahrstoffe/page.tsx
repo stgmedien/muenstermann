@@ -1,7 +1,24 @@
 import { db } from "@/lib/db";
 import { sql } from "drizzle-orm";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
+
+async function getHazardSymbols() {
+  return await db.execute<{ id: number; code: string; name: string; image_url: string | null }>(sql`
+    select id, code, name, image_url
+    from catalog.hazard_symbol
+    order by id
+  `);
+}
+
+async function getPpeSymbols() {
+  return await db.execute<{ id: number; code: string; name: string; image_url: string | null }>(sql`
+    select id, code, name, image_url
+    from catalog.ppe_symbol
+    order by id
+  `);
+}
 
 async function getHazardPhrases() {
   return await db.execute<{
@@ -52,11 +69,13 @@ async function getHazardFactors() {
 }
 
 export default async function HazardsPage() {
-  const [phrases, classes, substances, factors] = await Promise.all([
+  const [phrases, classes, substances, factors, hazardSymbols, ppeSymbols] = await Promise.all([
     getHazardPhrases(),
     getStorageClasses(),
     getHazardSubstances(),
     getHazardFactors(),
+    getHazardSymbols(),
+    getPpeSymbols(),
   ]);
 
   const categories = factors.filter((f) => f.is_category);
@@ -69,6 +88,65 @@ export default async function HazardsPage() {
           Stammdaten für GefStoffV / CLP / TRGS 510 / Gefährdungsbeurteilung.
         </p>
       </header>
+
+      <section>
+        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">
+          GHS-Gefahrenpiktogramme ({hazardSymbols.length})
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          {hazardSymbols.map((s) => (
+            <div
+              key={s.id}
+              className="rounded-lg bg-white border border-slate-200 p-3 flex flex-col items-center text-center"
+            >
+              {s.image_url ? (
+                <Image
+                  src={s.image_url}
+                  alt={s.name}
+                  width={80}
+                  height={80}
+                  className="h-20 w-20 object-contain"
+                />
+              ) : (
+                <div className="h-20 w-20 bg-slate-100 rounded flex items-center justify-center text-xs text-slate-400">
+                  ohne Bild
+                </div>
+              )}
+              <div className="mt-2 font-mono text-xs text-slate-500">{s.code}</div>
+              <div className="text-sm text-slate-900 whitespace-pre-line">{s.name}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">
+          PSA-Piktogramme ({ppeSymbols.length})
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          {ppeSymbols.map((s) => (
+            <div
+              key={s.id}
+              className="rounded-lg bg-white border border-slate-200 p-3 flex flex-col items-center text-center"
+            >
+              {s.image_url ? (
+                <Image
+                  src={s.image_url}
+                  alt={s.name}
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 object-contain"
+                />
+              ) : (
+                <div className="h-16 w-16 bg-slate-100 rounded flex items-center justify-center text-xs text-slate-400">
+                  ohne Bild
+                </div>
+              )}
+              <div className="mt-2 text-sm text-slate-900">{s.name}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section>
         <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">
