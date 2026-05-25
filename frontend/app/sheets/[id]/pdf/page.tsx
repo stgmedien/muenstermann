@@ -115,45 +115,55 @@ export default async function SheetPdfPage({ params }: { params: Promise<{ id: s
   );
 
   return (
-    <html lang="de">
-      <head>
-        <title>Sheet #{sheet.id} – {sheet.customer_name}</title>
-        <style>{`
+    <div className="pdf-doc">
+      {/* React 19 hoists <title>/<style> automatisch in <head> — Server Components
+          dürfen kein eigenes <html>/<body> haben, weil das Root-Layout das schon
+          rendert. Bei /pdf-Routen blendet das Layout die Sidebar aus. */}
+      <title>{`Sheet #${sheet.id} – ${sheet.customer_name}`}</title>
+      <style>{`
           @page { size: A4 landscape; margin: 14mm; }
-          body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; color: #1a1a1a;
-                 font-size: 9pt; margin: 0; padding: 18px; line-height: 1.35; background: white; }
-          h1 { font-size: 16pt; margin: 0 0 4px; }
-          h2 { font-size: 10pt; margin: 18px 0 6px; text-transform: uppercase; color: #444;
-               letter-spacing: 0.5px; border-bottom: 1px solid #ccc; padding-bottom: 2px; }
-          .meta { color: #666; font-size: 9pt; }
-          .meta strong { color: #1a1a1a; }
-          table { border-collapse: collapse; width: 100%; font-size: 8pt; }
-          th, td { border: 0.5pt solid #999; padding: 3px 4px; vertical-align: middle; }
-          th { background: #f0f0f0; font-weight: 600; }
-          td.plan { text-align: left; min-width: 120px; }
-          td.cell { width: 50px; text-align: center; padding: 0; }
-          td.cell .v, td.cell .k { display: inline-block; width: 22px; height: 22px;
-                                    line-height: 22px; font-weight: bold; font-size: 11pt; }
-          .v-DONE { background: #d1fae5; color: #047857; }
-          .v-PROBLEM { background: #fef3c7; color: #92400e; }
-          .v-SKIPPED { background: #e2e8f0; color: #475569; }
-          .v-PENDING { background: white; color: #cbd5e1; }
-          .k-ACCEPTED { background: #dbeafe; color: #1e40af; }
-          .k-DISPUTED { background: #fee2e2; color: #991b1b; }
-          .k-null { background: white; color: #cbd5e1; }
-          .group-header td { background: #ddd; font-weight: 600; }
-          .signature { margin-top: 20px; display: flex; align-items: flex-end; gap: 40px; }
-          .signature-line { border-bottom: 1px solid #333; min-width: 220px; height: 40px;
-                             display: flex; align-items: flex-end; padding-bottom: 2px; }
-          .signature-line img { max-height: 38px; }
-          .complaints { font-size: 8pt; margin-top: 12px; }
-          .complaints li { margin-bottom: 4px; }
-          .footer { margin-top: 20px; font-size: 7pt; color: #888;
-                     border-top: 1px solid #ddd; padding-top: 6px; }
-          @media print { .no-print { display: none; } body { padding: 0; } }
+          .pdf-doc { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+                     color: #1a1a1a; font-size: 9pt; padding: 18px; line-height: 1.35;
+                     background: white; }
+          .pdf-doc h1 { font-size: 16pt; margin: 0 0 4px; }
+          .pdf-doc h2 { font-size: 10pt; margin: 18px 0 6px; text-transform: uppercase;
+                        color: #444; letter-spacing: 0.5px; border-bottom: 1px solid #ccc;
+                        padding-bottom: 2px; }
+          .pdf-doc .meta { color: #666; font-size: 9pt; }
+          .pdf-doc .meta strong { color: #1a1a1a; }
+          .pdf-doc table { border-collapse: collapse; width: 100%; font-size: 8pt; }
+          .pdf-doc th, .pdf-doc td { border: 0.5pt solid #999; padding: 3px 4px;
+                                      vertical-align: middle; }
+          .pdf-doc th { background: #f0f0f0; font-weight: 600; }
+          .pdf-doc td.plan { text-align: left; min-width: 120px; }
+          .pdf-doc td.cell { width: 50px; text-align: center; padding: 0; }
+          .pdf-doc td.cell .v, .pdf-doc td.cell .k { display: inline-block; width: 22px;
+                                                      height: 22px; line-height: 22px;
+                                                      font-weight: bold; font-size: 11pt; }
+          .pdf-doc .v-DONE { background: #d1fae5; color: #047857; }
+          .pdf-doc .v-PROBLEM { background: #fef3c7; color: #92400e; }
+          .pdf-doc .v-SKIPPED { background: #e2e8f0; color: #475569; }
+          .pdf-doc .v-PENDING { background: white; color: #cbd5e1; }
+          .pdf-doc .k-ACCEPTED { background: #dbeafe; color: #1e40af; }
+          .pdf-doc .k-DISPUTED { background: #fee2e2; color: #991b1b; }
+          .pdf-doc .k-null { background: white; color: #cbd5e1; }
+          .pdf-doc .group-header td { background: #ddd; font-weight: 600; }
+          .pdf-doc .signature { margin-top: 20px; display: flex;
+                                 align-items: flex-end; gap: 40px; }
+          .pdf-doc .signature-line { border-bottom: 1px solid #333; min-width: 220px;
+                                      height: 40px; display: flex; align-items: flex-end;
+                                      padding-bottom: 2px; }
+          .pdf-doc .signature-line img { max-height: 38px; }
+          .pdf-doc .complaints { font-size: 8pt; margin-top: 12px; }
+          .pdf-doc .complaints li { margin-bottom: 4px; }
+          .pdf-doc .footer { margin-top: 20px; font-size: 7pt; color: #888;
+                              border-top: 1px solid #ddd; padding-top: 6px; }
+          @media print {
+            .no-print { display: none; }
+            body { background: white !important; }
+            .pdf-doc { padding: 0 !important; }
+          }
         `}</style>
-      </head>
-      <body>
         <PrintButton />
 
         <h1>Reinigungs-Sheet</h1>
@@ -289,7 +299,6 @@ export default async function SheetPdfPage({ params }: { params: Promise<{ id: s
           Münstermann Reinigung · Dokument basiert auf {cells.length} Plan-Punkten ·
           Compliance-Pflicht: HACCP / IFS / GefStoffV
         </div>
-      </body>
-    </html>
+    </div>
   );
 }

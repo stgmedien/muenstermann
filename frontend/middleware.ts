@@ -19,10 +19,19 @@ export function middleware(req: NextRequest) {
     const user = decoded.slice(0, idx);
     const pass = decoded.slice(idx + 1);
     if (user === expectedUser && pass === expectedPass) {
-      // Username an Server Components weiterreichen via Header
-      const res = NextResponse.next();
+      // Username + Pfad an Server Components weiterreichen
+      const res = NextResponse.next({
+        request: { headers: new Headers(req.headers) },
+      });
       res.headers.set("x-app-user", user);
-      return res;
+      // x-app-pathname für Layout-Conditional (PDF-View ohne Sidebar)
+      res.headers.set("x-app-pathname", req.nextUrl.pathname);
+      // Plus auf Request setzen damit Server Components via headers() lesen können
+      req.headers.set("x-app-pathname", req.nextUrl.pathname);
+      req.headers.set("x-app-user", user);
+      return NextResponse.next({
+        request: { headers: req.headers },
+      });
     }
   }
 
