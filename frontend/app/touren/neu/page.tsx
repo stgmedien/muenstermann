@@ -55,7 +55,6 @@ export default async function NewTourPage() {
             required
             defaultValue=""
             className="w-full px-3 py-2 rounded-md border border-slate-300 bg-white text-sm focus:border-blue-500 focus:outline-none"
-            onChange={undefined}
           >
             <option value="" disabled>
               — bitte wählen —
@@ -69,11 +68,10 @@ export default async function NewTourPage() {
               </option>
             ))}
           </select>
+          <p className="text-xs text-slate-500 mt-1">
+            Format intern: <code>{`{Mandant}|{Kunden-Nr}`}</code> — wird in der Server Action geparst.
+          </p>
         </div>
-
-        {/* Hidden Fields werden aus customer_key extrahiert per Inline-Script */}
-        <input type="hidden" name="business_unit_code" />
-        <input type="hidden" name="customer_number" />
 
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -130,20 +128,6 @@ export default async function NewTourPage() {
             Tour generieren
           </button>
         </div>
-
-        {/* Inline-Skript: splittet customer_key in zwei hidden Felder */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.querySelector('select[name="customer_key"]').addEventListener('change', function(e) {
-                var v = e.target.value || '';
-                var parts = v.split('|');
-                document.querySelector('input[name="business_unit_code"]').value = parts[0] || '';
-                document.querySelector('input[name="customer_number"]').value = parts[1] || '';
-              });
-            `,
-          }}
-        />
       </form>
     </div>
   );

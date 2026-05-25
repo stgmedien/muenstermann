@@ -16,12 +16,16 @@ import { redirect } from "next/navigation";
 export async function generateTour(formData: FormData) {
   const user = await getCurrentUser();
 
-  const customerNumber = Number(formData.get("customer_number"));
-  const businessUnitCode = String(formData.get("business_unit_code"));
+  // customer_key hat Format "BU_CODE|customer_number"
+  const customerKey = String(formData.get("customer_key") ?? "");
+  const [businessUnitCode, customerNumberStr] = customerKey.split("|");
+  const customerNumber = Number(customerNumberStr);
   const tourDate = String(formData.get("tour_date")); // YYYY-MM-DD
   const assignee = String(formData.get("assignee") ?? "").trim();
   const filter = (formData.get("filter") as "daily" | "all") ?? "daily";
 
+  if (!businessUnitCode || !Number.isFinite(customerNumber))
+    throw new Error("Kunde fehlt oder ungültig.");
   if (!assignee) throw new Error("Vorarbeiter (Username) angeben.");
   if (!tourDate.match(/^\d{4}-\d{2}-\d{2}$/))
     throw new Error("Datum muss YYYY-MM-DD sein.");
